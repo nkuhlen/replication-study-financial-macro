@@ -1,0 +1,10 @@
+openssl=1.0.1k
+pip=7.1.2
+python=3.4.3
+readline=6.2
+setuptools=18.3.2
+sqlite=3.8.4.1
+tk=8.5.18
+wheel=0.26.0
+xz=5.0.5
+zlib=1.2.8
