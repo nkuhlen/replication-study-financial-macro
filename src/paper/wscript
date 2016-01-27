@@ -4,8 +4,7 @@
 def build(ctx):
 
     source_trunks = [
-        'research_paper',
-        'research_pres_30min'
+        'research_paper'
     ]
 
     for source in source_trunks:
