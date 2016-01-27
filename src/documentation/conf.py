@@ -46,7 +46,7 @@ source_encoding = "utf-8"
 master_doc = "index"
 
 # General information about the project.
-project = u"TTT"
+project = u"Macroeconomic Effects of Financial Shocks: A Replication Study"
 copyright = u"2015-, Nikolas Kuhlen"
 
 # The version info for the project you"re documenting, acts as replacement for
@@ -195,7 +195,7 @@ latex_elements = {
 latex_documents = [(
     "index",
     "project_documentation.tex",
-    "Documentation of the TTT project",
+    "Documentation of the Macroeconomic Effects of Financial Shocks: A Replication Study project",
     "Nikolas Kuhlen",
     "manual"
 )]

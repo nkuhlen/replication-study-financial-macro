@@ -33,7 +33,7 @@ Getting started (Matlab-based project)
 
         NNN -> Your name
         UUU -> Your affiliation
-        TTT -> The title of the project
+        Macroeconomic Effects of Financial Shocks: A Replication Study -> The title of the project
 
 3. Make sure to have [Miniconda](http://conda.pydata.org/miniconda.html) or Anaconda installed. Matlab and a modern LaTeX distribution (e.g. [TeXLive](www.tug.org/texlive/), [MacTex](http://tug.org/mactex/), or [MikTex](http://miktex.org/)) need to be found on your path.
 
