@@ -1,11 +1,12 @@
+% timeline = xlsread(project_paths('IN_DATA', 'DataSet_updated.xlsx'),'FFA', 'L9:L262');
+% equity = xlsread(project_paths('IN_DATA', 'DataSet_updated.xlsx'),'FFA', 'I9:I262');
+% debt = xlsread(project_paths('IN_DATA', 'DataSet_updated.xlsx'),'FFA', 'J9:J262');
+
 clear all
 close all
 
 %Load data to create figure 1.
 load(project_paths('OUT_DATA', 'data_figure_1.mat'));
-timeline = xlsread(project_paths('IN_DATA', 'DataSet_updated.xlsx'),'FFA', 'L9:L262');
-% equity = xlsread(project_paths('IN_DATA', 'DataSet_updated.xlsx'),'FFA', 'I9:I262');
-% debt = xlsread(project_paths('IN_DATA', 'DataSet_updated.xlsx'),'FFA', 'J9:J262');
 
 %create figure
 figure
@@ -54,7 +55,7 @@ uistack(plothandle,'top')
 set(gca,'Layer','top')
 
 %this exports a graphic without white space
-ti = get(gca,'TightInset')
+ti = get(gca,'TightInset');
 set(gca,'Position',[ti(1) ti(2) 1-ti(3)-ti(1) 1-ti(4)-ti(2)]);
 
 set(gca,'units','centimeters')
