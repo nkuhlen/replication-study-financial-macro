@@ -6,7 +6,7 @@ def build(ctx):
     # Illustrate simple use of run_m_script
     ctx(
         features='run_m_script',
-        source='get_simulation_draws.m',
-        target=ctx.path_to(ctx, 'OUT_DATA', 'sample.mat'),
-        name='get_simulation_draws'
+        source='data_for_figure_1.m',
+        target=ctx.path_to(ctx, 'OUT_DATA', 'data_figure_1.mat'),
+        name='data_for_figure_1'
     )
