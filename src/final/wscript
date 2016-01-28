@@ -5,10 +5,11 @@ def build(ctx):
     ctx(
         features='run_m_script',
         source='Replication_Figure_1_updated.m',
-        target=ctx.path_to(ctx, 'OUT_FIGURES', 'Replication_Figure_1_updated.pdf'),
-        # deps=[
-        #     ctx.path_to(ctx, 'OUT_ANALYSIS', 'schelling_{}.mat'.format(model)),
-        #     ctx.path_to(ctx, 'IN_MODEL_SPECS', '{}.json'.format(model))
-        # ],
+        target=ctx.path_to(
+            ctx, 'OUT_FIGURES', 'Replication_Figure_1_updated.pdf'
+        ),
+        deps=[
+            ctx.path_to(ctx, 'OUT_DATA', 'data_figure_1.mat'),
+        ],
         name='Figure_1_updated'
     )
