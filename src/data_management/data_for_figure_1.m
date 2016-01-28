@@ -1,8 +1,10 @@
 % Programme to prepare the data needed to replicate figure 1 as described in the 
 % the online appendix of Jerman and Quadrini (2012).
+% source: http://www.federalreserve.gov/datadownload/Download.aspx?rel=Z1&series=1b491b6891f88f8604172bc2f3970d52&filetype=csv&label=include&layout=seriescolumn&from=03/01/1952&to=06/30/2015
 
 %% Import original data
-data_ffa = xlsread(project_paths('IN_DATA', 'FRB_Z1.xlsx'), 'Sheet1', 'B8:F261');
+data_ffa = csvread(project_paths('IN_DATA', 'FRB_Z1.csv'), 6, 1);
+
 
 net_increase_credit_markets_instruments = data_ffa(:,1);
 net_increase_corporate_equities         = data_ffa(:,2);
