@@ -3,7 +3,6 @@
 
 def build(ctx):
 
-    # Illustrate simple use of run_m_script
     ctx(
         features='run_m_script',
         source='data_for_figure_1.m',
