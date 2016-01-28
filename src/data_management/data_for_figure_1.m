@@ -13,7 +13,7 @@ net_increase_corporate_equities         = data_ffa(:,2);
 net_dividends_non_financial_business    = data_ffa(:,3);
 net_dividends_farm_business             = data_ffa(:,4);
 proprietors_net_investment              = data_ffa(:,5);
-business_gdp 							= transpose(horzcat(business_value_added_until_1969, business_value_added_from_1970))
+business_gdp 							= transpose(horzcat(business_value_added_until_1969, business_value_added_from_1970));
 
 % Calculate equity payout and debt repurchase
 equity_payout 	= (net_dividends_non_financial_business ...
@@ -24,7 +24,7 @@ equity_payout 	= (net_dividends_non_financial_business ...
 debt_repurchase	= (-net_increase_credit_markets_instruments)./(business_gdp*1000);
 
 % Create timeline
-timeline = 1952:0.25:2015.5;
+timeline = transpose(1952:0.25:2015.25);
 
 save(project_paths('OUT_DATA', 'data_figure_1.mat'), 'net_increase_credit_markets_instruments', ...
      'net_increase_corporate_equities', 'net_dividends_non_financial_business', ...
