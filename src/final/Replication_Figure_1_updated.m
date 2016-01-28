@@ -1,19 +1,18 @@
 clear all
 close all
 
-%create variables
+%Load data to create figure 1.
+load(project_paths('OUT_DATA', 'data_figure_1.mat'));
 timeline = xlsread(project_paths('IN_DATA', 'DataSet_updated.xlsx'),'FFA', 'L9:L262');
-equity = xlsread(project_paths('IN_DATA', 'DataSet_updated.xlsx'),'FFA', 'I9:I262');
-debt = xlsread(project_paths('IN_DATA', 'DataSet_updated.xlsx'),'FFA', 'J9:J262');
-
-
+% equity = xlsread(project_paths('IN_DATA', 'DataSet_updated.xlsx'),'FFA', 'I9:I262');
+% debt = xlsread(project_paths('IN_DATA', 'DataSet_updated.xlsx'),'FFA', 'J9:J262');
 
 %create figure
 figure
 
 %scale variables to match figure from paper
-d = debt*100;
-e = equity*100;
+d = debt_repurchase*100;
+e = equity_payout*100;
 
 %add recession areas
 load(project_paths('IN_DATA', 'recessiondates.mat'))
