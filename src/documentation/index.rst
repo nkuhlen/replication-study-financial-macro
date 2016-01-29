@@ -13,10 +13,6 @@ Welcome to the Macroeconomic Effects of Financial Shocks: A Replication Study pr
     introduction
     original_data
     data_management
-    analysis
     final
     paper
-    model_code
-    model_specs
-    library
     references

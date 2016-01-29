@@ -5,9 +5,9 @@ Data management
 
 Documentation of the code in **data_management**.
 
-Schelling example, :file:`get_simulation_draws.m`:
+:file:`data_for_figure_1.m`:
 
-.. include:: ../data_management/get_simulation_draws.m
+.. include:: ../data_management/data_for_figure_1.m
    :start-after: %{
    :end-before: %}
 
