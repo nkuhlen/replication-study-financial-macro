@@ -1,5 +1,5 @@
 %{
-Replicate Figure 1 using data in bld/out/data. Create a 
+Replicate figure 1 using data in bld/out/data. Create a 
 Matlab figure by plotting equity payout and debt repurchase. 
 Add recession areas to the plot by using data from original_data. 
 %}
