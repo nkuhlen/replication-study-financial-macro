@@ -1,46 +1,16 @@
-# Replication_Jermann_Quadrini_2012
-Replication and update of the analysis of the paper "Macroeconomic Effects of Financial Shocks" (AER 2012, 102(1): pp. 238-271).
+Replication of Jermann and Quadrini (2012)
+==========================================
 
-Templates for Reproducible Research Projects in Economics
-===========================================================
+This project replicates and updates the analysis of the paper "Macroeconomic Effects of Financial Shocks" (AER 2012, 102(1): pp. 238-271) by Jermann and Quadrini. You can find the project documentation in the folder *project_documentation*.
 
-*See* http://hmgaudecker.github.io/econ-project-templates/ *for the full documentation.*
+Building the Project
+--------------------
 
-An empirical or computational research project only becomes a useful building block for science when **all** steps can be easily repeated and modified by others. This means that we should automate as much as possible, compared to pointing and clicking with a mouse or, more generally, keeping track yourself of what needs to be done.
+The project is built using [Waf](https://code.google.com/p/waf/). This ensures reproducibility by automating the  workflow. To run Waf and execute the files, you need to:
 
-This is a collection of templates where much of this automation is pre-configured via describing the research workflow as a directed acyclic graph ([DAG](http://en.wikipedia.org/wiki/Directed_acyclic_graph)) using [Waf](https://code.google.com/p/waf/). You just need to:
+1. Clone the project or download the zip file.
 
-* Download the template for the main language in your project (Stata, R, Matlab, Python, ...)
-* Move your programs to the right places and change the placeholder scripts
-* Run Waf, which will build your entire project the first time you run it. Later, it will automatically figure out which parts of the project need to be rebuilt.
-
-The branch names follow the main language used in a particular example. You should base your project on the branch that specifies the language that you will use most. You can easily add more languages to your projects, this is just a single line if the language is supported. Consult the different branches for examples.
-
-
-Full documentation
-------------------
-
-*See* http://hmgaudecker.github.io/econ-project-templates/ *for the full documentation (in the context of a Python-based project, but this is easy enough to abstract from). Please read it before continuing with instructions that follow.*
-
-
-Getting started (Matlab-based project)
----------------------------------------------
-
-1. Download the [zip file](https://github.com/hmgaudecker/econ-project-templates/archive/matlab.zip) or clone the project. Copy the contents of the template to the place on your machine where you want the resulting project to live, e.g.
-
-        C:\Projects\structural-retirement-model\
-
-   Make sure that the entire path **does not contain any spaces**. Things may work in the beginning, but they will break eventually.
-
-2. Use the "find in project"-functionality of your editor to search and replace the following terms:
-
-        NNN -> Your name
-        UUU -> Your affiliation
-        Macroeconomic Effects of Financial Shocks: A Replication Study -> The title of the project
-
-3. Make sure to have [Miniconda](http://conda.pydata.org/miniconda.html) or Anaconda installed. Matlab and a modern LaTeX distribution (e.g. [TeXLive](www.tug.org/texlive/), [MacTex](http://tug.org/mactex/), or [MikTex](http://miktex.org/)) need to be found on your path.
-
-4. Navigate to the folder in a shell. Execute 
+2. Navigate to the folder in a shell. Execute 
 
    **(Mac, Linux)**
 
@@ -54,16 +24,21 @@ Getting started (Matlab-based project)
 
     A detailed set of instructions for setting up an entire Python environment may be found [here](http://hmgaudecker.github.io/econ-python-environment).
 
-4. Type the following commands to see whether the examples are working:
+3. Execute the following commands in the shell:
 
         python waf.py configure
         python waf.py build
         python waf.py install
 
-   The first command will fail if any one of the required programs cannot be found. 
 
-   If the second step fails, try the following in order to localise the problem (otherwise you may have many parallel processes started and it will be difficult to find out which one failed):
+Steps in the Project
+--------------------
 
-        python waf.py build -j1
+This section will outline the single steps executed by Waf. 
 
-    If everything worked without error, you may now find more information on how to use the project template in "project_documentation/index.html".
+1. Data management: Read in the original data in *orignal data* and create .mat file containing the transformed variables necessary to reproduce Figure 1 in Jermann and Quadrini (2012)
+
+2. Plot Figure 1 using the data from step 1 and save it in the *bld/out/figures*.
+
+3. Compile the Latex file in *paper* using the figures from step 3.
+
