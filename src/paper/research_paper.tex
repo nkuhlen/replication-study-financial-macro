@@ -7,7 +7,7 @@
 \usepackage{verbatim}
 \usepackage{eurosym, calc, chngcntr}
 \usepackage{amsmath, amssymb, amsfonts, amsthm, bm, delarray} 
-\usepackage{caption}
+\usepackage[font=footnotesize, labelfont=sc, justification=centering]{caption}
 \usepackage{tkz-graph}
 \usepackage{graphicx}
 \usepackage{subfig}
@@ -59,9 +59,9 @@
 \maketitle
 
 
-\begin{abstract}
-	Some abstract here.
-\end{abstract}
+% \begin{abstract}
+% 	Some abstract here.
+% \end{abstract}
 \clearpage
 
 \section{Introduction} % (fold)
@@ -79,10 +79,12 @@
 
 \begin{figure}
     
-    \includegraphics[width=\textwidth]{../../out/figures/Replication_Figure_1_updated}
+    \centering
 
-    \caption{Financial Flows, 1952:I--2015:II}
+    \includegraphics[scale=0.7]{../../out/figures/Replication_Figure_1_updated}
 
+    \caption{\textsc{Financial Flows in the Nonfinancial Business Sector \textit{(Corporate and Noncorporate)}}, 1952:I--2015:II}
+    
     \label{fig:figure_1}
 
 \end{figure}
