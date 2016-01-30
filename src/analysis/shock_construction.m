@@ -81,46 +81,46 @@ corr(R)
 
 
 %% Using real gdp and corrected timing for the tfp shocks based on updated data.
-TFP_real = xlsread('Data_Shocks_updated.xlsx','Sheet1', 'O137:O262');
-TFPSeqa_real = detrend(TFP_real, 'linear');
-data = horzcat(TFPSeqa_real, xiSeqa);
+% TFP_real = xlsread('Data_Shocks_updated.xlsx','Sheet1', 'O137:O262');
+% TFPSeqa_real = detrend(TFP_real, 'linear');
+% data = horzcat(TFPSeqa_real, xiSeqa);
 
-TFPSeqa_t_real = TFPSeqa_real(1:end-1);
-TFPSeqa_t_1_real = TFPSeqa_real(2:end);
-xiSeqa_t = xiSeqa(1:end-1);
-xiSeqa_t_1 = xiSeqa(2:end);
+% TFPSeqa_t_real = TFPSeqa_real(1:end-1);
+% TFPSeqa_t_1_real = TFPSeqa_real(2:end);
+% xiSeqa_t = xiSeqa(1:end-1);
+% xiSeqa_t_1 = xiSeqa(2:end);
 
-X = horzcat(TFPSeqa_t_real, xiSeqa_t);
+% X = horzcat(TFPSeqa_t_real, xiSeqa_t);
 
-ARmx_real = zeros(2,2);
-ARmx_real(1,:) = regress(TFPSeqa_t_1_real,X);
-ARmx_real(2,:) = regress(xiSeqa_t_1,X);
+% ARmx_real = zeros(2,2);
+% ARmx_real(1,:) = regress(TFPSeqa_t_1_real,X);
+% ARmx_real(2,:) = regress(xiSeqa_t_1,X);
 
-[b_1,bint_1,r_tfp_real] = regress(TFPSeqa_t_1_real,X);
-[b_2,bint_2,r_xi_real] = regress(xiSeqa_t_1,X);
+% [b_1,bint_1,r_tfp_real] = regress(TFPSeqa_t_1_real,X);
+% [b_2,bint_2,r_xi_real] = regress(xiSeqa_t_1,X);
 
-R_real = horzcat(r_tfp_real, r_xi_real);
-corr(R_real)
+% R_real = horzcat(r_tfp_real, r_xi_real);
+% corr(R_real)
 
 
-% Using the tfp shocks based on updated data but using real gdp and timing as in the paper.
-TFP_paper = xlsread('Data_Shocks_updated.xlsx','Sheet1', 'P137:P262');
-TFPSeqa_paper = detrend(TFP_paper, 'linear');
-data = horzcat(TFPSeqa_paper, xiSeqa);
+% % Using the tfp shocks based on updated data but using real gdp and timing as in the paper.
+% TFP_paper = xlsread('Data_Shocks_updated.xlsx','Sheet1', 'P137:P262');
+% TFPSeqa_paper = detrend(TFP_paper, 'linear');
+% data = horzcat(TFPSeqa_paper, xiSeqa);
 
-TFPSeqa_t_paper = TFPSeqa_paper(1:end-1);
-TFPSeqa_t_1_paper = TFPSeqa_paper(2:end);
-xiSeqa_t = xiSeqa(1:end-1);
-xiSeqa_t_1 = xiSeqa(2:end);
+% TFPSeqa_t_paper = TFPSeqa_paper(1:end-1);
+% TFPSeqa_t_1_paper = TFPSeqa_paper(2:end);
+% xiSeqa_t = xiSeqa(1:end-1);
+% xiSeqa_t_1 = xiSeqa(2:end);
 
-X = horzcat(TFPSeqa_t_paper, xiSeqa_t);
+% X = horzcat(TFPSeqa_t_paper, xiSeqa_t);
 
-ARmx_paper = zeros(2,2);
-ARmx_paper(1,:) = regress(TFPSeqa_t_1_paper,X);
-ARmx_paper(2,:) = regress(xiSeqa_t_1,X);
+% ARmx_paper = zeros(2,2);
+% ARmx_paper(1,:) = regress(TFPSeqa_t_1_paper,X);
+% ARmx_paper(2,:) = regress(xiSeqa_t_1,X);
 
-[b_1,bint_1,r_tfp_paper] = regress(TFPSeqa_t_1_real,X);
-[b_2,bint_2,r_xi_paper] = regress(xiSeqa_t_1,X);
+% [b_1,bint_1,r_tfp_paper] = regress(TFPSeqa_t_1_real,X);
+% [b_2,bint_2,r_xi_paper] = regress(xiSeqa_t_1,X);
 
-R_paper = horzcat(r_tfp_paper, r_xi_paper);
-corr(R_paper)
+% R_paper = horzcat(r_tfp_paper, r_xi_paper);
+% corr(R_paper)
