@@ -56,10 +56,6 @@ X = horzcat(TFPSeqa_t, xiSeqa_t);
 ARmx = zeros(2,2);
 ARmx(1,:) = regress(TFPSeqa_t_1,X);
 ARmx(2,:) = regress(xiSeqa_t_1,X);
-fid = fopen('Paper_Replication_Matrix_A_updated/table_updated_timing_business_gdp_version.txt','w');
-fprintf(fid,'%12.4f & %12.4f \\\\  \r\n', ARmx(1,:));
-fprintf(fid,'%12.4f & %12.4f \\\\  \r\n', ARmx(2,:));
-fclose(fid);
 
 [b_1,bint_1,r_tfp] = regress(TFPSeqa_t_1,X);
 [b_2,bint_2,r_xi] = regress(xiSeqa_t_1,X);
@@ -99,10 +95,6 @@ X = horzcat(TFPSeqa_t_real, xiSeqa_t);
 ARmx_real = zeros(2,2);
 ARmx_real(1,:) = regress(TFPSeqa_t_1_real,X);
 ARmx_real(2,:) = regress(xiSeqa_t_1,X);
-fid = fopen('Paper_Replication_Matrix_A_updated/table_updated_timing_real_gdp_version.txt','w');
-fprintf(fid,'%12.4f & %12.4f \\\\  \r\n', ARmx_real(1,:));
-fprintf(fid,'%12.4f & %12.4f \\\\  \r\n', ARmx_real(2,:));
-fclose(fid);
 
 [b_1,bint_1,r_tfp_real] = regress(TFPSeqa_t_1_real,X);
 [b_2,bint_2,r_xi_real] = regress(xiSeqa_t_1,X);
@@ -126,10 +118,6 @@ X = horzcat(TFPSeqa_t_paper, xiSeqa_t);
 ARmx_paper = zeros(2,2);
 ARmx_paper(1,:) = regress(TFPSeqa_t_1_paper,X);
 ARmx_paper(2,:) = regress(xiSeqa_t_1,X);
-fid = fopen('Paper_Replication_Matrix_A_updated/table_updated_original_version.txt','w');
-fprintf(fid,'%12.4f & %12.4f \\\\  \r\n', ARmx_paper(1,:));
-fprintf(fid,'%12.4f & %12.4f \\\\  \r\n', ARmx_paper(2,:));
-fclose(fid);
 
 [b_1,bint_1,r_tfp_paper] = regress(TFPSeqa_t_1_real,X);
 [b_2,bint_2,r_xi_paper] = regress(xiSeqa_t_1,X);
