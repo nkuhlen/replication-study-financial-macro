@@ -1,5 +1,7 @@
-% Programme to prepare the data needed to replicate figure 1 as described in the 
-% the online appendix of Jerman and Quadrini (2012).
+%{ 
+Programme to prepare the data needed to replicate figure 1 as described in the 
+the online appendix of Jerman and Quadrini (2012).
+%}
 
 %% Import original data
 data_ffa 							= xlsread(project_paths('IN_DATA', 'FRB_Z1.xlsx'), 'Sheet1', 'B8:F261');
