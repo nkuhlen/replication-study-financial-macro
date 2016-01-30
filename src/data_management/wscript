@@ -9,3 +9,10 @@ def build(ctx):
         target=ctx.path_to(ctx, 'OUT_DATA', 'data_figure_1.mat'),
         name='data_for_figure_1'
     )
+
+    ctx(
+        features='run_m_script',
+        source='data_shock_construction.m',
+        target=ctx.path_to(ctx, 'OUT_DATA', 'data_shock_construction.mat'),
+        name='data_shock_construction'
+    )
