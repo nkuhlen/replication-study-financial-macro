@@ -14,3 +14,21 @@ def build(ctx):
         ],
         name='Figure_1_updated'
     )
+
+    ctx(
+        features='run_m_script',
+        source='autocorrelogram.m',
+        target=[
+            ctx.path_to(
+                ctx, 'OUT_FIGURES', 'autocorrelation_tfp.png'
+            ),
+            ctx.path_to(
+                ctx, 'OUT_FIGURES', 'autocorrelation_xi.png'
+            )
+        ],
+        deps=[
+            ctx.path_to(ctx, 'OUT_DATA', 'data_shock_construction.mat'),
+        ],
+        name='autocorrelogram'
+    )
+
