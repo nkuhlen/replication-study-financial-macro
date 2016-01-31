@@ -5,7 +5,6 @@ Translation of Gauss code from Jermann and Quadrini (2012) to matlab code.
 clear all;
 close all;
 
-%Load data to create figure 1.
 load(project_paths('OUT_DATA', 'data_shock_construction.mat'));
 
 NomDebt = zeros(size(Dates,1)+1,1);
@@ -60,25 +59,27 @@ ARmx(2,:) = regress(xiSeqa_t_1,X);
 [b_1,bint_1,r_tfp] = regress(TFPSeqa_t_1,X);
 [b_2,bint_2,r_xi] = regress(xiSeqa_t_1,X);
 
-autocorr(r_tfp, 15);
-autocorr(r_xi, 15);
+% autocorr(r_tfp, 15);
+% autocorr(r_xi, 15);
 
-ti = get(gca,'TightInset');
-set(gca,'Position',[ti(1) ti(2) 1-ti(3)-ti(1) 1-ti(4)-ti(2)]);
+% ti = get(gca,'TightInset');
+% set(gca,'Position',[ti(1) ti(2) 1-ti(3)-ti(1) 1-ti(4)-ti(2)]);
 
-set(gca,'units','centimeters')
-pos = get(gca,'Position');
-ti = get(gca,'TightInset');
+% set(gca,'units','centimeters')
+% pos = get(gca,'Position');
+% ti = get(gca,'TightInset');
 
-set(gcf, 'PaperUnits','centimeters');
-set(gcf, 'PaperSize', [pos(3)+ti(1)+ti(3) pos(4)+ti(2)+ti(4)]);
-set(gcf, 'PaperPositionMode', 'manual');
-set(gcf, 'PaperPosition',[0 0 pos(3)+ti(1)+ti(3) pos(4)+ti(2)+ti(4)]);
+% set(gcf, 'PaperUnits','centimeters');
+% set(gcf, 'PaperSize', [pos(3)+ti(1)+ti(3) pos(4)+ti(2)+ti(4)]);
+% set(gcf, 'PaperPositionMode', 'manual');
+% set(gcf, 'PaperPosition',[0 0 pos(3)+ti(1)+ti(3) pos(4)+ti(2)+ti(4)]);
 
-R = horzcat(r_tfp, r_xi);
-corr(R)
+% R = horzcat(r_tfp, r_xi);
+% corr(R)
 %corrplot(R, 'varNames',{'tfp','xi'});  
 
+save(project_paths('OUT_ANALYSIS', 'series_of_shocks.mat'), 'TFPSeqa_t', 'xiSeqa_t', ...
+	'r_tfp', 'r_xi');
 
 %% Using real gdp and corrected timing for the tfp shocks based on updated data.
 % TFP_real = xlsread('Data_Shocks_updated.xlsx','Sheet1', 'O137:O262');
