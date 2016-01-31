@@ -1,5 +1,6 @@
 %{ 
-Translation of Gauss code from Jermann and Quadrini (2012) to matlab code.
+Basic translation of Gauss code from Jermann and Quadrini (2012) as provided 
+online to matlab code.
 %}
 
 clear all;
@@ -7,6 +8,7 @@ close all;
 
 load(project_paths('OUT_DATA', 'data_shock_construction.mat'));
 
+% Start translation of Gauss code.
 NomDebt = zeros(size(Dates,1)+1,1);
 
 NomDebt(1) = 94.12;
@@ -56,6 +58,9 @@ ARmx = zeros(2,2);
 ARmx(1,:) = regress(TFPSeqa_t_1,X);
 ARmx(2,:) = regress(xiSeqa_t_1,X);
 
+% End of translation of Gauss code.
+
+% Store residuals
 [b_1,bint_1,r_tfp] = regress(TFPSeqa_t_1,X);
 [b_2,bint_2,r_xi] = regress(xiSeqa_t_1,X);
 
