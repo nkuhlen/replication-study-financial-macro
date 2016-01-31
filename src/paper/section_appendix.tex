@@ -1,0 +1,34 @@
+% !TEX root = research_paper.tex
+
+\addcontentsline{toc}{section}{Appendix}
+\setcounter{table}{0}
+\renewcommand{\thetable}{A\arabic{table}}
+% \counterwithin{table}{section}
+% \setcounter{table}{0}
+%\counterwithin{figure}{section}
+
+% \subsection*{Data}
+As described in section \ref{sec:data}, certain codes for the FFA data have changed compared to \citeauthor{JERMANNfinancial}. Table \ref{table:identifiers} contains all relevant code changes.\footnote{For future reference, all changes are listed: \href{http://www.federalreserve.gov/apps/fof/CodeChange.aspx}{here}; last checked: January 30, 2016.} 
+
+\begin{table}[h]
+\small
+\caption{Code Changes}
+\centering{
+\begin{tabular}{l|c|c}
+
+\hline\hline
+\bf{Description} & \bf{Old Identifier} & \bf{New Identifier}\\[1ex]
+\hline 
+Net dividends of nonfarm, nonfinancial business & FA106120005.Q &  FA106121075.Q\\[0.2ex]
+Net dividends of farm business & FA136120005.Q & FA136121073.Q\\[0.2ex]
+Proprietors’ net investment of nonfinancial business & FA142090205.Q & FA112090205.Q\\[1ex]
+Consumption of fixed capital in nonfinancial & FA106300053.Q & FA106300083.Q \\ 
+corporate business & & \\[1ex]
+Consumption of fixed capital in nonfinancial & FA116300081.Q & FA116300001.Q\\
+noncorporate business & & \\[1ex]
+\hline\hline
+
+\end{tabular}
+}\\
+\label{table:identifiers}
+\end{table}
