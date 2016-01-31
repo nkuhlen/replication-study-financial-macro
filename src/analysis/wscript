@@ -6,9 +6,9 @@ def build(ctx):
     ctx(
         features='run_m_script',
         source='shock_construction.m',
-        # target=ctx.path_to(
-        #     ctx, 'OUT_FIGURES', 'Replication_Figure_1_updated.pdf'
-        # ),
+        target=ctx.path_to(
+            ctx, 'OUT_ANALYSIS', 'series_of_shocks.mat'
+        ),
         deps=[
             ctx.path_to(ctx, 'OUT_DATA', 'data_shock_construction.mat'),
         ],
