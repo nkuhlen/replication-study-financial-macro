@@ -1,7 +1,7 @@
 %{
-Replicate figure 1 using data in bld/out/data. Create a 
+Replicate figure 1 using data from data_figure_1.mat. Create a 
 Matlab figure by plotting equity payout and debt repurchase. 
-Add recession areas to the plot by using data from original_data. 
+Add recession areas to the plot by using data from recessiondates.mat. 
 %}
 
 % timeline = xlsread(project_paths('IN_DATA', 'DataSet_updated.xlsx'),'FFA', 'L9:L262');
