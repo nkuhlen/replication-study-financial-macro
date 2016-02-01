@@ -31,4 +31,3 @@ def build(ctx):
         ],
         name='autocorrelogram'
     )
-
