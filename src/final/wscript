@@ -5,14 +5,14 @@ def build(ctx):
 
     ctx(
         features='run_m_script',
-        source='Replication_Figure_1_updated.m',
+        source='figure_1.m',
         target=ctx.path_to(
-            ctx, 'OUT_FIGURES', 'Replication_Figure_1_updated.pdf'
+            ctx, 'OUT_FIGURES', 'figure_1.pdf'
         ),
         deps=[
             ctx.path_to(ctx, 'OUT_DATA', 'updated_data.mat'),
         ],
-        name='Figure_1_updated'
+        name='Figure_1'
     )
 
     ctx(
@@ -29,5 +29,5 @@ def build(ctx):
         deps=[
             ctx.path_to(ctx, 'OUT_ANALYSIS', 'series_of_shocks.mat'),
         ],
-        name='autocorrelogram'
+        name='Autocorrelogram'
     )

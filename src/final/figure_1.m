@@ -73,4 +73,4 @@ set(gcf, 'PaperSize', [pos(3)+ti(1)+ti(3) pos(4)+ti(2)+ti(4)]);
 set(gcf, 'PaperPositionMode', 'manual');
 set(gcf, 'PaperPosition',[0 0 pos(3)+ti(1)+ti(3) pos(4)+ti(2)+ti(4)]);
 
-saveas(gcf, project_paths('OUT_FIGURES', 'Replication_Figure_1_updated.pdf'));
+saveas(gcf, project_paths('OUT_FIGURES', 'figure_1.pdf'));

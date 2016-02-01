@@ -5,9 +5,9 @@ Visualisation and results formatting
 
 Documentation of the code in **final**.
 
-:file:`Replication_Figure_1_updated.m`:
+:file:`figure_1.m`:
 
-.. include:: ../final/Replication_Figure_1_updated.m
+.. include:: ../final/figure_1.m
    :start-after: %{
    :end-before: %}
 
