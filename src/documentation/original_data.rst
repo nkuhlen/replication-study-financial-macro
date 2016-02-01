@@ -22,6 +22,14 @@ from FRED, Federal Reserve Bank of St. Louis (last checked: November 21, 2015).
 	* Units: Index 2002=100
 
 
+:file:`DataSet_Jermann_Quadrini.xlsx`:
+
+This is the data set used by Jermann and Quadrini (2012) which can be downloaded from
+`here 
+<https://www.aeaweb.org/articles.php?doi=10.1257/aer.102.1.238>`_
+(last checked: January 31, 2016).
+
+
 :file:`FRB_Z1.xlsx`:
 
 Contains data on *Flow of Funds Accounts (FFA)* downloaded 
