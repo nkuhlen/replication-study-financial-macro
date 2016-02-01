@@ -27,7 +27,7 @@ def build(ctx):
             )
         ],
         deps=[
-            ctx.path_to(ctx, 'OUT_DATA', 'data_shock_construction.mat'),
+            ctx.path_to(ctx, 'OUT_ANALYSIS', 'series_of_shocks.mat'),
         ],
         name='autocorrelogram'
     )
