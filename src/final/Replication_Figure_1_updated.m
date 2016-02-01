@@ -4,7 +4,7 @@ Matlab figure by plotting equity payout and debt repurchase.
 Add recession areas to the plot by using data from recessiondates.mat. 
 %}
 
-% timeline = xlsread(project_paths('IN_DATA', 'DataSet_updated.xlsx'),'FFA', 'L9:L262');
+% Dates = xlsread(project_paths('IN_DATA', 'DataSet_updated.xlsx'),'FFA', 'L9:L262');
 % equity = xlsread(project_paths('IN_DATA', 'DataSet_updated.xlsx'),'FFA', 'I9:I262');
 % debt = xlsread(project_paths('IN_DATA', 'DataSet_updated.xlsx'),'FFA', 'J9:J262');
 
@@ -18,8 +18,8 @@ load(project_paths('OUT_DATA', 'updated_data.mat'));
 figure
 
 %scale variables to match figure from paper
-d = debt_repurchase*100;
-e = equity_payout*100;
+d = DebtRepurchase*100;
+e = EquityPayout*100;
 
 %add recession areas
 load(project_paths('IN_DATA', 'recessiondates.mat'))
@@ -31,7 +31,7 @@ hline.Color = 'k';
 hold off
 
 % use code from plot_NBER_recessions
-plothandle = plot(timeline, d, 'b', timeline, e, 'r--');
+plothandle = plot(Dates, d, 'b', Dates, e, 'r--');
 
 %adjust axes
 axis([1952 2015 -16 16])

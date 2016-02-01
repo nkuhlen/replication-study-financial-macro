@@ -9,7 +9,6 @@ close all;
 load(project_paths('OUT_DATA', 'updated_data.mat'));
 
 % Start translation of Gauss code.
-Dates = timeline;
 NomDebt = zeros(size(Dates,1)+1,1);
 
 NomDebt(1) = 94.12;
@@ -58,6 +57,7 @@ ARmx = zeros(2,2);
 ARmx(1,:) = regress(TFPSeqa_t_1,X);
 ARmx(2,:) = regress(xiSeqa_t_1,X);
 
+ARmx
 % End of translation of Gauss code.
 
 % Store residuals
