@@ -43,8 +43,7 @@ mcoefb = 0.5489;
 
 xiSeqa=(mcoefk*dDataSet(:,1)+mcoefb*dDataSet(:,2)+mcoefy*dDataSet(:,3));
 
-TFP = xlsread('Data_Shocks_updated.xlsx','Sheet1', 'M137:M262');
-TFPSeqa = detrend(TFP, 'linear');
+TFPSeqa = detrend(TFP(80:end), 'linear');
 data = horzcat(TFPSeqa, xiSeqa);
 
 TFPSeqa_t = TFPSeqa(1:end-1);
