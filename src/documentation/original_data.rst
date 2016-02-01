@@ -46,7 +46,6 @@ Contain data on *National Income and Product Accounts (NIPA)* downloaded
 <http://www.bea.gov//national/nipaweb/DownSS2.asp>`_
 from the Bureau of Economic Analysis (BEA) (last checked: November 7, 2015). The following list provides the table codes and descriptions in both data sets from section 1 that are relevant to the replication study. 
 	
-	
 	* 10106	Table 1.1.6. Real Gross Domestic Product, Chained Dollars
 	* 10304	Table 1.3.4. Price Indexes for Gross Value Added by Sector
 	* 10305	Table 1.3.5. Gross Value Added by Sector
