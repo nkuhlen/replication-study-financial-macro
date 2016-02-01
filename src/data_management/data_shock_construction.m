@@ -12,9 +12,11 @@ business_price_index_until_1969		= xlsread(project_paths('IN_DATA', 'NIPA_Hist_u
 business_price_index_from_1970 		= xlsread(project_paths('IN_DATA', 'NIPA_Hist_from_1969.xlsx'), '10304 Qtr', 'H11:GG11');
 real_gdp_until_1969					= xlsread(project_paths('IN_DATA', 'NIPA_Hist_until_1969.xlsx'), '10106 Qtr', 'X10:CQ10');
 real_gdp_from_1970 					= xlsread(project_paths('IN_DATA', 'NIPA_Hist_from_1969.xlsx'), '10106 Qtr', 'H10:GG10');
+hours								= xlsread(project_paths('IN_DATA', 'AWHI.xlsx'), 'AWHI', 'B25:B230');
 
 
-% Define variables
+
+% Define variables using variable names following Jermann and Quadrini
 CapExp 		= data_ffa(:,6);
 CapCon1 	= data_ffa(:,7);
 CapCon2 	= data_ffa(:,8);
@@ -45,6 +47,24 @@ end
 
 RealCap = capital;
 
+% Calculate TFP series
+start_date = 1964.0;
+start_index = find(Dates == start_date);
+end_date = 2015.25;
+end_index = find(Dates == end_date);
 
-save(project_paths('OUT_DATA', 'data_shock_construction.mat'), 'Dates', 'CapExp', 'CapCon1', ...
-	'CapCon2', 'NetBorrow', 'NomBusGdp', 'BusPrice', 'RealCap');
+% Set technology parameter
+theta = 0.64;
+
+% Create vectors for time period as specified above
+TFP		 			= NaN(length(Dates(start_index + 1:end_index)), 1);
+NomBusGdpTruncated 	= NomBusGdp(start_index:end_index, 1);
+BusPriceTruncated 	= BusPrice(start_index:end_index, 1);
+RealCapTruncated	= RealCap(start_index + 1:end_index + 1, 1);
+		
+% Compute values for start_date+1 until end_date
+TFP= log(NomBusGdpTruncated(2:end)./BusPriceTruncated(2:end)) - ...
+			(1 - theta)*log(RealCapTruncated(1:end-1)) -  theta*log(hours(2:end));
+
+save(project_paths('OUT_DATA', 'data_shock_construction.mat'), 'Dates', 'CapExp',  ...
+	'CapCon1', 'CapCon2', 'NetBorrow', 'NomBusGdp', 'BusPrice', 'RealCap', 'TFP');
