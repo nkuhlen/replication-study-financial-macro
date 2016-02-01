@@ -103,8 +103,19 @@
 \setstretch{1.5}
 
 \newpage
+\appendix
 \section*{Appendix}
-\input{section_appendix}
+\addcontentsline{toc}{section}{Appendix}
+\renewcommand{\thesubsection}{\Alph{subsection}}
+\setcounter{table}{0}
+\renewcommand{\thetable}{A\arabic{table}}
+% \counterwithin{table}{section}
+% \setcounter{table}{0}
+%\counterwithin{figure}{section}
+
+
+\subsection{Data}
+\input{section_appendix_data}
 
 
 \end{document}
