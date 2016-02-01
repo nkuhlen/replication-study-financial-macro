@@ -12,7 +12,7 @@ clear all
 close all
 
 %Load data to create figure 1.
-load(project_paths('OUT_DATA', 'data_figure_1.mat'));
+load(project_paths('OUT_DATA', 'updated_data.mat'));
 
 %create figure
 figure

@@ -3,27 +3,40 @@
 
 def build(ctx):
 
-    ctx(
-        features='run_m_script',
-        source='data_for_figure_1.m',
-        target=ctx.path_to(ctx, 'OUT_DATA', 'data_figure_1.mat'),
-        deps=[
-            ctx.path_to(ctx, 'IN_DATA', 'FRB_Z1.xlsx'),
-            ctx.path_to(ctx, 'IN_DATA', 'NIPA_Hist_until_1969.xlsx'),
-            ctx.path_to(ctx, 'IN_DATA', 'NIPA_Hist_from_1969.xlsx')
-        ],
-        name='data_for_figure_1'
-    )
+    # ctx(
+    #     features='run_m_script',
+    #     source='data_for_figure_1.m',
+    #     target=ctx.path_to(ctx, 'OUT_DATA', 'data_figure_1.mat'),
+    #     deps=[
+    #         ctx.path_to(ctx, 'IN_DATA', 'FRB_Z1.xlsx'),
+    #         ctx.path_to(ctx, 'IN_DATA', 'NIPA_Hist_until_1969.xlsx'),
+    #         ctx.path_to(ctx, 'IN_DATA', 'NIPA_Hist_from_1969.xlsx')
+    #     ],
+    #     name='data_for_figure_1'
+    # )
+
+    # ctx(
+    #     features='run_m_script',
+    #     source='data_shock_construction.m',
+    #     target=ctx.path_to(ctx, 'OUT_DATA', 'data_shock_construction.mat'),
+    #     deps=[
+    #         ctx.path_to(ctx, 'IN_DATA', 'FRB_Z1.xlsx'),
+    #         ctx.path_to(ctx, 'IN_DATA', 'NIPA_Hist_until_1969.xlsx'),
+    #         ctx.path_to(ctx, 'IN_DATA', 'NIPA_Hist_from_1969.xlsx'),
+    #         ctx.path_to(ctx, 'IN_DATA', 'AWHI.xlsx')
+    #     ],
+    #     name='data_shock_construction'
+    # )
 
     ctx(
         features='run_m_script',
-        source='data_shock_construction.m',
-        target=ctx.path_to(ctx, 'OUT_DATA', 'data_shock_construction.mat'),
+        source='data_preparation.m',
+        target=ctx.path_to(ctx, 'OUT_DATA', 'updated_data.mat'),
         deps=[
             ctx.path_to(ctx, 'IN_DATA', 'FRB_Z1.xlsx'),
             ctx.path_to(ctx, 'IN_DATA', 'NIPA_Hist_until_1969.xlsx'),
             ctx.path_to(ctx, 'IN_DATA', 'NIPA_Hist_from_1969.xlsx'),
             ctx.path_to(ctx, 'IN_DATA', 'AWHI.xlsx')
         ],
-        name='data_shock_construction'
+        name='data_preparation'
     )

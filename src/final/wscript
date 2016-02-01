@@ -10,7 +10,7 @@ def build(ctx):
             ctx, 'OUT_FIGURES', 'Replication_Figure_1_updated.pdf'
         ),
         deps=[
-            ctx.path_to(ctx, 'OUT_DATA', 'data_figure_1.mat'),
+            ctx.path_to(ctx, 'OUT_DATA', 'updated_data.mat'),
         ],
         name='Figure_1_updated'
     )

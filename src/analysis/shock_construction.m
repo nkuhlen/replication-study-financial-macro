@@ -6,9 +6,10 @@ online to matlab code.
 clear all;
 close all;
 
-load(project_paths('OUT_DATA', 'data_shock_construction.mat'));
+load(project_paths('OUT_DATA', 'updated_data.mat'));
 
 % Start translation of Gauss code.
+Dates = timeline;
 NomDebt = zeros(size(Dates,1)+1,1);
 
 NomDebt(1) = 94.12;

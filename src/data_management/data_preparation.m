@@ -1,8 +1,7 @@
 %{ 
-Programme to prepare the data needed to replicate the shock construction 
-as described in Jerman and Quadrini (2012).
+Programme to prepare the data needed to replicate figure 1 and the shock construction 
+as described in the online appendix of Jerman and Quadrini (2012).
 %}
-
 
 %% Import original data
 data_ffa 							= xlsread(project_paths('IN_DATA', 'FRB_Z1.xlsx'), 'Sheet1', 'B8:I261');
@@ -16,6 +15,28 @@ hours								= xlsread(project_paths('IN_DATA', 'AWHI.xlsx'), 'AWHI', 'B25:B230'
 
 
 
+%% Prepare data needed to replicate figure 1
+% Define variables
+net_increase_credit_markets_instruments = data_ffa(:,1);
+net_increase_corporate_equities         = data_ffa(:,2);
+net_dividends_non_financial_business    = data_ffa(:,3);
+net_dividends_farm_business             = data_ffa(:,4);
+proprietors_net_investment              = data_ffa(:,5);
+business_gdp 							= transpose(horzcat(business_value_added_until_1969, business_value_added_from_1970));
+
+% Calculate equity payout and debt repurchase
+equity_payout 	= (net_dividends_non_financial_business ...
+                + net_dividends_farm_business ...
+                - net_increase_corporate_equities ...
+                - proprietors_net_investment)./(business_gdp*1000);
+
+debt_repurchase	= (-net_increase_credit_markets_instruments)./(business_gdp*1000);
+
+% Create timeline
+timeline = transpose(1952:0.25:2015.25);
+
+
+%% Prepare data needed for shock construction 
 % Define variables using variable names following Jermann and Quadrini
 CapExp 		= data_ffa(:,6);
 CapCon1 	= data_ffa(:,7);
@@ -24,8 +45,8 @@ NetBorrow 	= data_ffa(:,1);
 NomBusGdp 	= transpose(horzcat(business_value_added_until_1969, business_value_added_from_1970));
 BusPrice 	= transpose(horzcat(business_price_index_until_1969, business_price_index_from_1970));
 
-% Create timeline
-Dates = transpose(1952:0.25:2015.25);
+% Rename timeline variable to use variable names as in Jermann and Quadrini
+Dates = timeline;
 
 % Define initial value to calculate capital stock.
 capital_init = 22.3833730671711;
@@ -66,5 +87,9 @@ RealCapTruncated	= RealCap(start_index + 1:end_index + 1, 1);
 TFP= log(NomBusGdpTruncated(2:end)./BusPriceTruncated(2:end)) - ...
 			(1 - theta)*log(RealCapTruncated(1:end-1)) -  theta*log(hours(2:end));
 
-save(project_paths('OUT_DATA', 'data_shock_construction.mat'), 'Dates', 'CapExp',  ...
-	'CapCon1', 'CapCon2', 'NetBorrow', 'NomBusGdp', 'BusPrice', 'RealCap', 'TFP');
+
+save(project_paths('OUT_DATA', 'updated_data.mat'), 'net_increase_credit_markets_instruments', ...
+     'net_increase_corporate_equities', 'net_dividends_non_financial_business', ...
+     'net_dividends_farm_business', 'proprietors_net_investment', 'business_gdp', 'equity_payout', ...
+     'debt_repurchase', 'timeline', 'CapExp', 'CapCon1', 'CapCon2', 'NetBorrow', ...
+     'NomBusGdp', 'BusPrice', 'RealCap', 'TFP');
