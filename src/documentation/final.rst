@@ -11,6 +11,13 @@ Documentation of the code in **final**.
    :start-after: %{
    :end-before: %}
 
+:file:`figure_2.m`:
+
+.. include:: ../final/figure_2.m
+   :start-after: %{
+   :end-before: %}
+
+
 :file:`autocorrelogram.m`:
 
 .. include:: ../final/autocorrelogram.m

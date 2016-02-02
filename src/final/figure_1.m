@@ -1,5 +1,5 @@
 %{
-Replicate figure 1 using data from data_figure_1.mat. Create a 
+Replicate figure 1 using updated data. Create a 
 Matlab figure by plotting equity payout and debt repurchase. 
 Add recession areas to the plot by using data from recessiondates.mat. 
 %}

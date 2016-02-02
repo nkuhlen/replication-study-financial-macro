@@ -17,6 +17,18 @@ def build(ctx):
 
     ctx(
         features='run_m_script',
+        source='figure_2.m',
+        target=ctx.path_to(
+            ctx, 'OUT_FIGURES', 'figure_2.pdf'
+        ),
+        deps=[
+            ctx.path_to(ctx, 'OUT_ANALYSIS', 'series_of_shocks.mat'),
+        ],
+        name='Figure_2'
+    )
+
+    ctx(
+        features='run_m_script',
         source='autocorrelogram.m',
         target=[
             ctx.path_to(

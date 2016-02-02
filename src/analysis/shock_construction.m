@@ -68,8 +68,8 @@ ARmx
 % corr(R)
 % corrplot(R, 'varNames',{'tfp','xi'}); 
 
-save(project_paths('OUT_ANALYSIS', 'series_of_shocks.mat'), 'TFPSeqa_t', 'xiSeqa_t', ...
-	'ResidualTFP', 'ResidualXi', 'ARmx');
+save(project_paths('OUT_ANALYSIS', 'series_of_shocks.mat'), 'TFPSeqa', 'xiSeqa', ...
+	'ResidualTFP', 'ResidualXi', 'Dates', 'ARmx');
  
 
 
