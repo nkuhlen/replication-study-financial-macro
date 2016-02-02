@@ -2,7 +2,7 @@
     
     \centering
 
-    \includegraphics[trim={1cm 1cm 1cm 0.5cm},clip,scale=0.8]{../../out/figures/figure_2}
+    \includegraphics[trim={1.5cm 1cm 1.5cm 0.8cm},clip,scale=0.85]{../../out/figures/figure_2}
 
     \caption{\textsc{Time Series of Shocks to Productivity and Financial Conditions}}
     
@@ -13,9 +13,12 @@
 
 % Text from task 7 without matrices or figures:
 
-The estimates for matrix $A$ are based on the updated data from the FFA\footnote{Link to original FFA data: \href{http://www.federalreserve.gov/datadownload/Download.aspx?rel=Z1&series=0158dbd07710fd0793be0d27731bac4c&filetype=spreadsheetml&label=include&layout=seriescolumn&from=03/01/1952&to=12/31/2015}{here}; last checked: November 21, 2015.},
-NIPA\footnote{Link to original NIPA data: \href{http://www.bea.gov//national/nipaweb/DownSS2.asp}{here}; last checked: November 21, 2015.} 
-and Current Employment Statistics from the Bureau of Labor Statistics.\footnote{Link to original BLS data: \href{https://research.stlouisfed.org/fred2/series/AWHI/downloaddata}{here}; last checked: November 21, 2015.} 
+The estimates for matrix $A$ are based on the updated data from the FFA
+% \footnote{Link to original FFA data: \href{http://www.federalreserve.gov/datadownload/Download.aspx?rel=Z1&series=0158dbd07710fd0793be0d27731bac4c&filetype=spreadsheetml&label=include&layout=seriescolumn&from=03/01/1952&to=12/31/2015}{here}; last checked: November 21, 2015.},
+NIPA
+% \footnote{Link to original NIPA data: \href{http://www.bea.gov//national/nipaweb/DownSS2.asp}{here}; last checked: November 21, 2015.} 
+and Current Employment Statistics from the Bureau of Labor Statistics.
+% \footnote{Link to original BLS data: \href{https://research.stlouisfed.org/fred2/series/AWHI/downloaddata}{here}; last checked: November 21, 2015.} 
 In contrast to the last replication exercise, this time I did not use rounded values. The construction of the tfp shocks follows \citet{JERMANNfinancial}. In particular, using a value of $22.3833730671711$ for initial capital, the TFP shocks are based on real GDP and the timing as applied in the data set provided by \citeauthor{JERMANNfinancial}.
 
 However, the timing in the data set contradicts the calculation of the capital stock as specified in the appendix of \citeauthor{JERMANNfinancial}. The appendix indicates that capital stock is given by the following equation:

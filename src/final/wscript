@@ -18,9 +18,11 @@ def build(ctx):
     ctx(
         features='run_m_script',
         source='figure_2.m',
-        target=ctx.path_to(
-            ctx, 'OUT_FIGURES', 'figure_2.pdf'
-        ),
+        target=[
+            ctx.path_to(
+                ctx, 'OUT_FIGURES', 'figure_2.png'
+            )
+        ],
         deps=[
             ctx.path_to(ctx, 'OUT_ANALYSIS', 'series_of_shocks.mat'),
         ],
