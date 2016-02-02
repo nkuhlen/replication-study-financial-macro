@@ -61,15 +61,15 @@ ARmx
 % End of translation of Gauss code.
 
 % Store residuals
-[b_1,bint_1,r_tfp] = regress(TFPSeqa_t_1,X);
-[b_2,bint_2,r_xi] = regress(xiSeqa_t_1,X);
+[b1,bint1,ResidualTFP] = regress(TFPSeqa_t_1,X);
+[b2,bint2,ResidualXi] = regress(xiSeqa_t_1,X);
 
-% R = horzcat(r_tfp, r_xi);
+% R = horzcat(ResidualTFP, ResidualXi);
 % corr(R)
 % corrplot(R, 'varNames',{'tfp','xi'}); 
 
 save(project_paths('OUT_ANALYSIS', 'series_of_shocks.mat'), 'TFPSeqa_t', 'xiSeqa_t', ...
-	'r_tfp', 'r_xi', 'ARmx');
+	'ResidualTFP', 'ResidualXi', 'ARmx');
  
 
 
