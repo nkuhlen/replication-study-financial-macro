@@ -3,7 +3,8 @@ Programme to prepare the data needed to replicate figure 1 and the shock constru
 as described in the online appendix of Jermann and Quadrini (2012).
 %}
 
-%% Import original data
+%% Import data and define variables 
+% Import data from the original data files
 DataFFA 							= xlsread(project_paths('IN_DATA', 'FRB_Z1.xlsx'), 'Sheet1', 'B8:I261');
 BusinessValueAddedUntil1969         = xlsread(project_paths('IN_DATA', 'NIPA_Hist_until_1969.xlsx'), '10305 Qtr', 'X11:CQ11');
 BusinessValueAddedFrom1970 	        = xlsread(project_paths('IN_DATA', 'NIPA_Hist_from_1969.xlsx'), '10305 Qtr', 'H11:GG11');
@@ -30,22 +31,27 @@ BusPrice    = transpose(horzcat(BusinessPriceIndexUntil1969, BusinessPriceIndexF
 
 
 %% Prepare data needed to replicate figure 1
-% Calculate equity payout and debt repurchase
+% Equity Payout is calculated as net dividends of nonfinancial and farm business 
+% minus net increase in corporate equities minus proprietors’ net investment and
+% divided by Business GDP times 1000.
 EquityPayout 	= (NetDividendsNonFinancialBusiness ...
                 + NetDividendsFarmBusiness ...
                 - NetIncreaseCoprorateEquities ...
                 - ProprietorsNetInvestment)./(NomBusGdp*1000);
 
+% Debt Repurchase is the negative of net increase in debt, normalized by
+% Business GDP times 1000.
 DebtRepurchase	= (-NetBorrow)./(NomBusGdp*1000);
 
 
 %% Prepare data needed for shock construction 
-% Define initial value to calculate capital stock.
-CapitalInit = 22.3833730671711;
-
 % Initialize capital with a vector from 1951Q4-2015Q2 (end of
 % period capital stock)
 RealCap = NaN(length(Dates) + 1, 1);
+
+% Define initial value for capital such that there is no trend in the ratio of
+% capital to real business gdp over the entire sample.
+CapitalInit = 22.3833730671711;
 
 % Initialize value for 1951Q4, i.e. the capital stock that is
 % around at the beginning of the first period in the sample.
@@ -58,22 +64,23 @@ for index = 2:length(RealCap)
                         0.00025/BusPrice(index - 1);
 end
 
-% Calculate TFP series
+%% Calculate TFP series for 1964Q1 - 2015Q2
+% Set start and end date
 StartDate = 1964.0;
 StartIndex = find(Dates == StartDate);
 EndDate = 2015.25;
 EndIndex = find(Dates == EndDate);
 
-% Set technology parameter
+% Set technology parameter as defined by Jermann and Quadrini
 Theta = 0.64;
 
-% Create vectors for time period as specified above
+% Create vectors for the time period as specified above
 TFP		 			= NaN(length(Dates(StartIndex + 1:EndIndex)), 1);
 NomBusGdpTruncated 	= NomBusGdp(StartIndex:EndIndex, 1);
 BusPriceTruncated 	= BusPrice(StartIndex:EndIndex, 1);
 RealCapTruncated	= RealCap(StartIndex + 1:EndIndex + 1, 1);
 		
-% Compute values for start_date+1 until end_date
+% Compute the values for start_date+1 until end_date
 TFP= log(NomBusGdpTruncated(2:end)./BusPriceTruncated(2:end)) - ...
 			(1 - Theta)*log(RealCapTruncated(1:end-1)) -  Theta*log(Hours(2:end));
 
