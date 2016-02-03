@@ -1,4 +1,4 @@
-\begin{figure}
+\begin{figure}[ht]
     
     \centering
 
@@ -10,15 +10,14 @@
 
 \end{figure}
 
-
 The estimates for matrix $A$ are based on the updated data from the FFA, NIPA and Current Employment Statistics from the Bureau of Labor Statistics.\footnote{Link to original BLS data: \href{https://research.stlouisfed.org/fred2/series/AWHI/downloaddata}{here}; last checked: November 21, 2015.} 
 The value for initial capital is set to $22.3833730671711$ such that there is no trend in the ratio of capital to real business gdp over the entire sample.
 The timing in construction of the tfp shocks in \citeauthor{JERMANNfinancial} contradicts the calculation of the capital stock as specified in the online appendix. In particular, the TFP shocks are based on real GDP and the timing as applied in the data set provided by \citeauthor{JERMANNfinancial}.
-The appendix indicates that capital stock is given by the following equation:
+% The appendix indicates that capital stock is given by the following equation:
 
-\begin{equation} \label{eq:capital_stock}
-k_{t+1} = k_{t} - Depreciation + Investment
-\end{equation} 
+% \begin{equation} \label{eq:capital_stock}
+% k_{t+1} = k_{t} - Depreciation + Investment
+% \end{equation} 
 
 As a consequence, TFP shocks in the current quarter need to be calculated using last quarter's end of period capital stock. To correct for this, TFP shocks are now based on capital from period $t-1$ in the updated version of the data set. 
 
