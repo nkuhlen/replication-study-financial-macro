@@ -110,11 +110,11 @@
 \section*{Appendix}
 \addcontentsline{toc}{section}{Appendix}
 \renewcommand{\thesubsection}{\Alph{subsection}}
-\setcounter{table}{0}
-\renewcommand{\thetable}{A\arabic{table}}
-% \counterwithin{table}{section}
-% \setcounter{table}{0}
-%\counterwithin{figure}{section}
+
+\counterwithin{table}{subsection}
+\renewcommand{\thetable}{\Alph{subsection}\arabic{table}}
+\counterwithin{figure}{subsection}
+\renewcommand{\thefigure}{\Alph{subsection}\arabic{figure}}
 
 
 \subsection{Data}
