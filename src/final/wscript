@@ -12,7 +12,7 @@ def build(ctx):
         deps=[
             ctx.path_to(ctx, 'OUT_DATA', 'updated_data.mat'),
         ],
-        name='Figure_1'
+        name='figure_1'
     )
 
     ctx(
@@ -26,7 +26,7 @@ def build(ctx):
         deps=[
             ctx.path_to(ctx, 'OUT_ANALYSIS', 'series_of_shocks.mat'),
         ],
-        name='Figure_2'
+        name='figure_2'
     )
 
     ctx(
@@ -43,5 +43,17 @@ def build(ctx):
         deps=[
             ctx.path_to(ctx, 'OUT_ANALYSIS', 'series_of_shocks.mat'),
         ],
-        name='Autocorrelogram'
+        name='futocorrelogram'
+    )
+
+    ctx(
+        features='run_m_script',
+        source='table_matrix_a.m',
+        target=ctx.path_to(
+            ctx, 'OUT_TABLES', 'table_matrix_a.txt'
+        ),
+        deps=[
+            ctx.path_to(ctx, 'OUT_ANALYSIS', 'series_of_shocks.mat'),
+        ],
+        name='table_matrix_a'
     )
