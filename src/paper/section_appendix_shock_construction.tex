@@ -1,3 +1,5 @@
+Using the updated data from the FFA, NIPA and Current Employment Statistics from the Bureau of Labor Statistics as well as correcting and adjusting the construction of shocks as described in section \ref{sec:shock_construction} yields the following estimates for matrix $A$:
+
 \begin{center}
 \[
     A=
@@ -6,3 +8,14 @@
       \end{bmatrix}
 \]
 \end{center}
+
+The following figure is used in section \ref{sec:shock_construction} to examine the presence of residual autocorrelation:
+
+\begin{figure}[h]
+	\centering{
+		\subfloat[Autocorrelation of ${\epsilon}_{z,t+1}$]{{\includegraphics[scale=0.4]{../../out/figures/autocorrelation_tfp.png}}}
+		\subfloat[Autocorrelation of ${\epsilon}_{\xi,t+1}$]{{\includegraphics[scale=0.4]{../../out/figures/autocorrelation_xi.png}}}
+	}
+	\caption{Residual autocorrelation}
+	\label{fig:residual_autocorrelation}
+\end{figure}

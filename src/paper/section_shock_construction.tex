@@ -10,23 +10,13 @@
 
 \end{figure}
 
-Figure \ref{fig:figure_2} is based on the updated data from the FFA, NIPA and Current Employment Statistics from the Bureau of Labor Statistics.\footnote{Link to original BLS data: \href{https://research.stlouisfed.org/fred2/series/AWHI/downloaddata}{here}; last checked: November 21, 2015.} 
-The procedure employed to construct the shocks series generally follows the steps as outlined in the online appendix of \citeauthor{JERMANNfinancial}. However, some steps have been corrected in the calculation of the tfp shocks. These deviations will be addressed in the following. 
+The replication of figure \ref{fig:figure_2} is based on the updated data from the FFA, NIPA and Current Employment Statistics from the Bureau of Labor Statistics.\footnote{Link to original BLS data: \href{https://research.stlouisfed.org/fred2/series/AWHI/downloaddata}{here}; last checked: November 21, 2015.} 
+The procedure employed to construct the shock series generally follows the steps as outlined by \citeauthor{JERMANNfinancial} in the online appendix. However, some steps have been corrected or adjusted in the calculation of the tfp shocks. These deviations will be addressed in the following. 
 
-First, the value for initial capital is set to $22.3833730671711$ such that there is no trend in the ratio of capital to real business gdp for the updated capital series. Second, the timing in the construction of the tfp shocks employed by \citeauthor{JERMANNfinancial} contradicts the calculation of the capital stock as specified in the online appendix. Adhering to the timing convention for the capital stock, TFP shocks in the current quarter need to be calculated using last quarter's end of period capital stock. 
-% To correct for this, TFP shocks are now based on capital from period $t-1$. 
+First, the value for initial capital is set to $22.3833730671711$ such that there is no trend in the ratio of capital to real business gdp for the updated capital series. Second, the timing in the construction of the tfp shocks employed by \citeauthor{JERMANNfinancial} contradicts the calculation of the capital stock as specified in the online appendix. Adhering to the timing convention for the capital stock, TFP shocks in the current quarter are calculated using last quarter's end of period capital stock in the replication of figure \ref{fig:figure_2}. 
 
-Third, the online appendix implies that the TFP series is calculated using 
-% business value added from NIPA (Table 1.3.5) divided by the price index for business value added from NIPA (Table 1.3.4). 
-business GDP.
-The original data set, however, reveals that \citeauthor{JERMANNfinancial} use real GDP to obtain their TFP values. The shocks used to replicate figure \ref{fig:figure_2} are constructed following the description in the online appendix. Comparing the results, it is obvious that the off-diagonal elements of the matrix $A$ are strongly influenced by the choice of GDP. 
+Third, the online appendix implies that the TFP shock series is calculated using business GDP. The original data set, however, reveals that \citeauthor{JERMANNfinancial} use real GDP to obtain their TFP values. The shocks used to replicate figure \ref{fig:figure_2} are constructed following the description in the online appendix. 
 
-% I discovered that, in order to replicate the exact results from the paper, one needs to use the data from the text files provided with the gauss code as using the excel files leads to slightly different results. This might be due to the fact that in the text file numbers are cut off after the 4th decimal.
-Additionlly, examining the presence of autocorrelation yields
-
-The graph shows that there is significant autocorrelation present in ${\epsilon}_{\xi,t+1}$ when considering the first to third lag.
-The correlation between the residuals is $0.6972$ when using the updated data in combination with business GDP as well as the corrected timing. 
-
-% This signifies an increase in correlation compared to $0.5543$ obtained for the original data. 
-
-% Adhering to the construction of tfp shocks from original data set yields a correlation between the residuals of $0.6150$ while using the corrected timing but real GDP results in a correlation of $0.5433$.
+Appendix \ref{sec:appendix_shock_construction} contains the estimates for matrix $A$ based on the updated data. The results indicate that the off-diagonal elements of matrix $A$ are strongly influenced by the corrections described above and in particular by the choice of GDP. 
+In addition, Appendix \ref{sec:appendix_shock_construction} contains figure to visually examine the presence of residual autocorrelation.
+The graph shows that there is significant autocorrelation present in ${\epsilon}_{\xi,t+1}$ when considering the first to third lag. This implies that the residuals do not resemble white noise in the VAR model. This is supported by the fact that there is a positive correlation between the residuals. As a consequence, the model might be misspecified.
