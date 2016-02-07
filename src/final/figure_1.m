@@ -4,10 +4,6 @@ Matlab figure by plotting equity payout and debt repurchase.
 Add recession areas to the plot by using data from recessiondates.mat. 
 %}
 
-% Dates = xlsread(project_paths('IN_DATA', 'DataSet_updated.xlsx'),'FFA', 'L9:L262');
-% equity = xlsread(project_paths('IN_DATA', 'DataSet_updated.xlsx'),'FFA', 'I9:I262');
-% debt = xlsread(project_paths('IN_DATA', 'DataSet_updated.xlsx'),'FFA', 'J9:J262');
-
 clear all
 close all
 
