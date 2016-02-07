@@ -27,7 +27,7 @@ hline.Color = 'k';
 hold off
 
 % use code from plot_NBER_recessions
-plothandle = plot(Dates, d, 'b', Dates, e, 'r--');
+plothandle = plot(Dates, d, 'b', Dates, e, 'r--', 'LineWidth',1.5);
 
 %adjust axes
 axis([1952 2015 -16 16])
@@ -42,6 +42,7 @@ recessiondates(recessiondates(:,2)<x_dates(1),:)=[];
 %set axes limits and step size
 set(gca, 'XTick', [1956:4:2015])
 set(gca, 'YTick', [-16:4:16])
+set(gca,'FontSize', 12);
 
 %add recession areas
 for ii=1:length(recessiondates)
