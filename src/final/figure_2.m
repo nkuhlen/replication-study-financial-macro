@@ -30,7 +30,8 @@ set(gca,'YLim',[-8 8]);
 L = get(gca,'XLim');
 set(gca,'XTick',linspace(L(1),L(2),NumTicks));
 set(gca,'XMinorTick','on');
-title('Level of productivity, z','Interpreter','latex', 'FontSize', FontSizeTitle, 'FontSize', FontSizeTitle);
+title('Level of productivity, z', ...
+	'Interpreter','latex', 'FontSize', FontSizeTitle, 'FontSize', FontSizeTitle);
 set(gca,'FontSize',FontSizeAxis);
 set(gca,'XTickLabel',['85(II)'; '88(II)'; '91(II)'; '94(II)'; '97(II)'; ...
 	'00(II)'; '03(II)'; '06(II)'; '09(II)';'12(II)'; '15(II)']);
@@ -45,7 +46,8 @@ set(gca,'YLim',[-8 8]);
 L = get(gca,'XLim');
 set(gca,'XTick',linspace(L(1),L(2),NumTicks));
 set(gca,'XMinorTick','on');
-title('Level of financial conditions, $\xi$','Interpreter','latex', 'FontSize', FontSizeTitle);
+title('Level of financial conditions, $\xi$', ...
+	'Interpreter','latex', 'FontSize', FontSizeTitle);
 set(gca,'FontSize',FontSizeAxis);
 set(gca,'XTickLabel',['85(II)'; '88(II)'; '91(II)'; '94(II)'; '97(II)'; ...
 	'00(II)'; '03(II)'; '06(II)'; '09(II)';'12(II)'; '15(II)']);
@@ -60,7 +62,8 @@ set(gca,'YLim',[-3 3]);
 L = get(gca,'XLim');
 set(gca,'XTick',linspace(L(1),L(2),NumTicks));
 set(gca,'XMinorTick','on');
-title('Innovations to productivity,  ${\epsilon}_{z}$','Interpreter','latex', 'FontSize', FontSizeTitle);
+title('Innovations to productivity,  ${\epsilon}_{z}$', ...
+	'Interpreter','latex', 'FontSize', FontSizeTitle);
 set(gca,'FontSize',FontSizeAxis);
 set(gca,'XTickLabel',['85(II)'; '88(II)'; '91(II)'; '94(II)'; '97(II)'; ...
 	'00(II)'; '03(II)'; '06(II)'; '09(II)';'12(II)'; '15(II)']);
@@ -75,7 +78,8 @@ set(gca,'YLim',[-3 3]);
 L = get(gca,'XLim');
 set(gca,'XTick',linspace(L(1),L(2),NumTicks));
 set(gca,'XMinorTick','on');
-title('Innovations to financial conditions,  ${\epsilon}_{\xi}$','Interpreter','latex', 'FontSize', FontSizeTitle);
+title('Innovations to financial conditions,  ${\epsilon}_{\xi}$', ...
+	'Interpreter','latex', 'FontSize', FontSizeTitle);
 set(gca,'FontSize',FontSizeAxis);
 set(gca,'XTickLabel',['85(II)'; '88(II)'; '91(II)'; '94(II)'; '97(II)'; ...
 	'00(II)'; '03(II)'; '06(II)'; '09(II)';'12(II)'; '15(II)']);
