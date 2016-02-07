@@ -16,10 +16,12 @@ load(project_paths('OUT_ANALYSIS', 'series_of_shocks.mat'));
 NumTicks =11;
 FontSizeTitle = 12;
 FontSizeAxis = 8;
+GraphColour = [0 0 0.5];
+GraphThickness = 1.4;
 
 figure
 subaxis(2,2,1, 'Spacing', 0.08);
-plot(TFPSeqa*100);
+plot(TFPSeqa*100, 'color', GraphColour, 'LineWidth', GraphThickness);
 axis tight;
 set(gca,'box','off');
 set(gca,'XLim',[1 120]);
@@ -33,8 +35,8 @@ set(gca,'XTickLabel',['85(II)'; '88(II)'; '91(II)'; '94(II)'; '97(II)'; ...
 	'00(II)'; '03(II)'; '06(II)'; '09(II)';'12(II)'; '15(II)']);
 
 % Create the bar chart in position 2 of a 2x2 grid
-subaxis(2,2,2, 'Spacing', 0.08)
-plot(xiSeqa*100)
+subaxis(2,2,2, 'Spacing', 0.08);
+plot(xiSeqa*100, 'color', GraphColour, 'LineWidth', GraphThickness);
 axis tight;
 set(gca,'box','off');
 set(gca,'XLim',[1 120]);
@@ -48,8 +50,8 @@ set(gca,'XTickLabel',['85(II)'; '88(II)'; '91(II)'; '94(II)'; '97(II)'; ...
 	'00(II)'; '03(II)'; '06(II)'; '09(II)';'12(II)'; '15(II)']);
 
 % Create the stem chart in position 3 of a 2x2 grid
-subaxis(2,2,3, 'Spacing', 0.08)
-plot(ResidualTFP*100)
+subaxis(2,2,3, 'Spacing', 0.08);
+plot(ResidualTFP*100, 'color', GraphColour, 'LineWidth', GraphThickness);
 axis tight;
 set(gca,'box','off');
 set(gca,'XLim',[1 120]);
@@ -63,8 +65,8 @@ set(gca,'XTickLabel',['85(II)'; '88(II)'; '91(II)'; '94(II)'; '97(II)'; ...
 	'00(II)'; '03(II)'; '06(II)'; '09(II)';'12(II)'; '15(II)']);
 
 % Create the line plot in position 4 of a 2x2 grid
-subaxis(2,2,4, 'Spacing', 0.08)
-plot(ResidualXi*100)
+subaxis(2,2,4, 'Spacing', 0.08);
+plot(ResidualXi*100, 'color', GraphColour, 'LineWidth', GraphThickness);
 axis tight;
 set(gca,'box','off');
 set(gca,'XLim',[1 120]);
