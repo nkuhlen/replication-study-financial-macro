@@ -13,11 +13,11 @@ addpath ../library/subaxis/
 load(project_paths('OUT_ANALYSIS', 'series_of_shocks.mat'));
 
 % Create the plot in position 1 of a 2x2 grid
-NumTicks =11;
-FontSizeTitle = 12;
 FontSizeAxis = 8;
+FontSizeTitle = 12;
 GraphColour = [0 0 0.5];
 GraphThickness = 1.4;
+NumTicks =11;
 
 figure
 % Create plot in position 1 of a 2x2 grid
