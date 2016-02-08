@@ -7,7 +7,7 @@ financial shocks.
 clear all;
 close all;
 
-%% Start translation of Gauss code. This includes all variable names and comments
+%% Start translation of Gauss code. This includes all variable names and comments.
 ARmx = zeros(2,2);
 
 % load DATASET TO COSTRUCT CREDIT SHOCKS

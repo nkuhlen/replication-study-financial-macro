@@ -29,11 +29,11 @@ CapExp      = DataFFA(:,6);
 CapCon1     = DataFFA(:,7);
 CapCon2     = DataFFA(:,8);
 
-NomBusGdp = transpose(horzcat(
-    BusinessValueAddedUntil1969, BusinessValueAddedFrom1970
+NomBusGdp = transpose(horzcat( ...
+    BusinessValueAddedUntil1969, BusinessValueAddedFrom1970 ...
 ));
-BusPrice = transpose(horzcat(
-    BusinessPriceIndexUntil1969, BusinessPriceIndexFrom1970
+BusPrice = transpose(horzcat( ...
+    BusinessPriceIndexUntil1969, BusinessPriceIndexFrom1970 ...
 ));
 
 
