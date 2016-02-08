@@ -1,6 +1,6 @@
 %{ 
-Basic translation of Gauss code from Jermann and Quadrini (2012) as provided 
-online to matlab code.
+Translation of Gauss code from Jermann and Quadrini (2012) as provided 
+online to matlab using the updated data to construct tfp shocks and financial shocks .
 %}
 
 clear all;
@@ -57,7 +57,6 @@ ARmx = zeros(2,2);
 ARmx(1,:) = regress(TFPSeqa_t_1,X);
 ARmx(2,:) = regress(xiSeqa_t_1,X);
 
-ARmx
 % End of translation of Gauss code.
 
 % Store residuals
