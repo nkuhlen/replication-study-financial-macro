@@ -38,14 +38,17 @@ BusPrice = transpose(horzcat( ...
 
 
 %% Prepare data needed to replicate figure 1
+
+%% Equity Payout
 % Equity Payout is calculated as net dividends of nonfinancial and farm business 
-% minus net increase in corporate equities minus proprietors’ net investment and
+% minus net increase in corporate equities minus proprietors' net investment and
 % divided by Business GDP times 1000.
 EquityPayout 	= (NetDividendsNonFinancialBusiness ...
                 + NetDividendsFarmBusiness ...
                 - NetIncreaseCoprorateEquities ...
                 - ProprietorsNetInvestment)./(NomBusGdp*1000);
 
+%% Debt Repurchase
 % Debt Repurchase is the negative of net increase in debt, normalized by 
 % Business GDP times 1000.
 DebtRepurchase	= (-NetBorrow)./(NomBusGdp*1000);
