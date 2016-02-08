@@ -1,22 +1,17 @@
 %{ 
-Translation of Gauss code from Jermann and Quadrini (2012) as provided 
-online to matlab using the updated data to construct tfp shocks and financial shocks .
+Translation of Gauss code from Jermann and Quadrini (2012) as provided online 
+as 'MainProg.gau' to matlab using the updated data to construct tfp shocks and 
+financial shocks.
 %}
 
 clear all;
 close all;
 
+%% Start translation of Gauss code. This includes all variable names and comments
+ARmx = zeros(2,2);
+
+% load DATASET TO COSTRUCT CREDIT SHOCKS
 load(project_paths('OUT_DATA', 'updated_data.mat'));
-
-% Start translation of Gauss code.
-NomDebt = zeros(size(Dates,1)+1,1);
-
-NomDebt(1) = 94.12;
-
-for t = 1:1:size(Dates,1)
-  NomDebt(t+1)=NomDebt(t)+NetBorrow(t)*0.00025;
-  t=t+1;
-end;
 
 RealCap = RealCap(2:size(Dates,1)+1);
 NomDebt = NomDebt(2:size(Dates,1)+1);
@@ -37,6 +32,8 @@ NomCap = NomCap(Dates>=StartPeriod,:);
 dDataSet=detrend(DataSet, 'linear');
 tDataSet=DataSet-dDataSet;
 
+
+% CONSTRUCT SEQUENCE OF SHOCKS and VAR   
 mcoefy = 1;
 mcoefk = -1.5489;
 mcoefb = 0.5489;
@@ -53,13 +50,12 @@ xiSeqa_t_1 = xiSeqa(2:end);
 
 X = horzcat(TFPSeqa_t, xiSeqa_t);
 
-ARmx = zeros(2,2);
 ARmx(1,:) = regress(TFPSeqa_t_1,X);
 ARmx(2,:) = regress(xiSeqa_t_1,X);
 
 % End of translation of Gauss code.
 
-% Store residuals
+%% Store residuals
 [b1,bint1,ResidualTFP] = regress(TFPSeqa_t_1,X);
 [b2,bint2,ResidualXi] = regress(xiSeqa_t_1,X);
 

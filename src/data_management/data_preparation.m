@@ -1,6 +1,8 @@
 %{ 
-Programme to prepare the data needed to replicate figure 1 and the shock construction as 
-described in the online appendix of Jermann and Quadrini (2012).
+Programme to prepare the data needed to replicate figure 1 and the shock 
+construction as described in the online appendix of Jermann and Quadrini (2012).
+The variable names correspond exactly to the ones used in the code available in 
+the online appendix.
 %}
 
 %% Import data and define variables 
@@ -45,6 +47,10 @@ DebtRepurchase	= (-NetBorrow)./(NomBusGdp*1000);
 
 
 %% Prepare data needed for shock construction 
+% The procedure as well as variable names follow MainProg.gau provided online by
+% Jermann and Quadrini (2012) 
+
+% Capital
 % Initialize capital with a vector from 1951Q4-2015Q2 (end of period capital stock)
 RealCap = NaN(length(Dates) + 1, 1);
 
@@ -62,6 +68,18 @@ for index = 2:length(RealCap)
                         CapCon1(index - 1) - CapCon2(index - 1)) * ...
                         0.00025/BusPrice(index - 1);
 end
+
+% Debt
+% Initialize debt with a vector from 1951Q4-2015Q2 
+NomDebt = NaN(length(Dates) + 1, 1);
+NomDebt(1) = 94.12;
+
+% Compute values for 1952Q1 - 2015Q2
+for t = 1:1:size(Dates,1)
+  NomDebt(t+1)=NomDebt(t)+NetBorrow(t)*0.00025;
+  t=t+1;
+end;
+
 
 %% Calculate TFP series for 1964Q1 - 2015Q2
 % Set start and end date
@@ -89,4 +107,4 @@ save(project_paths('OUT_DATA', 'updated_data.mat'), 'NetIncreaseCoprorateEquitie
      'NetDividendsNonFinancialBusiness', 'NetDividendsFarmBusiness', ...
      'ProprietorsNetInvestment', 'Dates', 'NetBorrow', 'CapExp', ...
      'CapCon1', 'CapCon2', 'NomBusGdp', 'BusPrice', 'RealCap', 'TFP', ...
-     'EquityPayout', 'DebtRepurchase');
+     'EquityPayout', 'DebtRepurchase', 'NomDebt');
