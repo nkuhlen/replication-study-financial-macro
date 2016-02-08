@@ -98,7 +98,7 @@ EndDate = 2015.25;
 EndIndex = find(Dates == EndDate);
 
 % Set technology parameter as defined by Jermann and Quadrini
-Theta = 0.64;
+theta = 0.64;
 
 % Create vectors for the time period as specified above
 TFP	                = NaN(length(Dates(StartIndex + 1:EndIndex)), 1);
@@ -108,7 +108,7 @@ RealCapTruncated	= RealCap(StartIndex + 1:EndIndex + 1, 1);
 		
 % Compute the values for start_date+1 until end_date
 TFP= log(NomBusGdpTruncated(2:end)./BusPriceTruncated(2:end)) - ...
-		(1 - Theta)*log(RealCapTruncated(1:end-1)) -  Theta*log(Hours(2:end));
+		(1 - theta)*log(RealCapTruncated(1:end-1)) -  theta*log(Hours(2:end));
 
 
 %% Save series to matlab dataset
