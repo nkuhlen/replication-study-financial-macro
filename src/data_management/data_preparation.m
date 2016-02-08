@@ -1,6 +1,6 @@
 %{ 
-Programme to prepare the data needed to replicate figure 1 and the shock construction 
-as described in the online appendix of Jermann and Quadrini (2012).
+Programme to prepare the data needed to replicate figure 1 and the shock construction as 
+described in the online appendix of Jermann and Quadrini (2012).
 %}
 
 %% Import data and define variables 
@@ -39,22 +39,21 @@ EquityPayout 	= (NetDividendsNonFinancialBusiness ...
                 - NetIncreaseCoprorateEquities ...
                 - ProprietorsNetInvestment)./(NomBusGdp*1000);
 
-% Debt Repurchase is the negative of net increase in debt, normalized by
-% Business GDP times 1000.
+% Debt Repurchase is the negative of net increase in debt, normalized by Business
+% GDP times 1000.
 DebtRepurchase	= (-NetBorrow)./(NomBusGdp*1000);
 
 
 %% Prepare data needed for shock construction 
-% Initialize capital with a vector from 1951Q4-2015Q2 (end of
-% period capital stock)
+% Initialize capital with a vector from 1951Q4-2015Q2 (end of period capital stock)
 RealCap = NaN(length(Dates) + 1, 1);
 
-% Define initial value for capital such that there is no trend in the ratio of
-% capital to real business gdp over the entire sample.
+% Define initial value for capital such that there is no trend in the ratio of capital
+% to real business gdp over the entire sample.
 CapitalInit = 22.38;
 
-% Initialize value for 1951Q4, i.e. the capital stock that is
-% around at the beginning of the first period in the sample.
+% Initialize value for 1951Q4, i.e. the capital stock that is around at the beginning
+% of the first period in the sample.
 RealCap(1, 1) = CapitalInit;
 
 % Compute values for 1952Q1 - 2015Q2
@@ -75,7 +74,7 @@ EndIndex = find(Dates == EndDate);
 Theta = 0.64;
 
 % Create vectors for the time period as specified above
-TFP		 			= NaN(length(Dates(StartIndex + 1:EndIndex)), 1);
+TFP	                = NaN(length(Dates(StartIndex + 1:EndIndex)), 1);
 NomBusGdpTruncated 	= NomBusGdp(StartIndex:EndIndex, 1);
 BusPriceTruncated 	= BusPrice(StartIndex:EndIndex, 1);
 RealCapTruncated	= RealCap(StartIndex + 1:EndIndex + 1, 1);
