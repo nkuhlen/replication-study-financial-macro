@@ -10,32 +10,31 @@ close all
 %Load data to create figure 1.
 load(project_paths('OUT_DATA', 'updated_data.mat'));
 
-%create figure
+% Create figure
 figure
 
-%scale variables to match figure from paper
+% Scale variables to match figure from paper
 d = DebtRepurchase*100;
 e = EquityPayout*100;
 
-%add recession areas
+% Add recession areas
 load(project_paths('IN_DATA', 'recessiondates.mat'))
 
-%add reference line at y=0
+% Add reference line at y=0
 hold on
 hline = refline (0);
 hline.Color = 'k';
 hold off
 
-% use code from plot_NBER_recessions
 plothandle = plot(Dates, d, 'b', Dates, e, 'r--', 'LineWidth',1.5);
 
-%adjust axes
+% Adjust axes
 axis([1952 2015 -16 16])
 aaa=ylim;
 bottom=aaa(1,1);
 top=aaa(1,2);
 
-%delete dates that happen before first data point
+% Delete dates that happen before first data point
 x_dates=xlim;
 recessiondates(recessiondates(:,2)<x_dates(1),:)=[];
 
@@ -44,20 +43,23 @@ set(gca, 'XTick', [1956:4:2015])
 set(gca, 'YTick', [-16:4:16])
 set(gca,'FontSize', 12);
 
-%add recession areas
+% Add recession areas
 for ii=1:length(recessiondates)
 hold on
-ha = area([recessiondates(ii,1) recessiondates(ii,2)], [bottom top-bottom; bottom top-bottom],'FaceColor',[0 0.7 0.8],'EdgeColor','white');
+ha = area([recessiondates(ii,1) recessiondates(ii,2)], ...
+	[bottom top-bottom; bottom top-bottom],'FaceColor',[0 0.7 0.8], ...
+	'EdgeColor','white');
 set(ha(1), 'FaceColor', 'none') % this makes the bottom area invisible
 set(ha, 'LineStyle', '-')
 end
 ylim(aaa)
 
+% Add legend
 legend('Debt repurchase', 'Equity payout', 'Location','northwest')
 uistack(plothandle,'top')
 set(gca,'Layer','top')
 
-%this exports a graphic without white space
+% Export graphic without white space
 ti = get(gca,'TightInset');
 set(gca,'Position',[ti(1) ti(2) 1-ti(3)-ti(1) 1-ti(4)-ti(2)]);
 

@@ -28,8 +28,13 @@ NetBorrow   = DataFFA(:,1);
 CapExp      = DataFFA(:,6);
 CapCon1     = DataFFA(:,7);
 CapCon2     = DataFFA(:,8);
-NomBusGdp   = transpose(horzcat(BusinessValueAddedUntil1969, BusinessValueAddedFrom1970));
-BusPrice    = transpose(horzcat(BusinessPriceIndexUntil1969, BusinessPriceIndexFrom1970));
+
+NomBusGdp = transpose(horzcat(
+    BusinessValueAddedUntil1969, BusinessValueAddedFrom1970
+));
+BusPrice = transpose(horzcat(
+    BusinessPriceIndexUntil1969, BusinessPriceIndexFrom1970
+));
 
 
 %% Prepare data needed to replicate figure 1
@@ -41,8 +46,8 @@ EquityPayout 	= (NetDividendsNonFinancialBusiness ...
                 - NetIncreaseCoprorateEquities ...
                 - ProprietorsNetInvestment)./(NomBusGdp*1000);
 
-% Debt Repurchase is the negative of net increase in debt, normalized by Business
-% GDP times 1000.
+% Debt Repurchase is the negative of net increase in debt, normalized by 
+% Business GDP times 1000.
 DebtRepurchase	= (-NetBorrow)./(NomBusGdp*1000);
 
 
@@ -50,16 +55,17 @@ DebtRepurchase	= (-NetBorrow)./(NomBusGdp*1000);
 % The procedure as well as variable names follow MainProg.gau provided online by
 % Jermann and Quadrini (2012) 
 
-% Capital
-% Initialize capital with a vector from 1951Q4-2015Q2 (end of period capital stock)
+%% Capital
+% Initialize capital with a vector from 1951Q4-2015Q2 (end of period capital 
+% stock)
 RealCap = NaN(length(Dates) + 1, 1);
 
-% Define initial value for capital such that there is no trend in the ratio of capital
-% to real business gdp over the entire sample.
+% Define initial value for capital such that there is no trend in the ratio of 
+% capital to real business gdp over the entire sample.
 CapitalInit = 22.38;
 
-% Initialize value for 1951Q4, i.e. the capital stock that is around at the beginning
-% of the first period in the sample.
+% Initialize value for 1951Q4, i.e. the capital stock that is around at the 
+% beginning of the first period in the sample.
 RealCap(1, 1) = CapitalInit;
 
 % Compute values for 1952Q1 - 2015Q2
@@ -69,7 +75,7 @@ for index = 2:length(RealCap)
                         0.00025/BusPrice(index - 1);
 end
 
-% Debt
+%% Debt
 % Initialize debt with a vector from 1951Q4-2015Q2 
 NomDebt = NaN(length(Dates) + 1, 1);
 NomDebt(1) = 94.12;
@@ -99,7 +105,7 @@ RealCapTruncated	= RealCap(StartIndex + 1:EndIndex + 1, 1);
 		
 % Compute the values for start_date+1 until end_date
 TFP= log(NomBusGdpTruncated(2:end)./BusPriceTruncated(2:end)) - ...
-			(1 - Theta)*log(RealCapTruncated(1:end-1)) -  Theta*log(Hours(2:end));
+		(1 - Theta)*log(RealCapTruncated(1:end-1)) -  Theta*log(Hours(2:end));
 
 
 %% Save series to matlab dataset
