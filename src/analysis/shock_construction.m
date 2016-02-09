@@ -8,7 +8,7 @@ clear all;
 close all;
 
 %% Start translation of Gauss code. This includes all variable names and comments.
-ARmx = zeros(2,2);
+ARmx = NaN(2,2);
 
 % load DATASET TO COSTRUCT CREDIT SHOCKS
 load(project_paths('OUT_DATA', 'updated_data.mat'));
