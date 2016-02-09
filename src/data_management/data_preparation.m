@@ -97,6 +97,8 @@ end
 %% Debt
 % Initialize debt with a vector from 1951Q4-2015Q2 
 NomDebt = NaN(length(Dates) + 1, 1);
+
+% Define initial value for capital used by Jermann and Quadrini
 NomDebt(1) = 94.12;
 
 % Compute values for 1952Q1 - 2015Q2
