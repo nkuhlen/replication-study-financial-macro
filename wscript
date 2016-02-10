@@ -25,6 +25,10 @@ def set_project_paths(ctx):
     # No need to distinguish between in/out for library (just Waf-internal)
     pp['LIBRARY'] = 'src/library'
 
+    # Make separate project paths for dynare files, where inputs and outputs
+    # are saved.
+    pp['DYNARE_FILES'] = 'src/analysis/dynare_files'
+
     # Convert the directories into Waf nodes.
     for key, val in pp.items():
         pp[key] = ctx.path.make_node(val)
