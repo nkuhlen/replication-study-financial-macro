@@ -15,7 +15,6 @@
 *.ind
 *.log
 *.lot
-*.mod
 *.nav
 *.o
 *.out
@@ -37,6 +36,8 @@ waf3-*
 *latexmk
 *synctex.gz
 .*
+*~
+*#
 .*pdfsvn
 __pycache__
 analysis_out
