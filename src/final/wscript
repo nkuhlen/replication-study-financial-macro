@@ -57,3 +57,14 @@ def build(ctx):
         ],
         name='table_matrix_a'
     )
+
+    ctx(
+        features='run_m_script',
+        source='figure_5.m',
+        target=ctx.path_to(ctx, 'OUT_FIGURES', 'figure_5.pdf'),
+        deps=[
+            ctx.path_to(ctx, 'OUT_ANALYSIS', 'baseline_simulation.mat'),
+            ctx.path_to(ctx, 'OUT_DATA', 'updated_data.mat')
+        ],
+        name='figure_5'
+    )
