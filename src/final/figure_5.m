@@ -22,11 +22,11 @@ load(path_out_simulation)
 % Read in observed data from data management
 load(path_to_data)
 
-timeline = DatesEstimation(2:end);
-gdp_data = RealGdpLogDiff(2:end);
-hours_data = HoursEstimation(2:end);
-debt_data = DebtRepurchaseDetrended(2:end);
-equity_data = EquityPayoutDetrended(2:end);
+timeline = DatesEstimation;
+gdp_data = RealGdpLogDiff;
+hours_data = HoursEstimation;
+debt_data = DebtRepurchaseDetrended;
+equity_data = EquityPayoutDetrended;
 
 %% Plot comparison graphs
 % Plot

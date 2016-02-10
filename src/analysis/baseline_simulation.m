@@ -29,7 +29,7 @@ initial_condition_states = repmat(oo_.dr.ys,1,M_.maximum_lag);
 % Create a matrix where the first row corresponds to the innovations to
 % aggregate productivity and the second row to the innovations in financial
 % conditions.
-shock_matrix = horzcat(ResidualTFP(2:end), ResidualXi(2:end));
+shock_matrix = horzcat(ResidualTFP, ResidualXi);
 
 % Simulate with original innovation processes
 model_simul = simult_(initial_condition_states,oo_.dr,shock_matrix,1);
