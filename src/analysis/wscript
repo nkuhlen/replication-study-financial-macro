@@ -14,3 +14,28 @@ def build(ctx):
         ],
         name='shock_construction'
     )
+
+    for model in 'baseline', :
+        ctx(
+            features='run_m_script',
+            source=ctx.path_to(
+                ctx, 'DYNARE_FILES', 'run_{}_model.m'.format(model)
+            ),
+            target=ctx.path_to(
+                ctx, 'OUT_ANALYSIS', '{}_model_results.mat'.format(model)
+            ),
+            name='run_{}_model'.format(model)
+        )
+
+    ctx(
+        features='run_m_script',
+        source='baseline_simulation.m',
+        target=ctx.path_to(
+            ctx, 'OUT_ANALYSIS', 'baseline_simulation.mat'
+        ),
+        deps=[
+            ctx.path_to(ctx, 'OUT_ANALYSIS', 'baseline_model_results.mat'),
+            ctx.path_to(ctx, 'OUT_ANALYSIS', 'shock_innovations.mat')
+        ],
+        name='baseline_simulation'
+    )
