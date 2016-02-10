@@ -29,8 +29,7 @@ RealGDPFrom1970 = xlsread( ...
     project_paths('IN_DATA', 'NIPA_Hist_from_1969.xlsx'), ...
     '10106 Qtr', 'H10:GH10');
 Hours = xlsread( ...
-    project_paths('IN_DATA', 'AWHI.xlsx'), ...
-    'AWHI', 'B25:B231');
+    project_paths('IN_DATA', 'AWHI.xlsx'), 'AWHI', 'B25:B231');
 
 % Define variables
 NetIncreaseCoprorateEquities        = DataFFA(:,2);
@@ -174,9 +173,12 @@ RealBusGdpLogDiff = detrend( ...
 % Proportional deviations of real total gdp described as above.
 RealGdpLogDiff = detrend(log(RealGdp(StartIndexEstimation:EndIndexEstimation)));
 
+% Read in hours starting from 1984
+HoursTruncated = xlsread( ...
+    project_paths('IN_DATA', 'AWHI.xlsx'), 'AWHI', 'B105:B231');
+
 % Proportional deviations of working hours described as above.
-HoursNew = csvread(project_paths('IN_DATA', 'index_hours_bea_original.csv'), 1, 1);
-HoursEstimation = detrend(log(HoursNew));
+HoursEstimation = detrend(log(HoursTruncated));
 
 
 %% Save series to matlab datasets
