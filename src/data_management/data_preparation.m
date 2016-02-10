@@ -9,28 +9,28 @@ the online appendix where applicable.
 % Import data from the original data files using waf
 DataFFA = xlsread( ...
     project_paths('IN_DATA', 'FRB_Z1.xlsx'), ...
-    'Sheet1', 'B8:I261');
+    'Sheet1', 'B8:I262');
 BusinessValueAddedUntil1969 = xlsread( ...
     project_paths('IN_DATA', 'NIPA_Hist_until_1969.xlsx'), ...
     '10305 Qtr', 'X11:CQ11');
 BusinessValueAddedFrom1970 = xlsread( ...
     project_paths('IN_DATA', 'NIPA_Hist_from_1969.xlsx'), ...
-    '10305 Qtr', 'H11:GG11');
+    '10305 Qtr', 'H11:GH11');
 BusinessPriceIndexUntil1969 = xlsread( ...
     project_paths('IN_DATA', 'NIPA_Hist_until_1969.xlsx'), ...
     '10304 Qtr', 'X11:CQ11');
 BusinessPriceIndexFrom1970 = xlsread( ...
     project_paths('IN_DATA', 'NIPA_Hist_from_1969.xlsx'), ...
-    '10304 Qtr', 'H11:GG11');
+    '10304 Qtr', 'H11:GH11');
 RealGDPUntil1969 = xlsread( ...
     project_paths('IN_DATA', 'NIPA_Hist_until_1969.xlsx'), ...
     '10106 Qtr', 'X10:CQ10');
 RealGDPFrom1970 = xlsread( ...
     project_paths('IN_DATA', 'NIPA_Hist_from_1969.xlsx'), ...
-    '10106 Qtr', 'H10:GG10');
+    '10106 Qtr', 'H10:GH10');
 Hours = xlsread( ...
     project_paths('IN_DATA', 'AWHI.xlsx'), ...
-    'AWHI', 'B25:B230');
+    'AWHI', 'B25:B231');
 
 % Define variables
 NetIncreaseCoprorateEquities        = DataFFA(:,2);
@@ -43,7 +43,7 @@ RealGdp = transpose(horzcat( ...
 ));
 
 % Define variables using exact names from Jermann and Quadrini
-Dates       = transpose(1952:0.25:2015.25);
+Dates       = transpose(1952:0.25:2015.5);
 NetBorrow   = DataFFA(:,1);
 CapExp      = DataFFA(:,6);
 CapCon1     = DataFFA(:,7);
@@ -116,7 +116,7 @@ end;
 % Set start and end date
 StartDate = 1964.0;
 StartIndex = find(Dates == StartDate);
-EndDate = 2015.25;
+EndDate = 2015.5;
 EndIndex = find(Dates == EndDate);
 
 % Set technology parameter as defined by Jermann and Quadrini
@@ -133,21 +133,24 @@ TFP= log(NomBusGdpTruncated(2:end)./BusPriceTruncated(2:end)) - ...
 		(1 - theta)*log(RealCapTruncated(1:end-1)) -  theta*log(Hours(2:end));
 
 
-%% Prepare estimation sample
+%% Prepare sample for simulation and estimation
 % Define period
 StartDateEstimation = 1984.0;
 StartIndexEstimation = find(Dates == StartDateEstimation);
-EndDateEstimation = 2015.25;
+EndDateEstimation = 2015.5;
 EndIndexEstimation = find(Dates == EndDateEstimation);
 
 %Truncate timeline
-DatesEstimation = Dates(StartIndexEstimation:EndIndexEstimation);
+DatesEstimation = transpose(Dates(StartIndexEstimation:EndIndexEstimation));
 
 % Calculate linearly detrended series for equity payout and debt repurchase
 % from 1984 onwards as they are used for comparing both model simulations to
 % the data.
-EquityPayoutDetrended = detrend(EquityPayout(StartIndexEstimation:EndIndexEstimation));
-DebtRepurchaseDetrended = detrend(DebtRepurchase(StartIndexEstimation:EndIndexEstimation));
+EquityPayoutDetrended = detrend( ...
+    EquityPayout(StartIndexEstimation:EndIndexEstimation));
+
+DebtRepurchaseDetrended = detrend( ...
+    DebtRepurchase(StartIndexEstimation:EndIndexEstimation));
 
 % Calculate proportional deviations of capital via log differencing and
 % demeaning for the 1984-2015 subsample. Note that here the trend is not
@@ -157,29 +160,35 @@ RealCapLogDiff = detrend(log(RealCap(StartIndexEstimation:EndIndexEstimation)));
 
 % Calculate real debt and calculate proportional deviations of debt by the same 
 % procedure described for capital.
-RealDebt = NomDebt./BusPrice;
-RealDebtLogDiff = detrend(log(RealDebt(StartIndexEstimation:EndIndexEstimation)));
+RealDebt = NomDebt(2:end)./BusPrice;
+RealDebtLogDiff = detrend( ...
+    log(RealDebt(StartIndexEstimation:EndIndexEstimation)));
 
 % Real business value added calculated for whole sample by dividing the series
 % for business value added by the business price index. Then, calculate 
 % proportional deviations as described above
 RealBusGdp = NomBusGdp ./ BusPrice;
-RealBusGdpLogDiff = detrend(log(RealBusGdp(StartIndexEstimation:EndIndexEstimation)));
+RealBusGdpLogDiff = detrend( ...
+    log(RealBusGdp(StartIndexEstimation:EndIndexEstimation)));
 
 % Proportional deviations of real total gdp described as above.
 RealGdpLogDiff = detrend(log(RealGdp(StartIndexEstimation:EndIndexEstimation)));
 
 % Proportional deviations of working hours described as above.
-HoursEstimation = Hours(start_index:end_index);
+HoursNew = csvread(project_paths('IN_DATA', 'index_hours_bea_original.csv'), 1, 1);
+HoursEstimation = detrend(log(HoursNew));
 
 
-%% Save series to matlab dataset
+%% Save series to matlab datasets
 % Save data set for figure 1 and shock construction
-save(project_paths('OUT_DATA', 'updated_data.mat'), 'NetIncreaseCoprorateEquities', ...
-     'NetDividendsNonFinancialBusiness', 'NetDividendsFarmBusiness', ...
-     'ProprietorsNetInvestment', 'Dates', 'NetBorrow', 'CapExp', ...
-     'CapCon1', 'CapCon2', 'NomBusGdp', 'BusPrice', 'RealCap', 'TFP', ...
-     'EquityPayout', 'DebtRepurchase', 'NomDebt');
+save(project_paths('OUT_DATA', 'updated_data.mat'), ...
+    'NetIncreaseCoprorateEquities', 'NetDividendsNonFinancialBusiness', ...
+    'NetDividendsFarmBusiness', 'ProprietorsNetInvestment', 'Dates', ...
+    'NetBorrow', 'CapExp', 'CapCon1', 'CapCon2', 'NomBusGdp', 'BusPrice', ...
+    'RealCap', 'TFP', 'EquityPayout', 'DebtRepurchase', 'NomDebt');
 
 % Save estimation sample
-save(project_paths('OUT_DATA', 'estimation_sample.mat'), );
+save(project_paths('OUT_DATA', 'estimation_sample.mat'), 'DatesEstimation', ...
+    'EquityPayoutDetrended', 'DebtRepurchaseDetrended', 'RealCapLogDiff', ...
+    'RealDebtLogDiff', 'RealBusGdpLogDiff', 'RealGdpLogDiff', ...
+    'HoursEstimation');
