@@ -7,13 +7,13 @@
 % Use these paths for waf
 path_dynare_output = project_paths('OUT_ANALYSIS', ...
                                   'baseline_model_results.mat');
-path_to_shocks = project_paths('OUT_ANALYSIS', 'shock_innovations.mat');
+path_to_shocks = project_paths('OUT_ANALYSIS', 'series_of_shocks.mat');
 path_out_analysis = project_paths('OUT_ANALYSIS', ...
                                  'baseline_simulation.mat');
 
 % And these for use in matlab IDE
 % path_dynare_output = '../../bld/out/analysis/baseline_model_results.mat';
-% path_to_shocks = '../../bld/out/analysis/shock_innovations.mat';
+% path_to_shocks = '../../bld/out/analysis/series_of_shocks.mat';
 % path_out_analysis = '../../bld/out/analysis/baseline_simulation.mat';
 
 %% Load in data
@@ -29,7 +29,7 @@ initial_condition_states = repmat(oo_.dr.ys,1,M_.maximum_lag);
 % Create a matrix where the first row corresponds to the innovations to
 % aggregate productivity and the second row to the innovations in financial
 % conditions.
-shock_matrix = horzcat(prod_innovations, fin_innovations);
+shock_matrix = horzcat(TFPSeqa, xiSeqa);
 
 % Simulate with original innovation processes
 model_simul = simult_(initial_condition_states,oo_.dr,shock_matrix,1);
