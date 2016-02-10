@@ -6,13 +6,13 @@
 
 % Paths for waf
 path_out_simulation = project_paths('OUT_ANALYSIS', 'baseline_simulation.mat');
-path_to_data = project_paths('OUT_DATA', 'dataset.mat');
-path_out_figure = project_paths('OUT_FIGURES', 'figure5.pdf');
+path_to_data = project_paths('OUT_DATA', 'estimation_sample.mat');
+path_out_figure = project_paths('OUT_FIGURES', 'figure_5.pdf');
 
 % Path for matlab IDE
 % path_out_simulation = '../../bld/out/analysis/baseline_simulation.mat';
-% path_to_data = '../../bld/out/data/dataset.mat';
-% path_out_figure = '../../bld/out/figures/figure5.pdf';
+% path_to_data = '../../bld/out/data/estimation_sample.mat';
+% path_out_figure = '../../bld/out/figures/figure_5.pdf';
 
 %% Load and define data
 
@@ -22,11 +22,11 @@ load(path_out_simulation)
 % Read in observed data from data management
 load(path_to_data)
 
-timeline = timeline.estimation_sample(2:end);
-gdp_data = total_output.log_diff(2:end);
-hours_data = working_hours.log_diff(2:end);
-debt_data = debt_repurchase.detrended(2:end) ./ 100;
-equity_data = equity_payout.detrended(2:end) ./ 100;
+timeline = DatesEstimation(2:end);
+gdp_data = RealGdpLogDiff(2:end);
+hours_data = HoursEstimation(2:end);
+debt_data = DebtRepurchaseDetrended(2:end);
+equity_data = EquityPayoutDetrended(2:end);
 
 %% Plot comparison graphs
 % Plot
