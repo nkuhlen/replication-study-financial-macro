@@ -35,7 +35,7 @@ def build(ctx):
         ),
         deps=[
             ctx.path_to(ctx, 'OUT_ANALYSIS', 'baseline_model_results.mat'),
-            ctx.path_to(ctx, 'OUT_ANALYSIS', 'shock_innovations.mat')
+            ctx.path_to(ctx, 'OUT_ANALYSIS', 'series_of_shocks.mat')
         ],
         name='baseline_simulation'
     )
