@@ -22,20 +22,14 @@ load(path_out_simulation)
 % Read in observed data from data management
 load(path_to_data)
 
-timeline = DatesEstimation;
-gdp_data = RealGdpLogDiff;
-hours_data = HoursEstimation;
-debt_data = DebtRepurchaseDetrended;
-equity_data = EquityPayoutDetrended;
-
 %% Plot comparison graphs
 % Plot
 figure;
 set(gcf, 'visible', 'off');
     subplot(2, 2, 1)
-    plot(timeline, gdp_data, 'color', [0 0.6 0])
+    plot(DatesEstimation, RealGdpLogDiff, 'color', [0 0.6 0])
     hold on
-    plot(timeline, baseline_simul.yhat, '--b');
+    plot(DatesEstimation, baseline_simul.yhat, '--b');
     set(gca, 'XLimMode', 'manual', 'XLim', [1985 2015.25]);
     set(gca, 'YLimMode', 'manual', 'YLim', [-0.14 0.08]);
     h1 = legend('Data', 'Model');
@@ -44,9 +38,9 @@ set(gcf, 'visible', 'off');
     title('GDP');
     
     subplot(2, 2, 2)
-    plot(timeline, hours_data, 'color', [0 0.6 0])
+    plot(DatesEstimation, HoursEstimation, 'color', [0 0.6 0])
     hold on
-    plot(timeline, baseline_simul.nhat, '--b')
+    plot(DatesEstimation, baseline_simul.nhat, '--b')
     set(gca, 'XLimMode', 'manual', 'XLim', [1985 2015.25]);
     set(gca, 'YLimMode', 'manual', 'YLim', [-0.14 0.08]);
     h2 = legend('Data', 'Model');
@@ -54,9 +48,9 @@ set(gcf, 'visible', 'off');
     title('Hours worked');
     
     subplot(2, 2, 3)
-    plot(timeline, debt_data, 'color', [0 0.6 0])
+    plot(DatesEstimation, DebtRepurchaseDetrended, 'color', [0 0.6 0])
     hold on
-    plot(timeline, baseline_simul.byhat, '--b')
+    plot(DatesEstimation, baseline_simul.byhat, '--b')
     set(gca, 'XlimMode', 'manual', 'XLim', [1985 2015.25]);
     set(gca, 'YLimMode', 'manual', 'YLim', [-0.12 0.15]);
     h3 = legend('Data', 'Model');
@@ -64,9 +58,9 @@ set(gcf, 'visible', 'off');
     title('Debt repurchase');
     
     subplot(2, 2, 4)
-    plot(timeline, equity_data, 'color', [0 0.6 0])
+    plot(DatesEstimation, EquityPayoutDetrended, 'color', [0 0.6 0])
     hold on
-    plot(timeline, detrend(baseline_simul.dyhat), '--b')
+    plot(DatesEstimation, detrend(baseline_simul.dyhat), '--b')
     set(gca, 'XlimMode', 'manual', 'XLim', [1985 2015.25]);
     set(gca, 'YLimMode', 'manual', 'YLim', [-0.12 0.15]);
     h4 = legend('Data', 'Model');
