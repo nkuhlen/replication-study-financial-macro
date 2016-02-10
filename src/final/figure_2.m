@@ -19,7 +19,10 @@ GraphColour = [0 0 0.5];
 GraphThickness = 1.4;
 NumTicks =11;
 
+% Create figure
 figure
+set(gcf, 'visible', 'off')
+
 % Create plot in position 1 of a 2x2 grid
 subaxis(2,2,1, 'Spacing', 0.08);
 plot(TFPSeqa*100, 'color', GraphColour, 'LineWidth', GraphThickness);

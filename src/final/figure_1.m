@@ -12,6 +12,7 @@ load(project_paths('OUT_DATA', 'updated_data.mat'));
 
 % Create figure
 figure
+set(gcf, 'visible', 'off')
 
 % Scale variables to match figure from paper
 d = DebtRepurchase*100;
