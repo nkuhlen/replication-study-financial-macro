@@ -9,6 +9,7 @@ close all
 
 %Load data to create figure 1.
 load(project_paths('OUT_DATA', 'updated_data.mat'));
+load(project_paths('IN_DATA', 'recessiondates.mat'))
 
 % Create figure
 figure
@@ -17,9 +18,6 @@ set(gcf, 'visible', 'off')
 % Scale variables to match figure from paper
 d = DebtRepurchase*100;
 e = EquityPayout*100;
-
-% Add recession areas
-load(project_paths('IN_DATA', 'recessiondates.mat'))
 
 % Add reference line at y=0
 hold on
