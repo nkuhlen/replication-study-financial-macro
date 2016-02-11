@@ -34,7 +34,7 @@ FontSizeTitle = 14;
 Margin = 0.05;
 NumTicksX = 11;
 NumTicksY = 10;
-Spacing = 0.08;
+Spacing = 0.1;
 SpacingHoriz = 0.08;
 
 
