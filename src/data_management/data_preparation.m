@@ -132,7 +132,7 @@ TFP= log(NomBusGdpTruncated(2:end)./BusPriceTruncated(2:end)) - ...
 		(1 - theta)*log(RealCapTruncated(1:end-1)) -  theta*log(Hours(2:end));
 
 
-%% Prepare sample for simulation and estimation
+%% Prepare subsample for simulation and estimation
 % Define period
 StartDateEstimation = 1984.0;
 StartIndexEstimation = find(Dates == StartDateEstimation);
