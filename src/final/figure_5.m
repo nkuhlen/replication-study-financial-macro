@@ -31,7 +31,8 @@ load(path_to_data)
 FontSizeAxis = 9;
 FontSizeLegend = 9;
 FontSizeTitle = 16;
-GraphColourData = [0 0.6 0];
+GraphColourData = [0.34509803921569 0.69803921568627 0.21176470588235];
+GraphColourModel =[0.16862745098039 0.24313725490196 0.57254901960784];
 GraphThickness = 1.5;
 Margin = 0.05;
 NumTicksX = 11;
@@ -50,8 +51,8 @@ subaxis(2, 2, 1, 'Spacing', Spacing, 'Margin', Margin, ...
 plot(Estimation.Dates, Estimation.RealGdp*100, 'color', GraphColourData, ...
 	'LineWidth', GraphThickness)
 hold on
-plot(Estimation.Dates, baseline_simul.yhat*100, '--b', 'LineWidth', ...
-	GraphThickness);
+plot(Estimation.Dates, baseline_simul.yhat*100, 'color', GraphColourModel, ...
+	'LineWidth', GraphThickness, 'LineStyle', '--');
 axis tight;
 set(gca,'box','off');
 set(gca, 'XLimMode', 'manual', 'XLim', [1985 2015.25]);
@@ -73,8 +74,8 @@ subaxis(2, 2, 2, 'Spacing', Spacing, 'Margin', Margin, ...
 plot(Estimation.Dates, Estimation.Hours*100, 'color', ...
 	GraphColourData, 'LineWidth', GraphThickness)
 hold on
-plot(Estimation.Dates, baseline_simul.nhat*100, '--b', ...
-	'LineWidth', GraphThickness)
+plot(Estimation.Dates, baseline_simul.nhat*100, 'color', GraphColourModel, ...
+	'LineWidth', GraphThickness, 'LineStyle', '--');
 axis tight;
 set(gca,'box','off');
 set(gca, 'XLimMode', 'manual', 'XLim', [1985 2015.25]);
@@ -96,8 +97,8 @@ subaxis(2, 2, 3, 'Spacing', Spacing, 'Margin', Margin, ...
 plot(Estimation.Dates, Estimation.DebtRepurchase*100, 'color', ...
 	GraphColourData, 'LineWidth', GraphThickness)
 hold on
-plot(Estimation.Dates, baseline_simul.byhat*100, '--b', ...
-	'LineWidth', GraphThickness)
+plot(Estimation.Dates, baseline_simul.byhat*100, 'color', GraphColourModel, ...
+	'LineWidth', GraphThickness, 'LineStyle', '--');
 axis tight;
 set(gca,'box','off');
 set(gca, 'XlimMode', 'manual', 'XLim', [1985 2015.25]);
@@ -120,8 +121,8 @@ subaxis(2, 2, 4, 'Spacing', Spacing, 'Margin', Margin, ...
 plot(Estimation.Dates, Estimation.EquityPayout*100, 'color', ...
 	GraphColourData, 'LineWidth', GraphThickness)
 hold on
-plot(Estimation.Dates, detrend(baseline_simul.dyhat)*100, '--b', ...
-	'LineWidth', GraphThickness)
+plot(Estimation.Dates, detrend(baseline_simul.dyhat)*100, 'color', ...
+	GraphColourModel, 'LineWidth', GraphThickness, 'LineStyle', '--');
 axis tight;
 set(gca,'box','off');
 set(gca, 'XlimMode', 'manual', 'XLim', [1985 2015.25]);

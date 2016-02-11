@@ -48,8 +48,8 @@ set(gca,'FontSize', 12);
 for ii=1:length(recessiondates)
 hold on
 ha = area([recessiondates(ii,1) recessiondates(ii,2)], ...
-	[bottom top-bottom; bottom top-bottom],'FaceColor',[0 0.7 0.8], ...
-	'EdgeColor','white');
+	[bottom top-bottom; bottom top-bottom],'FaceColor', ...
+	[0.37254901960784 0.75686274509804 0.82745098039216], 'EdgeColor','white');
 set(ha(1), 'FaceColor', 'none') % this makes the bottom area invisible
 set(ha, 'LineStyle', '-')
 end
