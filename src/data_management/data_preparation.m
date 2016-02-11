@@ -37,9 +37,7 @@ NetDividendsNonFinancialBusiness    = DataFFA(:,3);
 NetDividendsFarmBusiness            = DataFFA(:,4);
 ProprietorsNetInvestment            = DataFFA(:,5);
 
-RealGdp = transpose(horzcat( ...
-    RealGDPUntil1969, RealGDPFrom1970 ...
-));
+RealGdp = transpose(horzcat(RealGDPUntil1969, RealGDPFrom1970));
 
 % Define variables using exact names from Jermann and Quadrini
 Dates       = transpose(1952:0.25:2015.5);
@@ -155,7 +153,8 @@ Estimation.DebtRepurchase = detrend( ...
 % demeaning for the 1984-2015 subsample. Note that here the trend is not
 % necessarily zero, so a difference between linearly detrending and
 % demeaning might exist.
-Estimation.RealCap = detrend(log(RealCap(StartIndexEstimation:EndIndexEstimation)));
+Estimation.RealCap = detrend( ...
+    log(RealCap(StartIndexEstimation:EndIndexEstimation)));
 
 % Calculate real debt and calculate proportional deviations of debt by the same 
 % procedure described for capital.
@@ -165,15 +164,16 @@ Estimation.RealDebt = detrend( ...
 
 % Real business value added calculated for whole sample by dividing the series
 % for business value added by the business price index. Then, calculate 
-% proportional deviations as described above
+% proportional deviations as described above.
 RealBusGdp = NomBusGdp ./ BusPrice;
 Estimation.RealBus = detrend( ...
     log(RealBusGdp(StartIndexEstimation:EndIndexEstimation)));
 
 % Proportional deviations of real total gdp described as above.
-Estimation.RealGdp = detrend(log(RealGdp(StartIndexEstimation:EndIndexEstimation)));
+Estimation.RealGdp = detrend( ...
+    log(RealGdp(StartIndexEstimation:EndIndexEstimation)));
 
-% Read in hours starting from 1984
+% Read in hours starting from 1984.
 HoursTruncated = xlsread( ...
     project_paths('IN_DATA', 'AWHI.xlsx'), 'AWHI', 'B105:B231');
 
@@ -187,4 +187,5 @@ save(project_paths('OUT_DATA', 'updated_data.mat'), ...
     'NetIncreaseCoprorateEquities', 'NetDividendsNonFinancialBusiness', ...
     'NetDividendsFarmBusiness', 'ProprietorsNetInvestment', 'Dates', ...
     'NetBorrow', 'CapExp', 'CapCon1', 'CapCon2', 'NomBusGdp', 'BusPrice', ...
-    'RealCap', 'TFP', 'EquityPayout', 'DebtRepurchase', 'NomDebt', 'Estimation');
+    'RealCap', 'TFP', 'EquityPayout', 'DebtRepurchase', 'NomDebt', ...
+    'Estimation');
