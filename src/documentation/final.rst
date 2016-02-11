@@ -3,7 +3,7 @@
 Visualisation and results formatting
 =====================================
 
-Documentation of the code in **final**.
+Documentation of the code in **final**. Note that the module names of the code replicating figures from the paper correspond to the respective figure numbers in the original paper by Jermann and Quadrini (2012).
 
 :file:`autocorrelogram.m`:
 
