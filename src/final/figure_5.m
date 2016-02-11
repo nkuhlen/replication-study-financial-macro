@@ -9,7 +9,7 @@ addpath ../library/subaxis/
 
 % Paths for waf
 path_out_simulation = project_paths('OUT_ANALYSIS', 'baseline_simulation.mat');
-path_to_data = project_paths('OUT_DATA', 'estimation_sample.mat');
+path_to_data = project_paths('OUT_DATA', 'updated_data.mat');
 path_out_figure = project_paths('OUT_FIGURES', 'figure_5.pdf');
 
 % Path for matlab IDE
@@ -30,9 +30,9 @@ load(path_to_data)
 figure;
 set(gcf, 'visible', 'off');
     subaxis(2, 2, 1, 'Spacing', 0.08);
-    plot(DatesEstimation, RealGdpLogDiff, 'color', [0 0.6 0])
+    plot(Estimation.Dates, Estimation.RealGdp, 'color', [0 0.6 0])
     hold on
-    plot(DatesEstimation, baseline_simul.yhat, '--b');
+    plot(Estimation.Dates, baseline_simul.yhat, '--b');
     axis tight;
     set(gca, 'XLimMode', 'manual', 'XLim', [1985 2015.25]);
     set(gca, 'YLimMode', 'manual', 'YLim', [-0.14 0.08]);
@@ -41,9 +41,9 @@ set(gcf, 'visible', 'off');
     title('GDP');
     
     subaxis(2, 2, 2, 'Spacing', 0.08);
-    plot(DatesEstimation, HoursEstimation, 'color', [0 0.6 0])
+    plot(Estimation.Dates, Estimation.Hours, 'color', [0 0.6 0])
     hold on
-    plot(DatesEstimation, baseline_simul.nhat, '--b')
+    plot(Estimation.Dates, baseline_simul.nhat, '--b')
     axis tight;
     set(gca, 'XLimMode', 'manual', 'XLim', [1985 2015.25]);
     set(gca, 'YLimMode', 'manual', 'YLim', [-0.14 0.08]);
@@ -52,9 +52,9 @@ set(gcf, 'visible', 'off');
     title('Hours worked');
     
     subaxis(2, 2, 3, 'Spacing', 0.08);
-    plot(DatesEstimation, DebtRepurchaseDetrended, 'color', [0 0.6 0])
+    plot(Estimation.Dates, Estimation.DebtRepurchase, 'color', [0 0.6 0])
     hold on
-    plot(DatesEstimation, baseline_simul.byhat, '--b')
+    plot(Estimation.Dates, baseline_simul.byhat, '--b')
     axis tight;
     set(gca, 'XlimMode', 'manual', 'XLim', [1985 2015.25]);
     set(gca, 'YLimMode', 'manual', 'YLim', [-0.12 0.15]);
@@ -63,9 +63,9 @@ set(gcf, 'visible', 'off');
     title('Debt repurchase');
     
     subaxis(2, 2, 4, 'Spacing', 0.08);
-    plot(DatesEstimation, EquityPayoutDetrended, 'color', [0 0.6 0])
+    plot(Estimation.Dates, Estimation.EquityPayout, 'color', [0 0.6 0])
     hold on
-    plot(DatesEstimation, detrend(baseline_simul.dyhat), '--b')
+    plot(Estimation.Dates, detrend(baseline_simul.dyhat), '--b')
     axis tight;
     set(gca, 'XlimMode', 'manual', 'XLim', [1985 2015.25]);
     set(gca, 'YLimMode', 'manual', 'YLim', [-0.12 0.15]);

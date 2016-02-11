@@ -140,45 +140,45 @@ EndDateEstimation = 2015.5;
 EndIndexEstimation = find(Dates == EndDateEstimation);
 
 %Truncate timeline
-DatesEstimation = transpose(Dates(StartIndexEstimation:EndIndexEstimation));
+Estimation.Dates = transpose(Dates(StartIndexEstimation:EndIndexEstimation));
 
 % Calculate linearly detrended series for equity payout and debt repurchase
 % from 1984 onwards as they are used for comparing both model simulations to
 % the data.
-EquityPayoutDetrended = detrend( ...
+Estimation.EquityPayout = detrend( ...
     EquityPayout(StartIndexEstimation:EndIndexEstimation));
 
-DebtRepurchaseDetrended = detrend( ...
+Estimation.DebtRepurchase = detrend( ...
     DebtRepurchase(StartIndexEstimation:EndIndexEstimation));
 
 % Calculate proportional deviations of capital via log differencing and
 % demeaning for the 1984-2015 subsample. Note that here the trend is not
 % necessarily zero, so a difference between linearly detrending and
 % demeaning might exist.
-RealCapLogDiff = detrend(log(RealCap(StartIndexEstimation:EndIndexEstimation)));
+Estimation.RealCap = detrend(log(RealCap(StartIndexEstimation:EndIndexEstimation)));
 
 % Calculate real debt and calculate proportional deviations of debt by the same 
 % procedure described for capital.
 RealDebt = NomDebt(2:end)./BusPrice;
-RealDebtLogDiff = detrend( ...
+Estimation.RealDebt = detrend( ...
     log(RealDebt(StartIndexEstimation:EndIndexEstimation)));
 
 % Real business value added calculated for whole sample by dividing the series
 % for business value added by the business price index. Then, calculate 
 % proportional deviations as described above
 RealBusGdp = NomBusGdp ./ BusPrice;
-RealBusGdpLogDiff = detrend( ...
+Estimation.RealBus = detrend( ...
     log(RealBusGdp(StartIndexEstimation:EndIndexEstimation)));
 
 % Proportional deviations of real total gdp described as above.
-RealGdpLogDiff = detrend(log(RealGdp(StartIndexEstimation:EndIndexEstimation)));
+Estimation.RealGdp = detrend(log(RealGdp(StartIndexEstimation:EndIndexEstimation)));
 
 % Read in hours starting from 1984
 HoursTruncated = xlsread( ...
     project_paths('IN_DATA', 'AWHI.xlsx'), 'AWHI', 'B105:B231');
 
 % Proportional deviations of working hours described as above.
-HoursEstimation = detrend(log(HoursTruncated));
+Estimation.Hours = detrend(log(HoursTruncated));
 
 
 %% Save series to matlab datasets
@@ -187,10 +187,4 @@ save(project_paths('OUT_DATA', 'updated_data.mat'), ...
     'NetIncreaseCoprorateEquities', 'NetDividendsNonFinancialBusiness', ...
     'NetDividendsFarmBusiness', 'ProprietorsNetInvestment', 'Dates', ...
     'NetBorrow', 'CapExp', 'CapCon1', 'CapCon2', 'NomBusGdp', 'BusPrice', ...
-    'RealCap', 'TFP', 'EquityPayout', 'DebtRepurchase', 'NomDebt');
-
-% Save estimation sample
-save(project_paths('OUT_DATA', 'estimation_sample.mat'), 'DatesEstimation', ...
-    'EquityPayoutDetrended', 'DebtRepurchaseDetrended', 'RealCapLogDiff', ...
-    'RealDebtLogDiff', 'RealBusGdpLogDiff', 'RealGdpLogDiff', ...
-    'HoursEstimation');
+    'RealCap', 'TFP', 'EquityPayout', 'DebtRepurchase', 'NomDebt', 'Estimation');

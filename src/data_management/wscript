@@ -7,8 +7,7 @@ def build(ctx):
         features='run_m_script',
         source='data_preparation.m',
         target=[
-            ctx.path_to(ctx, 'OUT_DATA', 'updated_data.mat'),
-            ctx.path_to(ctx, 'OUT_DATA', 'estimation_sample.mat')
+            ctx.path_to(ctx, 'OUT_DATA', 'updated_data.mat')
         ],
         deps=[
             ctx.path_to(ctx, 'IN_DATA', 'FRB_Z1.xlsx'),
