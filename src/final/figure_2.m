@@ -39,9 +39,6 @@ set(gca,'XTick',linspace(L1(1),L1(2),NumTicksX));
 set(gca,'XMinorTick','on');
 set(gca,'XTickLabel',['85(II)'; '88(II)'; '91(II)'; '94(II)'; '97(II)'; ...
 	'00(II)'; '03(II)'; '06(II)'; '09(II)';'12(II)'; '15(II)']);
-% L2 = get(gca,'YLim');
-% set(gca,'YTick',linspace(L2(1),L2(2),9));
-% set(gca,'YTickLabel', -8:2:8);
 set(gca,'FontSize',FontSizeAxis);
 title('Level of productivity, z', ...
 	'Interpreter','latex', 'FontSize', FontSizeTitle);
@@ -58,9 +55,6 @@ set(gca,'XTick',linspace(L1(1),L1(2),NumTicksX));
 set(gca,'XMinorTick','on');
 set(gca,'XTickLabel',['85(II)'; '88(II)'; '91(II)'; '94(II)'; '97(II)'; ...
 	'00(II)'; '03(II)'; '06(II)'; '09(II)';'12(II)'; '15(II)']);
-% L2 = get(gca,'YLim');
-% set(gca,'YTick',linspace(L2(1),L2(2),9));
-% set(gca,'YTickLabel', -8:2:8);
 set(gca,'FontSize',FontSizeAxis);
 title('Level of financial conditions, $\xi$', ...
 	'Interpreter','latex', 'FontSize', FontSizeTitle);
@@ -77,9 +71,6 @@ set(gca,'XTick',linspace(L1(1),L1(2),NumTicksX));
 set(gca,'XMinorTick','on');
 set(gca,'XTickLabel',['85(II)'; '88(II)'; '91(II)'; '94(II)'; '97(II)'; ...
 	'00(II)'; '03(II)'; '06(II)'; '09(II)';'12(II)'; '15(II)']);
-% L2 = get(gca,'YLim');
-% set(gca,'YTick',linspace(L2(1),L2(2),9));
-% set(gca,'YTickLabel', -3:1:3);
 set(gca,'FontSize',FontSizeAxis);
 title('Innovations to productivity,  ${\epsilon}_{z}$', ...
 	'Interpreter','latex', 'FontSize', FontSizeTitle);
@@ -96,9 +87,6 @@ set(gca,'XTick',linspace(L1(1),L1(2),NumTicksX));
 set(gca,'XMinorTick','on');
 set(gca,'XTickLabel',['85(II)'; '88(II)'; '91(II)'; '94(II)'; '97(II)'; ...
 	'00(II)'; '03(II)'; '06(II)'; '09(II)';'12(II)'; '15(II)']);
-% L2 = get(gca,'YLim');
-% set(gca,'YTick',linspace(L2(1),L2(2),9));
-% set(gca,'YTickLabel', -3:1:3);
 set(gca,'FontSize',FontSizeAxis);
 title('Innovations to financial conditions,  ${\epsilon}_{\xi}$', ...
 	'Interpreter','latex', 'FontSize', FontSizeTitle);
