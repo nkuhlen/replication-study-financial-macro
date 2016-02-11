@@ -37,7 +37,6 @@ set(gcf, 'visible', 'off');
     set(gca, 'XLimMode', 'manual', 'XLim', [1985 2015.25]);
     set(gca, 'YLimMode', 'manual', 'YLim', [-0.14 0.08]);
     h1 = legend('Data', 'Model');
-    % h1.Location = 'southwest';
     set(h1, 'fontsize', 4, 'Location', 'southwest');
     title('GDP');
     
