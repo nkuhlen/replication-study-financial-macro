@@ -5,7 +5,7 @@ def build(ctx):
 
     ctx(
         features='run_m_script',
-        source='figure_1.m',
+        source='replication_figure_1.m',
         target=ctx.path_to(
             ctx, 'OUT_FIGURES', 'figure_1.pdf'
         ),
@@ -17,7 +17,7 @@ def build(ctx):
 
     ctx(
         features='run_m_script',
-        source='figure_2.m',
+        source='replication_figure_2.m',
         target=[
             ctx.path_to(
                 ctx, 'OUT_FIGURES', 'figure_2.pdf'
@@ -43,7 +43,7 @@ def build(ctx):
         deps=[
             ctx.path_to(ctx, 'OUT_ANALYSIS', 'series_of_shocks.mat'),
         ],
-        name='futocorrelogram'
+        name='autocorrelogram'
     )
 
     ctx(
@@ -60,7 +60,7 @@ def build(ctx):
 
     ctx(
         features='run_m_script',
-        source='figure_5.m',
+        source='replication_figure_5.m',
         target=ctx.path_to(ctx, 'OUT_FIGURES', 'figure_5.pdf'),
         deps=[
             ctx.path_to(ctx, 'OUT_ANALYSIS', 'baseline_simulation.mat'),

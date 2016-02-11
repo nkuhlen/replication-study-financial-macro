@@ -11,21 +11,21 @@ Documentation of the code in **final**. Note that the module names of the code r
    :start-after: %{
    :end-before: %}
 
-:file:`figure_1.m`:
+:file:`replication_figure_1.m`:
 
-.. include:: ../final/figure_1.m
+.. include:: ../final/replication_figure_1.m
    :start-after: %{
    :end-before: %}
 
-:file:`figure_2.m`:
+:file:`replication_figure_2.m`:
 
-.. include:: ../final/figure_2.m
+.. include:: ../final/replication_figure_2.m
    :start-after: %{
    :end-before: %}
 
-:file:`figure_5.m`:
+:file:`replication_figure_5.m`:
 
-.. include:: ../final/figure_5.m
+.. include:: ../final/replication_figure_5.m
    :start-after: %{
    :end-before: %}
 
