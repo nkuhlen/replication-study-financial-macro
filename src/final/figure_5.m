@@ -29,12 +29,14 @@ load(path_to_data)
 
 % Define plot properties
 FontSizeAxis = 9;
-FontSizeLegend = 8;
-FontSizeTitle = 14;
+FontSizeLegend = 9;
+FontSizeTitle = 16;
+GraphColourData = [0 0.6 0];
+GraphThickness = 1.5;
 Margin = 0.05;
 NumTicksX = 11;
 NumTicksY = 10;
-Spacing = 0.1;
+Spacing = 0.12;
 SpacingHoriz = 0.08;
 
 
@@ -45,9 +47,11 @@ set(gcf, 'visible', 'off');
 % Create plot in position 1 of a 2x2 grid
 subaxis(2, 2, 1, 'Spacing', Spacing, 'Margin', Margin, ...
     'SpacingHoriz', SpacingHoriz);
-plot(Estimation.Dates, Estimation.RealGdp*100, 'color', [0 0.6 0])
+plot(Estimation.Dates, Estimation.RealGdp*100, 'color', GraphColourData, ...
+	'LineWidth', GraphThickness)
 hold on
-plot(Estimation.Dates, baseline_simul.yhat*100, '--b');
+plot(Estimation.Dates, baseline_simul.yhat*100, '--b', 'LineWidth', ...
+	GraphThickness);
 axis tight;
 set(gca,'box','off');
 set(gca, 'XLimMode', 'manual', 'XLim', [1985 2015.25]);
@@ -55,7 +59,7 @@ set(gca, 'YLimMode', 'manual', 'YLim', [-14 10]);
 L = get(gca,'XLim');
 set(gca,'XTick',linspace(L(1),L(2),NumTicksX));
 set(gca,'XMinorTick','on');
-set(gca,'XTickLabel',['85(II)'; '88(II)'; '90(IV)'; '93(IV)'; '96(IV)'; ...
+set(gca,'XTickLabel',['85(II)'; '88(I) '; '90(IV)'; '93(IV)'; '96(IV)'; ...
     '99(IV)'; '02(IV)'; '05(IV)'; '08(IV)';'11(IV)'; '14(IV)']);
 set(gca,'YTick', -14:2:10);
 set(gca,'FontSize',FontSizeAxis);
@@ -66,9 +70,11 @@ title('GDP', 'Interpreter','latex', 'FontSize', FontSizeTitle);
 % Create plot in position 2 of a 2x2 grid
 subaxis(2, 2, 2, 'Spacing', Spacing, 'Margin', Margin, ...
     'SpacingHoriz', SpacingHoriz);
-plot(Estimation.Dates, Estimation.Hours*100, 'color', [0 0.6 0])
+plot(Estimation.Dates, Estimation.Hours*100, 'color', ...
+	GraphColourData, 'LineWidth', GraphThickness)
 hold on
-plot(Estimation.Dates, baseline_simul.nhat*100, '--b')
+plot(Estimation.Dates, baseline_simul.nhat*100, '--b', ...
+	'LineWidth', GraphThickness)
 axis tight;
 set(gca,'box','off');
 set(gca, 'XLimMode', 'manual', 'XLim', [1985 2015.25]);
@@ -76,7 +82,7 @@ set(gca, 'YLimMode', 'manual', 'YLim', [-14 10]);
 L = get(gca,'XLim');
 set(gca,'XTick',linspace(L(1),L(2),NumTicksX));
 set(gca,'XMinorTick','on');
-set(gca,'XTickLabel',['85(II)'; '88(II)'; '90(IV)'; '93(IV)'; '96(IV)'; ...
+set(gca,'XTickLabel',['85(II)'; '88(I) '; '90(IV)'; '93(IV)'; '96(IV)'; ...
     '99(IV)'; '02(IV)'; '05(IV)'; '08(IV)';'11(IV)'; '14(IV)']);
 set(gca,'YTick', -14:2:10);
 set(gca,'FontSize',FontSizeAxis);
@@ -87,9 +93,11 @@ title('Hours worked', 'Interpreter','latex', 'FontSize', FontSizeTitle);
 % Create plot in position 3 of a 2x2 grid
 subaxis(2, 2, 3, 'Spacing', Spacing, 'Margin', Margin, ...
     'SpacingHoriz', SpacingHoriz);
-plot(Estimation.Dates, Estimation.DebtRepurchase*100, 'color', [0 0.6 0])
+plot(Estimation.Dates, Estimation.DebtRepurchase*100, 'color', ...
+	GraphColourData, 'LineWidth', GraphThickness)
 hold on
-plot(Estimation.Dates, baseline_simul.byhat*100, '--b')
+plot(Estimation.Dates, baseline_simul.byhat*100, '--b', ...
+	'LineWidth', GraphThickness)
 axis tight;
 set(gca,'box','off');
 set(gca, 'XlimMode', 'manual', 'XLim', [1985 2015.25]);
@@ -97,7 +105,7 @@ set(gca, 'YLimMode', 'manual', 'YLim', [-12 15]);
 L1 = get(gca,'XLim');
 set(gca,'XTick',linspace(L1(1),L1(2),NumTicksX));
 set(gca,'XMinorTick','on');
-set(gca,'XTickLabel',['85(II)'; '88(II)'; '90(IV)'; '93(IV)'; '96(IV)'; ...
+set(gca,'XTickLabel',['85(II)'; '88(I) '; '90(IV)'; '93(IV)'; '96(IV)'; ...
     '99(IV)'; '02(IV)'; '05(IV)'; '08(IV)';'11(IV)'; '14(IV)']);
 set(gca,'FontSize',FontSizeAxis);
 L2 = get(gca,'YLim');
@@ -109,9 +117,11 @@ title('Debt repurchase', 'Interpreter','latex', 'FontSize', FontSizeTitle);
 % Create plot in position 4 of a 2x2 grid
 subaxis(2, 2, 4, 'Spacing', Spacing, 'Margin', Margin, ...
     'SpacingHoriz', SpacingHoriz);
-plot(Estimation.Dates, Estimation.EquityPayout*100, 'color', [0 0.6 0])
+plot(Estimation.Dates, Estimation.EquityPayout*100, 'color', ...
+	GraphColourData, 'LineWidth', GraphThickness)
 hold on
-plot(Estimation.Dates, detrend(baseline_simul.dyhat)*100, '--b')
+plot(Estimation.Dates, detrend(baseline_simul.dyhat)*100, '--b', ...
+	'LineWidth', GraphThickness)
 axis tight;
 set(gca,'box','off');
 set(gca, 'XlimMode', 'manual', 'XLim', [1985 2015.25]);
@@ -119,7 +129,7 @@ set(gca, 'YLimMode', 'manual', 'YLim', [-12 15]);
 L = get(gca,'XLim');
 set(gca,'XTick',linspace(L(1),L(2),NumTicksX));
 set(gca,'XMinorTick','on');
-set(gca,'XTickLabel',['85(II)'; '88(II)'; '90(IV)'; '93(IV)'; '96(IV)'; ...
+set(gca,'XTickLabel',['85(II)'; '88(I) '; '90(IV)'; '93(IV)'; '96(IV)'; ...
     '99(IV)'; '02(IV)'; '05(IV)'; '08(IV)';'11(IV)'; '14(IV)']);
 set(gca,'FontSize',FontSizeAxis);
 L2 = get(gca,'YLim');

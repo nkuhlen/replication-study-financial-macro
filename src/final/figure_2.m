@@ -14,11 +14,11 @@ load(project_paths('OUT_ANALYSIS', 'series_of_shocks.mat'));
 
 % Define plot properties
 FontSizeAxis = 9;
-FontSizeTitle = 15;
+FontSizeTitle = 16;
 GraphColour = [0 0 0.5];
-GraphThickness = 1.8;
+GraphThickness = 1.7;
 NumTicksX = 11;
-Spacing = 0.10;
+Spacing = 0.12;
 Margin = 0.05;
 SpacingHoriz = 0.08;
 
