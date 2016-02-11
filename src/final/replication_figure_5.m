@@ -43,11 +43,11 @@ Spacing = 0.12;
 SpacingHoriz = 0.08;
 
 
-% Create figure
+%% Create figure
 figure;
 set(gcf, 'visible', 'off');
 
-% Create plot in position 1 of a 2x2 grid
+%% Create plot in position 1 of a 2x2 grid
 subaxis(2, 2, 1, 'Spacing', Spacing, 'Margin', Margin, ...
     'SpacingHoriz', SpacingHoriz);
 plot(Estimation.Dates, Estimation.RealGdp*100, 'color', GraphColourData, ...
@@ -55,8 +55,10 @@ plot(Estimation.Dates, Estimation.RealGdp*100, 'color', GraphColourData, ...
 hold on
 plot(Estimation.Dates, baseline_simul.yhat*100, 'color', GraphColourModel, ...
 	'LineWidth', GraphThickness, 'LineStyle', '--');
-axis tight;
 set(gca,'box','off');
+
+% Adjust axes.
+axis tight;
 set(gca, 'XLimMode', 'manual', 'XLim', [1985 2015.25]);
 set(gca, 'YLimMode', 'manual', 'YLim', [-14 10]);
 L = get(gca,'XLim');
@@ -66,11 +68,14 @@ set(gca,'XTickLabel',['85(II)'; '88(I) '; '90(IV)'; '93(IV)'; '96(IV)'; ...
     '99(IV)'; '02(IV)'; '05(IV)'; '08(IV)';'11(IV)'; '14(IV)']);
 set(gca,'YTick', -14:2:10);
 set(gca,'FontSize',FontSizeAxis);
+
+% Add legend and title.
 h1 = legend('Data', 'Model');
 set(h1, 'fontsize', FontSizeLegend, 'Location', 'southwest');
 title('GDP', 'Interpreter','latex', 'FontSize', FontSizeTitle);
 
-% Create plot in position 2 of a 2x2 grid
+
+%% Create plot in position 2 of a 2x2 grid
 subaxis(2, 2, 2, 'Spacing', Spacing, 'Margin', Margin, ...
     'SpacingHoriz', SpacingHoriz);
 plot(Estimation.Dates, Estimation.Hours*100, 'color', ...
@@ -78,8 +83,10 @@ plot(Estimation.Dates, Estimation.Hours*100, 'color', ...
 hold on
 plot(Estimation.Dates, baseline_simul.nhat*100, 'color', GraphColourModel, ...
 	'LineWidth', GraphThickness, 'LineStyle', '--');
-axis tight;
 set(gca,'box','off');
+
+% Adjust axes.
+axis tight;
 set(gca, 'XLimMode', 'manual', 'XLim', [1985 2015.25]);
 set(gca, 'YLimMode', 'manual', 'YLim', [-14 10]);
 L = get(gca,'XLim');
@@ -89,11 +96,14 @@ set(gca,'XTickLabel',['85(II)'; '88(I) '; '90(IV)'; '93(IV)'; '96(IV)'; ...
     '99(IV)'; '02(IV)'; '05(IV)'; '08(IV)';'11(IV)'; '14(IV)']);
 set(gca,'YTick', -14:2:10);
 set(gca,'FontSize',FontSizeAxis);
+
+% Add legend and title.
 h2 = legend('Data', 'Model');
 set(h2, 'fontsize', FontSizeLegend, 'Location', 'southwest');
 title('Hours worked', 'Interpreter','latex', 'FontSize', FontSizeTitle);
 
-% Create plot in position 3 of a 2x2 grid
+
+%% Create plot in position 3 of a 2x2 grid
 subaxis(2, 2, 3, 'Spacing', Spacing, 'Margin', Margin, ...
     'SpacingHoriz', SpacingHoriz);
 plot(Estimation.Dates, Estimation.DebtRepurchase*100, 'color', ...
@@ -101,8 +111,10 @@ plot(Estimation.Dates, Estimation.DebtRepurchase*100, 'color', ...
 hold on
 plot(Estimation.Dates, baseline_simul.byhat*100, 'color', GraphColourModel, ...
 	'LineWidth', GraphThickness, 'LineStyle', '--');
-axis tight;
 set(gca,'box','off');
+
+% Adjust axes.
+axis tight;
 set(gca, 'XlimMode', 'manual', 'XLim', [1985 2015.25]);
 set(gca, 'YLimMode', 'manual', 'YLim', [-12 15]);
 L1 = get(gca,'XLim');
@@ -113,11 +125,14 @@ set(gca,'XTickLabel',['85(II)'; '88(I) '; '90(IV)'; '93(IV)'; '96(IV)'; ...
 set(gca,'FontSize',FontSizeAxis);
 L2 = get(gca,'YLim');
 set(gca,'YTick',linspace(L2(1),L2(2), NumTicksY));
+
+% Add legend and title.
 h3 = legend('Data', 'Model');
 set(h3, 'fontsize', FontSizeLegend, 'Location', 'southwest');
 title('Debt repurchase', 'Interpreter','latex', 'FontSize', FontSizeTitle);
 
-% Create plot in position 4 of a 2x2 grid
+
+%% Create plot in position 4 of a 2x2 grid
 subaxis(2, 2, 4, 'Spacing', Spacing, 'Margin', Margin, ...
     'SpacingHoriz', SpacingHoriz);
 plot(Estimation.Dates, Estimation.EquityPayout*100, 'color', ...
@@ -125,8 +140,10 @@ plot(Estimation.Dates, Estimation.EquityPayout*100, 'color', ...
 hold on
 plot(Estimation.Dates, detrend(baseline_simul.dyhat)*100, 'color', ...
 	GraphColourModel, 'LineWidth', GraphThickness, 'LineStyle', '--');
-axis tight;
 set(gca,'box','off');
+
+% Adjust axes.
+axis tight;
 set(gca, 'XlimMode', 'manual', 'XLim', [1985 2015.25]);
 set(gca, 'YLimMode', 'manual', 'YLim', [-12 15]);
 L = get(gca,'XLim');
@@ -137,6 +154,8 @@ set(gca,'XTickLabel',['85(II)'; '88(I) '; '90(IV)'; '93(IV)'; '96(IV)'; ...
 set(gca,'FontSize',FontSizeAxis);
 L2 = get(gca,'YLim');
 set(gca,'YTick',linspace(L2(1),L2(2), NumTicksY));
+
+% Add legend and title.
 h4 = legend('Data', 'Model');
 set(h4, 'fontsize', FontSizeLegend, 'Location', 'southwest');
 title('Equity payout', 'Interpreter','latex', 'FontSize', FontSizeTitle);
