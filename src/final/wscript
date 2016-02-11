@@ -20,7 +20,7 @@ def build(ctx):
         source='figure_2.m',
         target=[
             ctx.path_to(
-                ctx, 'OUT_FIGURES', 'figure_2.png'
+                ctx, 'OUT_FIGURES', 'figure_2.pdf'
             )
         ],
         deps=[

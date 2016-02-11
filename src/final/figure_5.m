@@ -4,6 +4,9 @@
 
 %% Path settings
 
+% Add path to subaxis
+addpath ../library/subaxis/
+
 % Paths for waf
 path_out_simulation = project_paths('OUT_ANALYSIS', 'baseline_simulation.mat');
 path_to_data = project_paths('OUT_DATA', 'estimation_sample.mat');
@@ -26,10 +29,11 @@ load(path_to_data)
 % Plot
 figure;
 set(gcf, 'visible', 'off');
-    subplot(2, 2, 1)
+    subaxis(2, 2, 1, 'Spacing', 0.08);
     plot(DatesEstimation, RealGdpLogDiff, 'color', [0 0.6 0])
     hold on
     plot(DatesEstimation, baseline_simul.yhat, '--b');
+    axis tight;
     set(gca, 'XLimMode', 'manual', 'XLim', [1985 2015.25]);
     set(gca, 'YLimMode', 'manual', 'YLim', [-0.14 0.08]);
     h1 = legend('Data', 'Model');
@@ -37,30 +41,33 @@ set(gcf, 'visible', 'off');
     set(h1, 'fontsize', 4, 'Location', 'southwest');
     title('GDP');
     
-    subplot(2, 2, 2)
+    subaxis(2, 2, 2, 'Spacing', 0.08);
     plot(DatesEstimation, HoursEstimation, 'color', [0 0.6 0])
     hold on
     plot(DatesEstimation, baseline_simul.nhat, '--b')
+    axis tight;
     set(gca, 'XLimMode', 'manual', 'XLim', [1985 2015.25]);
     set(gca, 'YLimMode', 'manual', 'YLim', [-0.14 0.08]);
     h2 = legend('Data', 'Model');
     set(h2, 'fontsize', 4, 'Location', 'southwest');
     title('Hours worked');
     
-    subplot(2, 2, 3)
+    subaxis(2, 2, 3, 'Spacing', 0.08);
     plot(DatesEstimation, DebtRepurchaseDetrended, 'color', [0 0.6 0])
     hold on
     plot(DatesEstimation, baseline_simul.byhat, '--b')
+    axis tight;
     set(gca, 'XlimMode', 'manual', 'XLim', [1985 2015.25]);
     set(gca, 'YLimMode', 'manual', 'YLim', [-0.12 0.15]);
     h3 = legend('Data', 'Model');
     set(h3, 'fontsize', 4, 'Location', 'southwest');
     title('Debt repurchase');
     
-    subplot(2, 2, 4)
+    subaxis(2, 2, 4, 'Spacing', 0.08);
     plot(DatesEstimation, EquityPayoutDetrended, 'color', [0 0.6 0])
     hold on
     plot(DatesEstimation, detrend(baseline_simul.dyhat), '--b')
+    axis tight;
     set(gca, 'XlimMode', 'manual', 'XLim', [1985 2015.25]);
     set(gca, 'YLimMode', 'manual', 'YLim', [-0.12 0.15]);
     h4 = legend('Data', 'Model');
