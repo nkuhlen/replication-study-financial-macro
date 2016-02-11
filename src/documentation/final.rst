@@ -23,6 +23,12 @@ Documentation of the code in **final**.
    :start-after: %{
    :end-before: %}
 
+:file:`figure_5.m`:
+
+.. include:: ../final/figure_5.m
+   :start-after: %{
+   :end-before: %}
+
 :file:`table_matrix_a.m`:
 
 .. include:: ../final/table_matrix_a.m
