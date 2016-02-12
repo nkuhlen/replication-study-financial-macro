@@ -15,15 +15,26 @@ def build(ctx):
         name='shock_construction'
     )
 
-    for model in 'baseline', :
+    for model in 'baseline', 'extended':
+        # set target and dependency specific to model
+        if model == 'baseline':
+            target = ctx.path_to(
+                ctx, 'OUT_ANALYSIS', '{}_model_results.mat'.format(model)
+            )
+            deps = []
+        else:
+            target = []
+            deps = ctx.path_to(
+                ctx, 'OUT_DATA', 'estimation_data.mat'
+            )
+
         ctx(
             features='run_m_script',
             source=ctx.path_to(
                 ctx, 'DYNARE_FILES', 'run_{}_model.m'.format(model)
             ),
-            target=ctx.path_to(
-                ctx, 'OUT_ANALYSIS', '{}_model_results.mat'.format(model)
-            ),
+            target=target,
+            deps=deps,
             name='run_{}_model'.format(model)
         )
 
