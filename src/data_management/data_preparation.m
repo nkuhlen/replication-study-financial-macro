@@ -76,7 +76,7 @@ DebtRepurchase	= (-NetBorrow)./(NomBusGdp*1000);
 % Jermann and Quadrini (2012) 
 
 %% Capital
-% Initialize capital with a vector from 1951Q4-2015Q2 (end of period capital 
+% Initialize capital with a vector from 1951Q4-2015Q3 (end of period capital 
 % stock)
 RealCap = NaN(length(Dates) + 1, 1);
 
@@ -88,7 +88,7 @@ CapitalInit = 22.38;
 % beginning of the first period in the sample.
 RealCap(1, 1) = CapitalInit;
 
-% Compute values for 1952Q1 - 2015Q2
+% Compute values for 1952Q1 - 2015Q3
 for index = 2:length(RealCap)
     RealCap(index, 1) = RealCap(index - 1, 1) + (CapExp(index - 1) - ...
                         CapCon1(index - 1) - CapCon2(index - 1)) * ...
@@ -96,20 +96,20 @@ for index = 2:length(RealCap)
 end
 
 %% Debt
-% Initialize debt with a vector from 1951Q4-2015Q2 
+% Initialize debt with a vector from 1951Q4-2015Q3 
 NomDebt = NaN(length(Dates) + 1, 1);
 
 % Define initial value for capital used by Jermann and Quadrini
 NomDebt(1) = 94.12;
 
-% Compute values for 1952Q1 - 2015Q2
+% Compute values for 1952Q1 - 2015Q3
 for t = 1:1:size(Dates,1)
   NomDebt(t+1)=NomDebt(t)+NetBorrow(t)*0.00025;
   t=t+1;
 end;
 
 
-%% Calculate TFP series for 1964Q1 - 2015Q2
+%% Calculate TFP series for 1964Q1 - 2015Q3
 % Set start and end date
 StartDate = 1964.0;
 StartIndex = find(Dates == StartDate);
