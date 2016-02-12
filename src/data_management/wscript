@@ -6,14 +6,13 @@ def build(ctx):
     ctx(
         features='run_m_script',
         source='data_preparation.m',
-        target=[
-            ctx.path_to(ctx, 'OUT_DATA', 'updated_data.mat')
-        ],
-        deps=[
-            ctx.path_to(ctx, 'IN_DATA', 'FRB_Z1.xlsx'),
-            ctx.path_to(ctx, 'IN_DATA', 'NIPA_Hist_until_1969.xlsx'),
-            ctx.path_to(ctx, 'IN_DATA', 'NIPA_Hist_from_1969.xlsx'),
-            ctx.path_to(ctx, 'IN_DATA', 'AWHI.xlsx')
-        ],
+        target=ctx.path_to(ctx, 'OUT_DATA', 'updated_data.mat'),
         name='data_preparation'
+    )
+
+    ctx(
+        features='run_m_script',
+        source='simulation_data_preparation.m',
+        target=ctx.path_to(ctx, 'OUT_DATA', 'estimation_data.mat'),
+        name='estimation_data'
     )
