@@ -4,7 +4,9 @@
 Main model estimations / simulations
 ************************************
 
-Documentation of the code in *src.analysis*. This is the core of the project. 
+Dynare files
+============
+
 
 The simulation of the baseline model and the estimation of the extended model
 is done using dynare. Since the dynare outputfiles cannot be easily guided I
@@ -18,6 +20,20 @@ that is :file:`baseline_model_results.mat`, to the analysis output folder in
 model files to work properly. Therefore I also added the `dynare_files` to the
 project paths in the project roots wscript.
 
+
+Extended model
+--------------
+
+To run the estimation of the extended model with dynare, the data that are used
+for the estimation has to be in the same folder as the dynare model
+file. Therefore the :file:`run_extended_model.m` first has to copy the data
+that are prepared in the :file:`simulation_data_prep.m` file in the data
+management section to the dynare files directory. This is not a particularly
+nice solution, but so far this is the only way I could find to make this step
+work ok with waf. Other than that the runfile for the extended model does not
+do much.
+
+
 The file :file:`baseline_simulation.m` simulates the baseline model with the
 shock vectors obtained from :file:`shock_construction.m`. To do so it uses the
 results (policy functions, steady state) from dynare, which are saved in the
@@ -26,7 +42,7 @@ hours, equity payouts and debt repurchases are saved for later use.
 
 
 Shock Construction
-==================
+------------------
 
 :file:`shock_construction.m`:
 

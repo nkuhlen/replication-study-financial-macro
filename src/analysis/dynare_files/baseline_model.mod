@@ -126,4 +126,4 @@ steady;
 check;
 resid;
 
-stoch_simul(order=1,irf=105,nograph) ;
+stoch_simul(order=1,irf=105,nograph,nodisplay) ;
