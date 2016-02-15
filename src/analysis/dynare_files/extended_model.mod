@@ -328,13 +328,5 @@ estimation(nodisplay,
            mode_check,
            diffuse_filter,
            mh_replic=20000,
-           // mh_replic=0,
            mh_conf_sig=0.95,
            bayesian_irf)y_obs c_obs invest_obs pi_obs r_obs n_obs W_obs debt_repurchase_obs;
-
-// steady;
-
-// check;
-// resid;
-
-// stoch_simul(order=1,irf=50) ;
