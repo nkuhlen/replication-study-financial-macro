@@ -68,3 +68,14 @@ def build(ctx):
         ],
         name='figure_5'
     )
+
+    ctx(
+        features='run_m_script',
+        source='replication_table_3.m',
+        target=[
+            ctx.path_to(ctx, 'OUT_TABLES', 'cal_params.tex'),
+            ctx.path_to(ctx, 'OUT_TABLES', 'est_params.tex')
+        ],
+        deps=ctx.path_to(ctx, 'OUT_ANALYSIS', 'extended_model_results.mat'),
+        name='table_3'
+    )
