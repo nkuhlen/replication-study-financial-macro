@@ -79,34 +79,10 @@
 \pagenumbering{arabic}%Der Hauptteil ist arabisch nummeriert
 \setcounter{page}{1}
 
-\section{Introduction}
-\label{sec:introduction}
 \input{section_introduction}
-
-\section{Data}
-\label{sec:data}
 \input{section_data}
-
-\section{Baseline Model}
-\label{sec:baseline_model}
 \input{section_baseline_model}
-
-\subsection{Shock Construction}
-\label{sec:shock_construction}
-\input{section_shock_construction}
-
-\subsection{Findings}
-\label{sec:findings}
-\input{section_findings}
-
-\section{Extended Model}
-\label{sec:extended_model}
-
-\subsection{Estimation of the Extended Model}
-\label{sec:estimation_extended_model}
-
-\subsection{Sensitivity}
-\label{sec:sensitivity}
+\input{section_extended_model}
 
 \section{Conclusion}
 \label{sec:conclusion}
@@ -131,13 +107,6 @@
 \counterwithin{figure}{subsection}
 \renewcommand{\thefigure}{\Alph{subsection}\arabic{figure}}
 
-
-\subsection{Data}
-\label{sec:appendix_data}
-\input{section_appendix_data}
-
-\subsection{Shock Construction}
-\label{sec:appendix_shock_construction}
-\input{section_appendix_shock_construction}
+\input{section_appendix}
 
 \end{document}
