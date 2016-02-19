@@ -4,15 +4,15 @@
 %% Path settings
 
 % Use these paths for waf...
-% path_out_analysis = project_paths('OUT_ANALYSIS', ...
-%                                   'extended_model_results.mat');
-% path_out_table_cal = project_paths('OUT_TABLES', 'cal_params.tex');
-% path_out_table_est = project_paths('OUT_TABLES', 'est_params.tex');
+path_out_analysis = project_paths('OUT_ANALYSIS', ...
+                                  'extended_model_results.mat');
+path_out_table_cal = project_paths('OUT_TABLES', 'cal_params.tex');
+path_out_table_est = project_paths('OUT_TABLES', 'est_params.tex');
 
 % ... and these for Matlab IDE.
-path_out_analysis = '../../bld/out/analysis/extended_model_results.mat';
-path_out_table_cal = '../../bld/out/tables/cal_params.tex';
-path_out_table_est = '../../bld/out/tables/est_params.tex';
+% path_out_analysis = '../../bld/out/analysis/extended_model_results.mat';
+% path_out_table_cal = '../../bld/out/tables/cal_params.tex';
+% path_out_table_est = '../../bld/out/tables/est_params.tex';
 
 %% Load results
 load(path_out_analysis);
