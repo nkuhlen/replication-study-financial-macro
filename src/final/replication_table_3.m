@@ -40,7 +40,8 @@ for idx = 1:length(cal_par)
                                   );
     par_val = M_.params(strmatch(param, M_.param_names, 'exact'),:);
     
-    fprintf(fid, '%s, $%s$ & & & & %.3f \\\\ \r\n', long_name, tex_name, par_val);
+    fprintf(fid, '%s, $%s$ & & & & %.3f \\\\ \r\n', strtrim(long_name), ...
+      tex_name, par_val);
 end
 
 fclose(fid);
