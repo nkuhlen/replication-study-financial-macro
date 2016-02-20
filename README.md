@@ -6,9 +6,9 @@ This project replicates and updates the analysis of the paper "Macroeconomic Eff
 Building the Project
 --------------------
 
-The project is built using [Waf](https://code.google.com/p/waf/). You will need a Python environment as described in detail [here](http://hmgaudecker.github.io/econ-python-environment/). To run Waf and execute the files, you need to:
+The project is built using [Waf](https://code.google.com/p/waf/). To run Waf and execute the files, you need to:
 
-1. Create a conda environment named as the current directory (returns-to-education in the above example) with a minimal Python setup. Navigate to the folder in a shell and execute 
+1. Create a conda environment named as the current directory with a minimal Python setup. Navigate to the folder in a shell and execute 
 
    **(Mac, Linux)**
 
@@ -17,6 +17,8 @@ The project is built using [Waf](https://code.google.com/p/waf/). You will need 
    **(Windows)**
 
         set-env.bat
+
+     Details for setting up a Python environment can be found [here](http://hmgaudecker.github.io/econ-python-environment/).
 
 2. Execute the following commands in the shell:
 
