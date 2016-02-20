@@ -108,8 +108,8 @@ for idx = 1:length(est_par)
     if ismember(idx, shocks)
         index_correction = idx -  shocks_counter;
 
-        long_name = M_.exo_names_long(strmatch(param, M_.exo_names, ...
-                                               'exact'),:);
+        long_name = strcat(M_.exo_names_long(strmatch(param, M_.exo_names, ...
+                                               'exact'),:), ' volatility');
         tex_name = M_.exo_names_tex(strmatch(param, M_.exo_names, 'exact'),: ...
                                     );
         par_dist = dist_dict(estim_params_.var_exo(idx - index_correction, 5));
