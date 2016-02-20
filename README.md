@@ -14,7 +14,7 @@ The project is built using [Waf](https://code.google.com/p/waf/). You will need 
 
         source set-env.sh
 
-    **(Windows)**
+   **(Windows)**
 
         set-env.bat
 
