@@ -1,5 +1,6 @@
-% Use output from the extended model estimation to create an update of table
-% 3.
+%{ 
+Use output from the extended model estimation to create an update of table 3.
+%}
 
 %% Path settings
 
