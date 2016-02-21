@@ -8,7 +8,7 @@ Building the Project
 
 The project is built using [Waf](https://code.google.com/p/waf/). To run Waf and execute the files, you need to:
 
-1. Create a conda environment named as the current directory with a minimal Python setup. Navigate to the folder in a shell and execute 
+1. Navigate to the folder in a shell and execute the following commands to create a conda environment (named as the current directory) with a minimal Python setup.
 
    **(Mac, Linux)**
 
