@@ -8,8 +8,8 @@ The different files are organised as follows:
 
     * :file:`refs.bib` contains the bibliography.
     * :file:`replication_report.tex` contains the main structure of the paper.
-    * :file:`section_appendix_data.tex` contains the data section of the appendix.
+    * :file:`section_appendix.tex` contains the appendix.
+    * :file:`section_baseline_model.tex` contains the section on the baseline model.
     * :file:`section_data.tex` contains the main section on data.
-    * :file:`section_shock_construction.tex` contains the main section on the construction of the shocks.
-    
-    
+    * :file:`section_extended_model.tex` contains the section on the extended model.
+    * :file:`section_introduction.tex` contains the introduction.

@@ -7,6 +7,8 @@ Main model estimations / simulations
 Dynare files
 ============
 
+Baseline model
+--------------
 
 The simulation of the baseline model and the estimation of the extended model
 is done using dynare. Since the dynare outputfiles cannot be easily guided I
@@ -42,10 +44,10 @@ hours, equity payouts and debt repurchases are saved for later use.
 
 
 Shock Construction
-------------------
+==================
 
 :file:`shock_construction.m`:
 
-.. include:: ../analysis/shock_construction.m
-   :start-after: %{
-   :end-before: %}
+	.. include:: ../analysis/shock_construction.m
+	   :start-after: %{
+	   :end-before: %}
