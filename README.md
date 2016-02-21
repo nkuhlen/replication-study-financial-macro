@@ -15,9 +15,16 @@ To run Waf and execute the files, you need to:
 
 1. Save the project on your computer (clone the repository or save the zip file).
 
-2. Install Miniconda or Anaconda in case they are not already installed. Add a LaTeX distribution to your path.
+2. Install Miniconda or Anaconda in case they are not already installed and make sure that a LaTeX distribution can be found on your path.
 
-3. Navigate to the project folder in a shell and execute the following commands to create a conda environment (named as the current directory) with a minimal Python setup.
+3. Make sure Matlab is added to your path. On Mac and Linux, this can be achieved by opening the bash profile in a shell and adding for example:
+
+        # Matlab directory
+        export PATH="${PATH}:/Applications/MATLAB_R2014b.app/bin"
+
+    Details on how to open the bash profile in a shell and general instructions for adding programmes permanently to your path can be found [here](http://hmgaudecker.github.io/econ-python-environment/paths.html).
+
+4. Navigate to the project folder in a shell and execute the following commands to create a conda environment (named as the current directory) with a minimal Python setup.
 
    **(Mac, Linux)**
 
@@ -29,7 +36,7 @@ To run Waf and execute the files, you need to:
 
      Details for setting up a Python environment can be found [here](http://hmgaudecker.github.io/econ-python-environment/).
 
-4. Execute the following commands in the shell:
+5. Execute the following commands in the shell:
 
         python waf.py configure
         python waf.py build
