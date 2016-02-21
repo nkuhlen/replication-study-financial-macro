@@ -34,10 +34,10 @@ def build(ctx):
         source='autocorrelogram.m',
         target=[
             ctx.path_to(
-                ctx, 'OUT_FIGURES', 'autocorrelation_tfp.png'
+                ctx, 'OUT_FIGURES', 'autocorrelation_tfp.pdf'
             ),
             ctx.path_to(
-                ctx, 'OUT_FIGURES', 'autocorrelation_xi.png'
+                ctx, 'OUT_FIGURES', 'autocorrelation_xi.pdf'
             )
         ],
         deps=[

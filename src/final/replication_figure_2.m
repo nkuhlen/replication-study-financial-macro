@@ -98,10 +98,10 @@ title('Innovations to financial conditions,  ${\epsilon}_{\xi}$', ...
 	'Interpreter','latex', 'FontSize', FontSizeTitle);
 
 % Get rid of whitespace
-    set(gcf, 'PaperSize', [10 6.25]);
-    set(gcf, 'PaperPositionMode', 'manual');
-    set(gcf, 'PaperPosition', [0 0 10 6.25]);
-    set(gcf, 'PaperUnits', 'inches');
+set(gcf, 'PaperSize', [10 6.25]);
+set(gcf, 'PaperPositionMode', 'manual');
+set(gcf, 'PaperPosition', [0 0 10 6.25]);
+set(gcf, 'PaperUnits', 'inches');
 
 %% Save figure as pdf
 saveas(gcf, path_out_figure);

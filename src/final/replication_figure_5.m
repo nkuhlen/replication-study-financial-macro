@@ -27,9 +27,7 @@ load(path_out_simulation)
 % Read in observed data from data management
 load(path_data)
 
-%% Plot comparison graphs
-
-% Define plot properties
+%% Define plot properties
 FontSizeAxis = 9;
 FontSizeLegend = 9;
 FontSizeTitle = 16;
