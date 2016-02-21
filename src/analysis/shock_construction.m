@@ -1,17 +1,25 @@
 %{ 
 Translation of Gauss code from Jermann and Quadrini (2012) as provided online 
-as 'MainProg.gau' to matlab using the updated data to construct tfp shocks and 
+as 'MainProg.gau' to Matlab using the updated data to construct tfp shocks and 
 financial shocks.
 %}
 
-clear all;
-close all;
+%% Path settings
+
+% Use these paths when compiling the entire project with waf.
+path_data = project_paths('OUT_DATA', 'updated_data.mat');
+path_analysis_output = project_paths('OUT_ANALYSIS', 'series_of_shocks.mat');
+
+% Use the relative paths below to execute the script using the Matlab IDE.
+% path_data = '../../bld/out/data/updated_data.mat';
+% path_analysis_output = '../../bld/out/analysis/series_of_shocks.mat';
+
 
 %% Start translation of Gauss code. This includes all variable names and comments.
 ARmx = NaN(2,2);
 
-% load DATASET TO COSTRUCT CREDIT SHOCKS
-load(project_paths('OUT_DATA', 'updated_data.mat'));
+% load DATASET TO CONSTRUCT CREDIT SHOCKS
+load(path_data);
 
 RealCap = RealCap(2:size(Dates,1)+1);
 NomDebt = NomDebt(2:size(Dates,1)+1);
@@ -59,12 +67,12 @@ ARmx(2,:) = regress(xiSeqa_t_1,X);
 [b1,bint1,ResidualTFP] = regress(TFPSeqa_t_1,X);
 [b2,bint2,ResidualXi] = regress(xiSeqa_t_1,X);
 
-% Calculate correlation between residuals
+%% Calculate correlation between residuals
 R = horzcat(ResidualTFP, ResidualXi);
 CorrelationResiduals = corr(R);
 
 
 %% Save series to matlab dataset
-save(project_paths('OUT_ANALYSIS', 'series_of_shocks.mat'), 'TFPSeqa', 'xiSeqa', ...
-	'ResidualTFP', 'ResidualXi', 'Dates', 'ARmx', 'CorrelationResiduals');
+save(path_analysis_output, 'TFPSeqa', 'xiSeqa', 'ResidualTFP', 'ResidualXi', ...
+	'Dates', 'ARmx', 'CorrelationResiduals');
  

@@ -1,4 +1,6 @@
-% Run the extended model
+%{
+Run the extended model dynare file.
+%}
 
 %% Path settings
 

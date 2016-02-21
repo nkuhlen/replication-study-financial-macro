@@ -1,17 +1,26 @@
 %{
-Replicate figure 1 using updated data. Create a 
-Matlab figure by plotting equity payout and debt repurchase. 
-Add recession areas to the plot by using data from recessiondates.mat. 
+Programme to replicate figure 1 in Jerman and Quadrini (2012) using updated
+data. First, plot equity payout and debt repurchase. Then, add recession areas
+to the plot by using data from recessiondates.mat. 
 %}
 
-clear all
-close all
+%% Path settings
 
-%Load data to create figure 1.
-load(project_paths('OUT_DATA', 'updated_data.mat'));
-load(project_paths('IN_DATA', 'recessiondates.mat'))
+% Use these paths when compiling the entire project with waf.
+path_data = project_paths('OUT_DATA', 'updated_data.mat');
+path_recession_dates = project_paths('IN_DATA', 'recessiondates.mat');
+path_out_figure = project_paths('OUT_FIGURES', 'figure_1.pdf');
 
-% Create figure
+% Use the relative paths below to execute the script using the Matlab IDE.
+% path_data = '../../bld/out/data/updated_data.mat';
+% path_recession_dates = '../original_data/recessiondates.mat';
+% path_out_figure = '../../out/figures/figure_1.pdf';
+
+%%Load data to create figure 1.
+load(path_data);
+load(path_recession_dates)
+
+%% Create figure
 figure
 set(gcf, 'visible', 'off')
 
@@ -71,4 +80,5 @@ set(gcf, 'PaperSize', [pos(3)+ti(1)+ti(3) pos(4)+ti(2)+ti(4)]);
 set(gcf, 'PaperPositionMode', 'manual');
 set(gcf, 'PaperPosition',[0 0 pos(3)+ti(1)+ti(3) pos(4)+ti(2)+ti(4)]);
 
-saveas(gcf, project_paths('OUT_FIGURES', 'figure_1.pdf'));
+% Save figure as pdf
+saveas(gcf, path_out_figure);

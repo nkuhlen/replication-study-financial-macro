@@ -1,35 +1,43 @@
 %{ 
-Programme to prepare the data needed to replicate figure 1 and the shock 
-construction as described in the online appendix of Jermann and Quadrini (2012).
-The variable names correspond exactly to the ones used in the code available in 
-the online appendix where applicable.
+Programme to read in the original data files and prepare the data as described 
+in the online appendix of Jermann and Quadrini (2012) for use across different
+modules of this project. Where applicable, variable names correspond exactly to 
+the ones used in the code available from the online appendix.
 %}
 
-%% Import data and define variables 
-% Import data from the original data files using waf
-DataFFA = xlsread( ...
-    project_paths('IN_DATA', 'FRB_Z1.xlsx'), ...
-    'Sheet1', 'B8:I262');
-BusinessValueAddedUntil1969 = xlsread( ...
-    project_paths('IN_DATA', 'NIPA_Hist_until_1969.xlsx'), ...
+%% Path settings
+
+% Use these paths when compiling the entire project with waf.
+path_ffa = project_paths('IN_DATA', 'FRB_Z1.xlsx');
+path_nipa_until_1969 = project_paths('IN_DATA', 'NIPA_Hist_until_1969.xlsx');
+path_nipa_from_1969 = project_paths('IN_DATA', 'NIPA_Hist_from_1969.xlsx');
+path_hours = project_paths('IN_DATA', 'AWHI.xlsx');
+path_out_data = project_paths('OUT_DATA', 'updated_data.mat');
+
+% Use the relative paths below to execute the script using the Matlab IDE.
+% path_ffa = '../original_data/FRB_Z1.xlsx';
+% path_nipa_until_1969 = '../original_data/NIPA_Hist_until_1969.xlsx';
+% path_nipa_from_1969 = '../original_data/NIPA_Hist_from_1969.xlsx';
+% path_hours = '../original_data/AWHI.xlsx';
+% path_out_data = '../../bld/out/data/updated_data.mat';
+
+%% Import data and define variables
+
+% Import data
+DataFFA = xlsread( path_ffa, 'Sheet1', 'B8:I262');
+BusinessValueAddedUntil1969 = xlsread(path_nipa_until_1969, ...
     '10305 Qtr', 'X11:CQ11');
-BusinessValueAddedFrom1970 = xlsread( ...
-    project_paths('IN_DATA', 'NIPA_Hist_from_1969.xlsx'), ...
+BusinessValueAddedFrom1970 = xlsread(path_nipa_from_1969, ...
     '10305 Qtr', 'H11:GH11');
-BusinessPriceIndexUntil1969 = xlsread( ...
-    project_paths('IN_DATA', 'NIPA_Hist_until_1969.xlsx'), ...
+BusinessPriceIndexUntil1969 = xlsread(path_nipa_until_1969, ...
     '10304 Qtr', 'X11:CQ11');
-BusinessPriceIndexFrom1970 = xlsread( ...
-    project_paths('IN_DATA', 'NIPA_Hist_from_1969.xlsx'), ...
+BusinessPriceIndexFrom1970 = xlsread(path_nipa_from_1969, ...
     '10304 Qtr', 'H11:GH11');
-RealGDPUntil1969 = xlsread( ...
-    project_paths('IN_DATA', 'NIPA_Hist_until_1969.xlsx'), ...
+RealGDPUntil1969 = xlsread(path_nipa_until_1969, ...
     '10106 Qtr', 'X10:CQ10');
-RealGDPFrom1970 = xlsread( ...
-    project_paths('IN_DATA', 'NIPA_Hist_from_1969.xlsx'), ...
+RealGDPFrom1970 = xlsread(path_nipa_from_1969, ...
     '10106 Qtr', 'H10:GH10');
-Hours = xlsread( ...
-    project_paths('IN_DATA', 'AWHI.xlsx'), 'AWHI', 'B25:B231');
+Hours = xlsread(path_hours, 'AWHI', 'B25:B231');
 
 % Define variables
 NetIncreaseCoprorateEquities        = DataFFA(:,2);
@@ -66,6 +74,7 @@ EquityPayout 	= (NetDividendsNonFinancialBusiness ...
                 - ProprietorsNetInvestment)./(NomBusGdp*1000);
 
 %% Debt Repurchase
+
 % Debt Repurchase is the negative of net increase in debt, normalized by 
 % Business GDP times 1000.
 DebtRepurchase	= (-NetBorrow)./(NomBusGdp*1000);
@@ -110,6 +119,7 @@ end;
 
 
 %% Calculate TFP series for 1964Q1 - 2015Q3
+
 % Set start and end date
 StartDate = 1964.0;
 StartIndex = find(Dates == StartDate);
@@ -131,6 +141,7 @@ TFP= log(NomBusGdpTruncated(2:end)./BusPriceTruncated(2:end)) - ...
 
 
 %% Prepare subsample for simulation and estimation
+
 % Define period
 StartDateEstimation = 1984.0;
 StartIndexEstimation = find(Dates == StartDateEstimation);
@@ -174,16 +185,16 @@ Estimation.RealGdp = detrend( ...
     log(RealGdp(StartIndexEstimation:EndIndexEstimation)));
 
 % Read in hours starting from 1984.
-HoursTruncated = xlsread( ...
-    project_paths('IN_DATA', 'AWHI.xlsx'), 'AWHI', 'B105:B231');
+HoursTruncated = xlsread(path_hours, 'AWHI', 'B105:B231');
 
 % Proportional deviations of working hours described as above.
 Estimation.Hours = detrend(log(HoursTruncated));
 
 
 %% Save series to matlab datasets
+
 % Save data set for figure 1 and shock construction
-save(project_paths('OUT_DATA', 'updated_data.mat'), ...
+save(path_out_data, ...
     'NetIncreaseCoprorateEquities', 'NetDividendsNonFinancialBusiness', ...
     'NetDividendsFarmBusiness', 'ProprietorsNetInvestment', 'Dates', ...
     'NetBorrow', 'CapExp', 'CapCon1', 'CapCon2', 'NomBusGdp', 'BusPrice', ...

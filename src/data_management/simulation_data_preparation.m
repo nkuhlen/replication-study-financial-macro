@@ -1,13 +1,15 @@
-% Program to prepare the data provided in the online appendix of Jerman and
-% Quadrini to match the observation equations used in the simulation.
+%{
+Programme to prepare the data provided in the online appendix of Jerman and
+Quadrini (2012) to match the observation equations used in the simulation.
+%}
 
 %% Path settings
 
-% Use these paths for waf...
+% Use these paths when compiling the entire project with waf.
 path_original_data = project_paths('IN_DATA', 'DataSet.xlsx');
 path_output_data = project_paths('OUT_DATA', 'estimation_data.mat');
 
-% ... and these for use in Matlab IDE.
+% Use the relative paths below to execute the script using the Matlab IDE.
 % path_original_data = '../original_data/DataSet.xlsx';
 % path_output_data = '../../bld/out/data/estimation_data.mat';
 
@@ -59,8 +61,8 @@ debt_repurchase_obs = detrend(debt_rep(2:end));
 
 % Save all variables in a .mat file that can be used by dynare for
 % estimating the variables
-save(path_output_data, 'y_obs', 'c_obs', 'invest_obs', 'pi_obs', 'r_obs', 'n_obs', ...
-     'W_obs', 'debt_repurchase_obs')
+save(path_output_data, 'y_obs', 'c_obs', 'invest_obs', 'pi_obs', 'r_obs', ...
+	'n_obs', 'W_obs', 'debt_repurchase_obs')
 
 % % Plot all outcome variables to see whether the results look reasonable,
 % % i.e. that there is no clear trend and they are centred around zero.

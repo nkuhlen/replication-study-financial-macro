@@ -1,18 +1,25 @@
 %{ 
-Programme to create the panels in the first two columns of figure 2 
-in Jermann Quadrini (2012).
+Programme to create the panels in the first two columns of figure 2 in Jermann
+and Quadrini (2012).
 %}
 
-clear all;
-close all;
+%% Path settings
 
 % Add path to subaxis
 addpath ../library/subaxis/
 
-%Load data to create figure 2
-load(project_paths('OUT_ANALYSIS', 'series_of_shocks.mat'));
+% Use these paths when compiling the entire project with waf.
+path_shocks = project_paths('OUT_ANALYSIS', 'series_of_shocks.mat');
+path_out_figure = project_paths('OUT_FIGURES', 'figure_2.pdf');
 
-% Define plot properties
+% Use the relative paths below to execute the script using the Matlab IDE.
+% path_shocks = '../../bld/out/analysis/series_of_shocks.mat';
+% path_out_figure = '../../out/figures/figure_2.pdf';
+
+%%Load data to create figure 2
+load(path_shocks);
+
+%% Define plot properties
 FontSizeAxis = 9;
 FontSizeTitle = 16;
 GraphColour = [0.16862745098039 0.24313725490196 0.57254901960784];
@@ -22,8 +29,7 @@ Spacing = 0.12;
 Margin = 0.05;
 SpacingHoriz = 0.08;
 
-
-% Create figure
+%% Create figure
 figure
 set(gcf, 'visible', 'off')
 
@@ -97,4 +103,5 @@ title('Innovations to financial conditions,  ${\epsilon}_{\xi}$', ...
     set(gcf, 'PaperPosition', [0 0 10 6.25]);
     set(gcf, 'PaperUnits', 'inches');
 
-saveas(gcf, project_paths('OUT_FIGURES', 'figure_2.pdf'));
+%% Save figure as pdf
+saveas(gcf, path_out_figure);

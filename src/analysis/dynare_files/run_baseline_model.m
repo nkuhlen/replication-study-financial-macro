@@ -1,4 +1,8 @@
-% Run the baseline model dynare file.
+%{
+Run the baseline model dynare file.
+%}
+
+% Run dynare file
 dynare baseline_model.mod
 
 % The following lines will copy the results from dynare to the appropriate

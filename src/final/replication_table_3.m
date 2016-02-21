@@ -1,16 +1,17 @@
 %{ 
-Use output from the extended model estimation to create an update of table 3.
+Programme to update table 3 in Jermann and Quadrini (2012) using the output from
+the extended model estimation.
 %}
 
 %% Path settings
 
-% Use these paths for waf...
+% Use these paths when compiling the entire project with waf.
 path_out_analysis = project_paths('OUT_ANALYSIS', ...
                                   'extended_model_results.mat');
 path_out_table_cal = project_paths('OUT_TABLES', 'cal_params.tex');
 path_out_table_est = project_paths('OUT_TABLES', 'est_params.tex');
 
-% ... and these for Matlab IDE.
+% Use the relative paths below to execute the script using the Matlab IDE.
 % path_out_analysis = '../../bld/out/analysis/extended_model_results.mat';
 % path_out_table_cal = '../../bld/out/tables/cal_params.tex';
 % path_out_table_est = '../../bld/out/tables/est_params.tex';

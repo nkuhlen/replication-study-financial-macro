@@ -1,22 +1,22 @@
 %{ 
-Compare the model simulation for output, working hours, equity payout and
-debt repurchases to its observed counterparts as done in figure 5 in the
-original paper.
+Programme to compare the model simulation for output, working hours, equity
+payout and debt repurchases to its observed counterparts as done in figure 5 in
+Jermann and Quadrini (2012).
 %}
 
 %% Path settings
 
-% Add path to subaxis
+% Add path to subaxis file
 addpath ../library/subaxis/
 
-% Paths for waf
+% Use these paths when compiling the entire project with waf.
 path_out_simulation = project_paths('OUT_ANALYSIS', 'baseline_simulation.mat');
-path_to_data = project_paths('OUT_DATA', 'updated_data.mat');
+path_data = project_paths('OUT_DATA', 'updated_data.mat');
 path_out_figure = project_paths('OUT_FIGURES', 'figure_5.pdf');
 
-% Path for matlab IDE
+% Use the relative paths below to execute the script using the Matlab IDE.
 % path_out_simulation = '../../bld/out/analysis/baseline_simulation.mat';
-% path_to_data = '../../bld/out/data/estimation_sample.mat';
+% path_data = '../../bld/out/data/estimation_sample.mat';
 % path_out_figure = '../../bld/out/figures/figure_5.pdf';
 
 %% Load and define data
@@ -25,7 +25,7 @@ path_out_figure = project_paths('OUT_FIGURES', 'figure_5.pdf');
 load(path_out_simulation)
 
 % Read in observed data from data management
-load(path_to_data)
+load(path_data)
 
 %% Plot comparison graphs
 
@@ -34,7 +34,7 @@ FontSizeAxis = 9;
 FontSizeLegend = 9;
 FontSizeTitle = 16;
 GraphColourData = [0.34509803921569 0.69803921568627 0.21176470588235];
-GraphColourModel =[0.16862745098039 0.24313725490196 0.57254901960784];
+GraphColourModel = [0.16862745098039 0.24313725490196 0.57254901960784];
 GraphThickness = 1.5;
 Margin = 0.05;
 NumTicksX = 11;

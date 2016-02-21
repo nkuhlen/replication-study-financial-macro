@@ -4,21 +4,21 @@
 
 %% Path settings
 
-% Use these paths for waf
+% Use these paths when compiling the entire project with waf.
 path_dynare_output = project_paths('OUT_ANALYSIS', ...
                                   'baseline_model_results.mat');
-path_to_shocks = project_paths('OUT_ANALYSIS', 'series_of_shocks.mat');
+path_shocks = project_paths('OUT_ANALYSIS', 'series_of_shocks.mat');
 path_out_analysis = project_paths('OUT_ANALYSIS', ...
                                  'baseline_simulation.mat');
 
-% And these for use in matlab IDE
+% Use the relative paths below to execute the script using the Matlab IDE.
 % path_dynare_output = '../../bld/out/analysis/baseline_model_results.mat';
-% path_to_shocks = '../../bld/out/analysis/series_of_shocks.mat';
+% path_shocks = '../../bld/out/analysis/series_of_shocks.mat';
 % path_out_analysis = '../../bld/out/analysis/baseline_simulation.mat';
 
-%% Load in data
+%% Load data
 load(path_dynare_output)
-load(path_to_shocks)
+load(path_shocks)
 
 %% Simulation with dynare results
 
