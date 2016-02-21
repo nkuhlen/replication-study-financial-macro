@@ -6,9 +6,9 @@ This project replicates and updates the analysis of the paper "Macroeconomic Eff
 Building the Project
 --------------------
 
-The project is built using [Waf](https://code.google.com/p/waf/). After a successful build, the full documentation of the project can be found in 
+The project is built using [Waf](https://code.google.com/p/waf/). After a successful build, the full documentation of the project can be found in:
 				
-			project_documentation/index.html 
+		project_documentation/index.html 
 
 
 To run Waf and execute the files, you need to:
