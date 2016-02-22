@@ -99,9 +99,10 @@ fid = fopen(path_out_table_est, 'w');
 for idx = 1:length(est_par)
 
     shocks_looped_over = shocks <= idx;
-    shocks_counter = numel(shocks_looped_over(shocks_looped_over>0));
+    shocks_counter = numel(shocks_looped_over(shocks_looped_over > 0));
 
     param = est_par(idx,:);
+    param_string = char(param);
 
     % Note that information for the estimation of the shocks are stored
     % differently from the information of estimated parameters. Hence we
@@ -111,8 +112,12 @@ for idx = 1:length(est_par)
 
         long_name = strcat(M_.exo_names_long(strmatch(param, M_.exo_names, ...
                                                'exact'),:), ' volatility');
-        tex_name = M_.exo_names_tex(strmatch(param, M_.exo_names, 'exact'),: ...
-                                    );
+        if ismember(param_string, ['eps_z', 'eps_G'])
+            tex_name = strcat('\sigma', '_{', param_string(5:end), '}');
+        else
+            tex_name = strcat('\sigma', '_{\', param_string(5:end), '}');
+        end
+
         par_dist = dist_dict(estim_params_.var_exo(idx - index_correction, 5));
         par_mean = estim_params_.var_exo(idx - index_correction, 6);
         par_std = estim_params_.var_exo(idx - index_correction, 7);
