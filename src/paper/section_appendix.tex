@@ -1,9 +1,71 @@
 \subsection{Data}
 \label{sec:appendix_data}
 
-For a detailed description of the data sets used for the replication please refer to the project documentation.
+% For a detailed description of the data sets used for the replication please refer to the project documentation.
 
-As described in section \ref{sec:data}, certain codes for the FFA data have changed compared to \citeauthor{JERMANNfinancial}. Table \ref{table:identifiers} contains all relevant code changes.\footnote{For future reference, all changes are listed: \href{http://www.federalreserve.gov/apps/fof/CodeChange.aspx}{here}; last checked: January 30, 2016.} 
+The following list is an outline of the data sets that are used in this replication study:
+
+
+\begin{itemize}
+\item \texttt{AWHI.xlsx} 
+	\begin{itemize}
+		% \item https://research.stlouisfed.org/fred2/series/AWHI/downloaddata, November 21, 2015.
+		\item Contains data on ``Current Employment Statistics'' from the U.S. Bureau of Labor Statistics:
+		\begin{itemize} 
+		 	\item Index of Aggregate Weekly Hours: Production and Nonsupervisory Employees: Total Private Industries
+			\item Series ID: AWHI
+			\item Source: US. Bureau of Labor Statistics
+			\item Release: Employment Situation
+			\item Seasonal Adjustment: Seasonally Adjusted
+			\item Frequency: Quarterly
+			\item Aggregation Method: Average
+			\item Units: Index 2002=100
+		\end{itemize}
+	\end{itemize}
+
+\item \texttt{DataSet\_Jermann\_Quadrini.xlsx}
+	\begin{itemize}
+		% \item https://www.aeaweb.org/articles.php?doi=10.1257/aer.102.1.238, January 31, 2016.
+		\item This is the data set used by \cite{JERMANNfinancial}.
+	\end{itemize}
+
+\item \texttt{FRB\_Z1.xlsx}
+	\begin{itemize}
+		% \item http://www.federalreserve.gov/datadownload/Download.aspx?rel=Z1\&series=1f08e962a27dff21b89a7212d58b8346\&filetype=spreadsheetml\&label=include\&layout=seriescolumn\&from=03/01/1952\&to=09/30/2015, January 31, 2016.
+		\item Contains data on Flow of Funds Accounts (FFA) from the Federal Reserve Board (FRB).
+		\item  The following list provides the identifiers and series descriptions in the data set:
+			\begin{itemize}
+				\item FA144104005.Q: Nonfinancial business; debt securities and loans; liability
+				\item FA103164103.Q: Nonfinancial corporate business; corporate equities; liability
+				\item FA106121075.Q: Nonfinancial corporate business; net dividends paid
+				\item FA136121073.Q: Farm business; net dividends paid
+				\item FA112090205.Q: Nonfinancial noncorporate business; proprietors' equity in noncorporate business (net worth)
+				\item FA145050005.Q: Nonfinancial business; total capital expenditures
+				\item FA106300083.Q: Nonfinancial corporate business; consumption of fixed capital, structures, equipment, and intellectual property products, including equity REIT residential structures (NIPA basis)
+				\item FA116300001.Q: Nonfinancial noncorporate business; consumption of fixed capital, structures, equipment, and intellectual property products, current cost basis 
+			\end{itemize}
+	\end{itemize}
+
+\item \texttt{NIPA\_Hist\_until\_1969.xlsx} and \texttt{`NIPA\_Hist\_from\_1969.xlsx}
+	\begin{itemize}
+		% \itemhttp://www.bea.gov//national/nipaweb/DownSS2.asp, November 7, 2015.
+		\item Contain data on National Income and Product Accounts (NIPA).
+		\item The following list provides the table codes and descriptions in both data sets from section 1 that are relevant to the replication study:
+		\begin{itemize}
+			\item 10106	Table 1.1.6. Real Gross Domestic Product, Chained Dollars
+			\item 10304	Table 1.3.4. Price Indexes for Gross Value Added by Sector
+			\item 10305	Table 1.3.5. Gross Value Added by Sector
+		\end{itemize}
+	\end{itemize}
+
+\item \texttt{recessiondates.mat}
+	\begin{itemize}
+		\item Contains data on recession dates needed to replicate shaded areas in figure 1 from \cite{JERMANNfinancial}. The data was provided as part of the project module in econometrics and statistics in the winter semester 15/16 at the University of Bonn.
+	\end{itemize}
+
+\end{itemize}
+
+As described in section \ref{sec:data}, certain codes for the FFA data have changed compared to \citeauthor{JERMANNfinancial}. Table \ref{table:identifiers} contains all relevant code changes.\footnote{For future reference, all changes are listed here: \href{http://www.federalreserve.gov/apps/fof/CodeChange.aspx}{http://www.federalreserve.gov/apps/fof/CodeChange.aspx}, January 30, 2016.} 
 
 \input{../../out/tables/table_code_changes}
 
