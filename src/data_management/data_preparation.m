@@ -91,7 +91,7 @@ RealCap = NaN(length(Dates) + 1, 1);
 
 % Define initial value for capital such that there is no trend in the ratio of 
 % capital to real business gdp over the entire sample.
-CapitalInit = 22.38;
+CapitalInit = 22.53;
 
 % Initialize value for 1951Q4, i.e. the capital stock that is around at the 
 % beginning of the first period in the sample.
