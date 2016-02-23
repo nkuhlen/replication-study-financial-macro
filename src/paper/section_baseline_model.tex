@@ -1,7 +1,7 @@
 \section{Baseline Model}
 \label{sec:baseline_model}
 
-To analyse the macroeconomic effects of financial shocks, \citeauthor{JERMANNfinancial} first employ an augmented version of the canonical real business cycle model. Based on the empirical findings above, they model firm financing as a trade off between debt and equity. In the model, firms prefer debt to equity. \citeauthor{JERMANNfinancial} incorporate this pecking order by assuming that debt financing is linked to a tax benefit. In addition, firms may endogenously default on their obligations from intraperiod loans and intertemporal debt. In case of a default, only the firms' physical capital is assumed to be available for liquidation. In particular, lenders cannot draw on the liquidity held by firms to recover funds. By adding uncertainty about the future liquidation value of physical capital, \citeauthor{JERMANNfinancial} introduce the basis for financial shocks to the RBC model. In this framework, the probability of the lender receiving the full value of future physical capital is determined by market conditions. As this probability is stochastic and directly affects a firm's ability to borrow, its stochastic innovations can be interpreted as financial shocks. Financial shocks are complemented by productivity shocks measured as Solow residuals from the production function.
+To analyse the macroeconomic effects of financial shocks, \citeauthor{JERMANNfinancial} first employ an augmented version of the canonical real business cycle model. Based on the empirical findings above, they model firm financing as a trade off between debt and equity. In the model, firms prefer debt to equity. \citeauthor{JERMANNfinancial} incorporate this pecking order by assuming that debt financing is linked to a tax benefit. In addition, firms may endogenously default on their obligations from intraperiod loans and intertemporal debt. In case of a default, only the firms' physical capital is assumed to be available for liquidation. In particular, lenders cannot draw on the liquidity held by firms to recover funds. By adding uncertainty about the future liquidation value of physical capital, \citeauthor{JERMANNfinancial} introduce the basis for financial shocks to the RBC model. In this framework, the probability of the lender receiving the full value of future physical capital is determined by market conditions. As this probability is stochastic and directly affects a firm's ability to borrow, its stochastic innovations can be interpreted as financial shocks. The financial shocks are complemented by productivity shocks measured as Solow residuals from the production function.
 
 
 \subsection{Shock Construction}
@@ -17,20 +17,14 @@ To analyse the macroeconomic effects of financial shocks, \citeauthor{JERMANNfin
 
 The replication of figure \ref{fig:figure_2} is based on the updated data from the FFA, NIPA and Current Employment Statistics from the Bureau of Labor Statistics (BLS). The procedure employed to construct the shock series generally follows the steps as outlined by \citeauthor{JERMANNfinancial}. However, some steps have been corrected or adjusted in the calculation of the productivity shocks. These deviations will be addressed in the following. 
 
-First, the value for initial capital is set to $22.53$ such that there is no trend in the ratio of capital to real business gdp for the updated capital series. Second, the timing in the construction of the productivity shocks employed by \citeauthor{JERMANNfinancial} contradicts the calculation of the capital stock as specified in the online appendix. 
-% The appendix indicates that capital stock is given by the following equation:
+First, the value for initial capital is set to $22.53$ such that there is no trend in the ratio of capital to real business gdp for the updated capital series. Second, the online appendix indicates that the capital stock is calculated using the equation
+\begin{equation} 
+\label{eq:capital_online_appendix}
+k_{t+1} = k_{t} - Depreciation + Investment.
+\end{equation} 
+Consequently, ${k}_t$ denotes the capital at the end of period $t-1$. However, the timing \citeauthor{JERMANNfinancial} employ in the construction of the productivity shocks contradicts equation (\ref{eq:capital_online_appendix}). In particular, they  calculate the shocks as functions of next period's capital stock. The construction of productivity shocks used in the replication of figure \ref{fig:figure_2} adheres to the timing convention as specified by equation (\ref{eq:capital_online_appendix}). That is, productivity shocks in the current quarter are calculated using last quarter's end of period capital stock. Third, the online appendix implies that the productivity shock series is calculated using business GDP. The original data set, however, reveals that \citeauthor{JERMANNfinancial} use real GDP instead. Following the description in the online appendix, the shocks used to replicate figure \ref{fig:figure_2} are based on business GDP. 
 
-% \begin{equation} 
-% \label{eq:capital_online_appendix}
-% k_{t+1} = k_{t} - Depreciation + Investment
-% \end{equation} 
-
-Adhering to the timing convention from equation (\ref{eq:capital_online_appendix}) in the replication of figure \ref{fig:figure_2}, productivity shocks in the current quarter are calculated using last quarter's end of period capital stock. 
-Third, the online appendix implies that the productivity shock series is calculated using business GDP. The original data set, however, reveals that \citeauthor{JERMANNfinancial} use real GDP instead. The shocks used to replicate figure \ref{fig:figure_2} are constructed following the description in the online appendix. 
-
-Appendix \ref{sec:appendix_shock_construction} contains the estimates for matrix $A$ based on the updated data. The results indicate that the off-diagonal elements of matrix $A$ are strongly influenced by the corrections described above and in particular by the choice of GDP. 
-In addition, Appendix \ref{sec:appendix_shock_construction} contains figure \ref{fig:residual_autocorrelation} to visually examine the presence of residual autocorrelation.
-The graph shows that there is significant autocorrelation present in ${\epsilon}_{\xi,t+1}$ when considering the first to third lag. This implies that the residuals do not resemble white noise in the VAR model. This is supported by the fact that there is a correlation of $0.6960$ between the residuals. As a consequence, the model is most likely misspecified.
+Appendix \ref{sec:appendix_shock_construction} contains the estimates for matrix $A$ based on the updated data. The results indicate that the off-diagonal elements of matrix $A$ are strongly influenced by the corrections described above and in particular by the choice of GDP. In addition, Appendix \ref{sec:appendix_shock_construction} contains figure \ref{fig:residual_autocorrelation} to visually examine the presence of residual autocorrelation. The graph shows that there is significant autocorrelation present in ${\epsilon}_{\xi,t+1}$ when considering the first to third lag. This implies that the residuals do not resemble white noise in the VAR model. In addition, there is a correlation of $0.6960$ between the residuals. As a consequence, the model is most likely misspecified.
 
 
 \subsection{Findings}
