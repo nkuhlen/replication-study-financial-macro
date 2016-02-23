@@ -51,10 +51,10 @@ kappa_store=kappa;
 sigma_xi = 0.0098;  
 sigma_z = 0.0045; 
 covariance_z_xi =0;
-A11 = 0.9457;
-A12 = -0.0091;
-A21 = 0.0321;
-A22 = 0.9703;
+A11 = 0.9943;
+A12 = -0.0170;
+A21 = 0.0811;
+A22 = 0.9427;
 
 
 model;
@@ -123,7 +123,4 @@ end;
 
 steady;
 
-check;
-resid;
-
-stoch_simul(order=1,irf=105,nograph,nodisplay) ;
+stoch_simul(order=1,irf=105,nograph,nodisplay,noprint) ;
