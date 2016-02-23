@@ -20,7 +20,7 @@ path_out_figure = project_paths('OUT_FIGURES', 'figure_2.pdf');
 load(path_shocks);
 
 %% Define plot properties
-FontSizeAxis = 9;
+FontSizeAxis = 11;
 FontSizeTitle = 16;
 GraphColour = [0.16862745098039 0.24313725490196 0.57254901960784];
 GraphThickness = 1.7;

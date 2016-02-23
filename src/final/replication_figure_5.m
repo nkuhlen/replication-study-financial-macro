@@ -28,7 +28,7 @@ load(path_out_simulation)
 load(path_data)
 
 %% Define plot properties
-FontSizeAxis = 9;
+FontSizeAxis = 10;
 FontSizeLegend = 9;
 FontSizeTitle = 16;
 GraphColourData = [0.34509803921569 0.69803921568627 0.21176470588235];
