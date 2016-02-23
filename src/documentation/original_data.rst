@@ -22,7 +22,7 @@ Documentation of the different datasets in **original_data**.
 		* Units: Index 2002=100
 
 
-:file:`DataSet_Jermann_Quadrini.xlsx`:
+:file:`DataSet.xlsx`:
 
 	This is the data set used by Jermann and Quadrini (2012) which can be downloaded from
 	`here 
