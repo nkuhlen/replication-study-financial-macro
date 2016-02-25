@@ -19,10 +19,32 @@ def build(ctx):
         # set target and dependency specific to model
         if model == 'baseline':
             deps = []
+            target = [
+                ctx.path_to(
+                    ctx, 'OUT_ANALYSIS', '{}_model_results.mat'.format(model)
+                )
+            ]
         else:
             deps = ctx.path_to(
                 ctx, 'OUT_DATA', 'estimation_data.mat'
             )
+            target = [
+                ctx.path_to(
+                    ctx, 'OUT_ANALYSIS', '{}_model_results.mat'.format(model)
+                ),
+                ctx.path_to(
+                    ctx, 'OUT_FIGURES', 'TracePlot_SE_eps_z.eps'
+                ),
+                ctx.path_to(
+                    ctx, 'OUT_FIGURES', 'TracePlot_SE_eps_xi.eps'
+                ),
+                ctx.path_to(
+                    ctx, 'OUT_FIGURES', 'MH_Autocorrelation_SE_eps_z.eps'
+                ),
+                ctx.path_to(
+                    ctx, 'OUT_FIGURES', 'MH_Autocorrelation_SE_eps_xi.eps'
+                )
+            ]
 
         ctx(
             features='run_m_script',
