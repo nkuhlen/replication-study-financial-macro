@@ -3,31 +3,21 @@
 \section{Extended Model}
 \label{sec:extended_model}
 
-The second approach \citeauthor{JERMANNfinancial} employ to analyse the macroeconomic effects of financial shocks is based on an augmented version of the model by \citet{SEMTSshocks}. 
+The second approach \citeauthor{JERMANNfinancial} employ to analyse the macroeconomic effects of financial shocks is based on the model estimated by \citet{SMETSshocks}. In particular, they extend this model by including financial shocks and financial frictions as introduced in section \ref{sec:baseline_model}. This allows them to quantitatively asses the impact of financial shocks relative to other sources of shocks. In contrast to the baseline model, \citeauthor{JERMANNfinancial} include a public sector in the extended model. 
+
+Furthermore, \citeauthor{JERMANNfinancial} include nominal rigidities in wages and prices. Building on the New Keynesian literature, they incorporate an explicit wage and price setting mechanism of monopolistically competitive households and firms. The wage setting mechanism follows a setting with Calvo's price rigidity Calvo whereas the price setting mechanism is rigid due to convex price adjustment costs. Additionally the extended model
+includes a public sector. The public sector consists of a fiscal authority, that
+makes unproductive government purchases and grants interest deduction to
+debtholders and balances its budget by collecting lump-sum taxes from the
+households, and a monetary authority that sets the interest rate in the economy
+according to some taylor rule.
+
 
 
 \subsection{Estimation of the Extended Model}
 \label{sec:extended_model_estimation}
 
-\begin{table}
-  \small
-  \centering
-  \resizebox{\textwidth}{!}{
-    \caption{\textsc{Parameterization}}
-    \begin{tabular}{llccc}
-      \toprule \toprule
-      Calibrated parameters & & & & Value\\
-      \midrule
-      \input{../../../bld/out/tables/cal_params.tex} \\[0.5ex]
-      \midrule
-      Estimated parameters & Prior [mean, std] & Mode & Below 5\% & Below 95 \% \\
-      \midrule
-      \input{../../../bld/out/tables/est_params.tex}
-      \bottomrule    
-    \end{tabular}
-  }
-  \label{tab:estimation}
-\end{table}
+\input{tables/replication_table_3}
 
-\subsection{Sensitivity}
-\label{sec:sensitivity}
+\subsection{Convergence}
+\label{sec:convergence}

@@ -67,7 +67,7 @@ The following list is an outline of the data sets that are used in this replicat
 
 As described in section \ref{sec:data}, certain codes for the FFA data have changed compared to \citeauthor{JERMANNfinancial}. Table \ref{table:identifiers} contains all relevant code changes.\footnote{For future reference, all changes are listed here: \href{http://www.federalreserve.gov/apps/fof/CodeChange.aspx}{http://www.federalreserve.gov/apps/fof/CodeChange.aspx}, January 30, 2016.} 
 
-\input{../../out/tables/table_code_changes}
+\input{tables/ffa_code_changes}
 
 
 \subsection{Shock Construction}
@@ -85,11 +85,10 @@ Using the updated data from the FFA, NIPA and Current Employment Statistics from
 
 The following figure is used in section \ref{sec:shock_construction} to examine the presence of residual autocorrelation:
 
-\begin{figure}[ht]
-	\centering{
-		\subfloat[Autocorrelation of ${\epsilon}_{z,t+1}$]{{\includegraphics[scale=0.33]{../../out/figures/autocorrelation_tfp.pdf}}}
-		\subfloat[Autocorrelation of ${\epsilon}_{\xi,t+1}$]{{\includegraphics[scale=0.33]{../../out/figures/autocorrelation_xi.pdf}}}
-	}
-	\caption{Residual autocorrelation}
-	\label{fig:residual_autocorrelation}
-\end{figure}
+\input{figures/residual_autocorrelation}
+
+
+\subsection{Convergence}
+\label{sec:appendix_convergence}
+
+\input{figures/traceplot}

@@ -1,0 +1,19 @@
+\begin{table}
+  \small
+  \centering
+  \resizebox{\textwidth}{!}{
+    \caption{\textsc{Parameterization}}
+    \begin{tabular}{llccc}
+      \toprule \toprule
+      Calibrated parameters & & & & Value\\
+      \midrule
+      \input{../../../bld/out/tables/cal_params.tex} \\[0.5ex]
+      \midrule
+      Estimated parameters & Prior [mean, std] & Mode & Below 5\% & Below 95 \% \\
+      \midrule
+      \input{../../../bld/out/tables/est_params.tex}
+      \bottomrule    
+    \end{tabular}
+  }
+  \label{tab:estimation}
+\end{table}
