@@ -51,10 +51,10 @@ kappa_store=kappa;
 sigma_xi = 0.0098;  
 sigma_z = 0.0045; 
 covariance_z_xi =0;
-A11 = 0.9988;
-A12 = -0.0204;
+A11 = 0.9989;
+A12 = -0.0205;
 A21 = 0.0905;
-A22 = 0.9333;
+A22 = 0.9334;
 
 
 model;
