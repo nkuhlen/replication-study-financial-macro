@@ -18,7 +18,7 @@ copyfile(path_to_data, 'estimation_data.mat');
 dynare extended_model.mod
 
 % Create Trace plots and autocorrelogram for convergence diagnostics
-% options_.trace_plot_ma = 300000;
+options_.trace_plot_ma = 300000;
 trace_plot(options_,M_,estim_params_,'StructuralShock',1,'eps_z');
 trace_plot(options_,M_,estim_params_,'StructuralShock',1,'eps_xi');
 
