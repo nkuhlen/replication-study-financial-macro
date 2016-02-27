@@ -14,7 +14,7 @@ path_out_figure = project_paths('OUT_FIGURES', 'figure_1.pdf');
 % Use the relative paths below to execute the script using the Matlab IDE.
 % path_data = '../../bld/out/data/updated_data.mat';
 % path_recession_dates = '../original_data/recessiondates.mat';
-% path_out_figure = '../../out/figures/figure_1.pdf';
+% path_out_figure = '../../bld/out/figures/figure_1.pdf';
 
 %%Load data to create figure 1.
 load(path_data);
