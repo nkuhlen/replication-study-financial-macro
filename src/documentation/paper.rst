@@ -13,3 +13,5 @@ The different files are organised as follows:
     * :file:`section_data.tex` contains the main section on data.
     * :file:`section_extended_model.tex` contains the section on the extended model.
     * :file:`section_introduction.tex` contains the introduction.
+
+To declutter the latex files, the code for tables and figures is contained in the corresponding directories. Note that the file names correspond to the respective figure numbers in the original paper by Jermann and Quadrini (2012, :cite:`JERMANNfinancial`).

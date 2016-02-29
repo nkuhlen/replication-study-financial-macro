@@ -11,6 +11,5 @@ Documentation of Macroeconomic Effects of Financial Shocks: A Replication Study
     data_management
     analysis
     final
-    manual_input
     paper
     references
