@@ -14,7 +14,7 @@ For running the entire project with waf, proceed as outlined in the README.md fi
 
 To make the scripts executable in the Matlab IDE, alternative path settings are included at the beginning of each script.
 
-This project was built using Matlab R2014b and Dynare 4.4.3.
+This project was originally built using Matlab R2014b and Dynare 4.4.3. on a machine running Mac OS X 10.11.3.
 
 .. _structure:
 
