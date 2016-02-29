@@ -9,6 +9,7 @@ Documentation of Macroeconomic Effects of Financial Shocks: A Replication Study
     introduction
     original_data
     data_management
+    library
     analysis
     final
     paper
