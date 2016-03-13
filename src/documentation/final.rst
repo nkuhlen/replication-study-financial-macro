@@ -3,7 +3,9 @@
 Visualisation and results formatting
 =====================================
 
-Documentation of the code in **final**. Note that the module names of the code which  replicates figures and tables from the paper correspond to the respective numbers in the original paper by Jermann and Quadrini (2012, :cite:`JERMANNfinancial`).
+Documentation of the code in **final**. 
+
+Note that the module names of the code which  replicates figures and tables from the paper correspond to the respective numbers in the original paper by Jermann and Quadrini (2012, :cite:`JERMANNfinancial`). The purposes of the different files are described in the following:
 
 :file:`autocorrelogram.m`:
 
