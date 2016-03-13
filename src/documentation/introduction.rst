@@ -19,13 +19,14 @@ Structure
 ===============
 
 The main replication code lives in the **src** directory of the project root
-folder. It is structured in six parts:
+folder. It is structured as follows:
 
-1. original_data
-2. data_management
-3. analysis
-4. final
-5. paper
-6. documentation
+#. original_data
+#. data_management
+#. library
+#. analysis
+#. final
+#. paper
+#. documentation
 
 Those parts will be explained in detail below.

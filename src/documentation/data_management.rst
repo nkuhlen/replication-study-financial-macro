@@ -16,6 +16,6 @@ The data management part consists of two parts. The first prepares updated data 
 
 :file:`simulation_data_preparation.m`:
 
-	The **simulation_data_prep.m** script reads in the data from the Excel data sheet provided by Jermann and Quadrini and computes variables log differences and demeans them for output, consumption, investment, price deflator, working hours and wage growths. It just demeans the interest rate and detrends debt repurchases.
+	This script reads in the data from the Excel data sheet provided by Jermann and Quadrini and computes variables log differences and demeans them for output, consumption, investment, price deflator, working hours and wage growths. It just demeans the interest rate and detrends debt repurchases.
 	
 	All constructed variables are stored in a ``.mat`` datafile that can be read by dynare.
