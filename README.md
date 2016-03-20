@@ -24,7 +24,11 @@ To run Waf and execute the files, you need to:
 
     Details on how to open the bash profile in a shell and general instructions for adding programmes permanently to your path for Windows, Mac and Linux can be found [here](http://hmgaudecker.github.io/econ-python-environment/paths.html).
 
-4. Navigate to the project folder in a shell and execute the following commands to create a conda environment (named as the current directory) with a minimal Python setup.
+4. Make sure that Dynare is added to your Matlab search path. To do this, open Matlab and use File->Set Path... to add
+
+         /Applications/Dynare/<<version>>/matlab/
+
+5. Navigate to the project folder in a shell and execute the following commands to create a conda environment (named as the current directory) with a minimal Python setup.
 
    **(Mac, Linux)**
 
@@ -36,7 +40,7 @@ To run Waf and execute the files, you need to:
 
      Details for setting up a Python environment can be found [here](http://hmgaudecker.github.io/econ-python-environment/).
 
-5. Execute the following commands in the shell:
+6. Execute the following commands in the shell:
 
         python waf.py configure
         python waf.py build
