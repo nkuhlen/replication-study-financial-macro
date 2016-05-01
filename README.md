@@ -24,7 +24,7 @@ To run Waf and execute the files, you need to:
 
     Details on how to open the bash profile in a shell and general instructions for adding programmes permanently to your path for Windows, Mac and Linux can be found [here](http://hmgaudecker.github.io/econ-python-environment/paths.html).
 
-4. Make sure that Dynare is added to your Matlab search path. To do this, open Matlab and use File->Set Path... to add
+4. Make sure that Dynare is added to your Matlab search path. To do this under Mac OS, open Matlab and use File->Set Path... to add
 
          /Applications/Dynare/<<version>>/matlab/
 
