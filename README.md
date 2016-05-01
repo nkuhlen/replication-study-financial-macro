@@ -47,3 +47,12 @@ To run Waf and execute the files, you need to:
         python waf.py install
 
     The execution of the first command will fail if any of the programmes required to run the project are not installed.
+
+Note
+----
+
+In case you just want to quickly execute the whole project, apply the following changes to greatly reduce the runtime:
+    
+    src/analysis/dynare_files/extended_model.mod (line 329): mh_replic=2000
+
+    src/analysis/dynare_files/run_extended_model.m (line 21): options_.trace_plot_ma = 300000 
