@@ -17,7 +17,7 @@ To run Waf and execute the files, you need to:
 
 2. Install Miniconda or Anaconda in case they are not already installed and make sure that a LaTeX distribution can be found on your path.
 
-3. Make sure a Matlab executable is added to your path. On Mac, this can be achieved by opening the bash profile in a shell and adding for example:
+3. Make sure a Matlab executable is added to your path. Under Mac OS X, this can be achieved by opening the bash profile in a shell and adding for example:
 
         # Matlab directory
         export PATH="${PATH}:/Applications/MATLAB_R2014b.app/bin"
