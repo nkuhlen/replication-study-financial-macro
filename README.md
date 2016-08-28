@@ -46,7 +46,7 @@ To run Waf and execute the files, you need to:
         python waf.py build
         python waf.py install
 
-    The execution of the first command will fail if any of the programmes required to run the project are not installed.
+    The execution of the first command will fail if any of the programmes required to run the project is not installed.
 
 Note
 ----
