@@ -1,7 +1,7 @@
 Replication of Jermann and Quadrini (2012)
 ==========================================
 
-This project replicates and updates the analysis of the paper "Macroeconomic Effects of Financial Shocks" (AER 2012, 102(1): pp. 238-271) by Jermann and Quadrini developed in close collaboration with Jan Wickerath (https://github.com/JanWickerath).
+This project replicates and updates the analysis of the paper "Macroeconomic Effects of Financial Shocks" (AER 2012, 102(1): pp. 238-271) by Jermann and Quadrini developed in close collaboration with [Jan Wickerath](https://github.com/JanWickerath).
 
 Building the Project
 --------------------
